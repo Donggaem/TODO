@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,80 +35,80 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="로그인">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.2196078431372549" green="0.50980392156862742" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                    <backgroundConfiguration key="background" cornerRadius="10">
+                                        <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6vS-VS-YgL">
-                                <rect key="frame" x="32" y="586" width="326" height="20"/>
-                                <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GzZ-pM-UJZ">
-                                <rect key="frame" x="32" y="632" width="326" height="19"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GzZ-pM-UJZ">
+                                <rect key="frame" x="32" y="616" width="326" height="19"/>
                                 <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrc-hu-qQB">
-                                <rect key="frame" x="251" y="651.66666666666663" width="107" height="27.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="아이디 비밀번호 찾기">
-                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
-                                    <color key="baseForegroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
+                                <rect key="frame" x="275" y="653" width="83" height="26"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="아이디 비밀번호 찾기">
+                                    <color key="titleColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0KI-WU-ksZ">
-                                <rect key="frame" x="180" y="651.66666666666663" width="59" height="27.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="회원가입">
-                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
-                                    <color key="baseForegroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
+                                <rect key="frame" x="228" y="653" width="35" height="26"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="회원가입">
+                                    <color key="titleColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oM-j9-ibk">
-                                <rect key="frame" x="32" y="610" width="310" height="2"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oM-j9-ibk" userLabel="IDView">
+                                <rect key="frame" x="32" y="598" width="326" height="2"/>
                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="0Gc-3G-NeA"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NiC-EN-AEb">
-                                <rect key="frame" x="32" y="655" width="310" height="2"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NiC-EN-AEb" userLabel="PasswordView">
+                                <rect key="frame" x="32" y="641" width="326" height="2"/>
                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="kAE-hK-zSs"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ID" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6vS-VS-YgL">
+                                <rect key="frame" x="32" y="571" width="326" height="21"/>
+                                <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xa9-hl-636" firstAttribute="top" secondItem="0KI-WU-ksZ" secondAttribute="bottom" constant="42" id="0hZ-eQ-IOa"/>
                             <constraint firstItem="aW9-SB-q80" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="1Ye-t4-xvg"/>
                             <constraint firstItem="GzZ-pM-UJZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="1aP-MT-b2b"/>
                             <constraint firstItem="xa9-hl-636" firstAttribute="top" secondItem="rrc-hu-qQB" secondAttribute="bottom" constant="42" id="4j3-1f-d0k"/>
-                            <constraint firstItem="xa9-hl-636" firstAttribute="top" secondItem="6vS-VS-YgL" secondAttribute="bottom" constant="115" id="5UW-Md-hVb"/>
                             <constraint firstItem="6vS-VS-YgL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="6jr-l4-M4d"/>
-                            <constraint firstItem="rrc-hu-qQB" firstAttribute="leading" secondItem="0KI-WU-ksZ" secondAttribute="trailing" constant="12" id="BYj-GU-Oge"/>
+                            <constraint firstItem="rrc-hu-qQB" firstAttribute="leading" secondItem="0KI-WU-ksZ" secondAttribute="trailing" constant="12" id="97i-Yo-Xhb"/>
                             <constraint firstAttribute="bottom" secondItem="xa9-hl-636" secondAttribute="bottom" constant="75" id="DpM-2k-3la"/>
-                            <constraint firstItem="xa9-hl-636" firstAttribute="top" secondItem="9oM-j9-ibk" secondAttribute="bottom" constant="109" id="G6w-9y-7rV"/>
                             <constraint firstItem="9oM-j9-ibk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Heb-Wn-q1B"/>
                             <constraint firstItem="NiC-EN-AEb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="IZn-KN-1SN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NiC-EN-AEb" secondAttribute="trailing" constant="32" id="M4A-Hb-AEN"/>
-                            <constraint firstItem="xa9-hl-636" firstAttribute="top" secondItem="NiC-EN-AEb" secondAttribute="bottom" constant="64" id="QQO-yM-C7P"/>
-                            <constraint firstAttribute="trailing" secondItem="rrc-hu-qQB" secondAttribute="trailing" constant="32" id="XOl-wJ-P8H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NiC-EN-AEb" secondAttribute="trailing" constant="32" id="M4A-Hb-AEN"/>
+                            <constraint firstItem="GzZ-pM-UJZ" firstAttribute="top" secondItem="9oM-j9-ibk" secondAttribute="bottom" constant="16" id="NzW-Md-CW4"/>
+                            <constraint firstItem="9oM-j9-ibk" firstAttribute="top" secondItem="6vS-VS-YgL" secondAttribute="bottom" constant="6" id="Wza-7B-xhD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rrc-hu-qQB" secondAttribute="trailing" constant="32" id="XOl-wJ-P8H"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xa9-hl-636" secondAttribute="trailing" constant="32" id="YvZ-iN-NRT"/>
+                            <constraint firstItem="NiC-EN-AEb" firstAttribute="top" secondItem="GzZ-pM-UJZ" secondAttribute="bottom" constant="6" id="ZkG-Rd-ESq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GzZ-pM-UJZ" secondAttribute="trailing" constant="32" id="dXF-KN-bWX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6vS-VS-YgL" secondAttribute="trailing" constant="32" id="deZ-zP-emh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9oM-j9-ibk" secondAttribute="trailing" constant="32" id="gCf-5b-HQ1"/>
+                            <constraint firstItem="rrc-hu-qQB" firstAttribute="top" secondItem="NiC-EN-AEb" secondAttribute="bottom" constant="10" id="e72-om-7jI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9oM-j9-ibk" secondAttribute="trailing" constant="32" id="gCf-5b-HQ1"/>
                             <constraint firstItem="xa9-hl-636" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="gwh-cu-jRA"/>
                             <constraint firstItem="aW9-SB-q80" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k2p-7W-TVh"/>
-                            <constraint firstItem="xa9-hl-636" firstAttribute="top" secondItem="GzZ-pM-UJZ" secondAttribute="bottom" constant="70" id="kz0-ZJ-iJ0"/>
+                            <constraint firstItem="0KI-WU-ksZ" firstAttribute="centerY" secondItem="rrc-hu-qQB" secondAttribute="centerY" id="uFb-Ct-BhI"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -117,6 +118,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
