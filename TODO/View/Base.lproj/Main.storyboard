@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ijl-b5-2VT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,22 +14,22 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TODO" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="TODO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aW9-SB-q80">
-                                <rect key="frame" x="117.33333333333333" y="194" width="155.66666666666669" height="79.333333333333314"/>
+                                <rect key="frame" x="129" y="238" width="156" height="79.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xa9-hl-636">
-                                <rect key="frame" x="32" y="721" width="326" height="48"/>
+                                <rect key="frame" x="32" y="773" width="350" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="7gw-HC-bZc"/>
                                 </constraints>
@@ -41,9 +41,12 @@
                                     <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="LoginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MxB-L2-nUA"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="t9o-wg-Lad" userLabel="회원 아비찾Stack View">
-                                <rect key="frame" x="228" y="653" width="130" height="26"/>
+                                <rect key="frame" x="252" y="705" width="130" height="26"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0KI-WU-ksZ">
                                         <rect key="frame" x="0.0" y="0.0" width="35" height="26"/>
@@ -52,6 +55,9 @@
                                         <state key="normal" title="회원가입">
                                             <color key="titleColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ToSigninPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Yu-UG-Ubf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrc-hu-qQB">
                                         <rect key="frame" x="47" y="0.0" width="83" height="26"/>
@@ -67,19 +73,19 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2OB-ph-rJb" userLabel="ID PWStack View">
-                                <rect key="frame" x="32" y="571.66666666666663" width="326" height="71.333333333333371"/>
+                                <rect key="frame" x="32" y="624" width="350" height="71"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yF6-LK-Bn6" userLabel="IDStack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="326" height="28.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="28"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ID" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6vS-VS-YgL">
-                                                <rect key="frame" x="0.0" y="0.0" width="326" height="20.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
                                                 <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oM-j9-ibk" userLabel="IDView">
-                                                <rect key="frame" x="0.0" y="26.333333333333371" width="326" height="2"/>
+                                                <rect key="frame" x="0.0" y="26" width="350" height="2"/>
                                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="0Gc-3G-NeA"/>
@@ -88,16 +94,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="oOL-9O-Xja" userLabel="PasswordStack View">
-                                        <rect key="frame" x="0.0" y="44.333333333333371" width="326" height="27"/>
+                                        <rect key="frame" x="0.0" y="44" width="350" height="27"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GzZ-pM-UJZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="326" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="19"/>
                                                 <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NiC-EN-AEb" userLabel="PasswordView">
-                                                <rect key="frame" x="0.0" y="25" width="326" height="2"/>
+                                                <rect key="frame" x="0.0" y="25" width="350" height="2"/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="kAE-hK-zSs"/>
@@ -123,21 +129,26 @@
                             <constraint firstItem="aW9-SB-q80" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sfv-TA-pt6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fzd-8E-4ce"/>
+                    <connections>
+                        <outlet property="IDTextField" destination="6vS-VS-YgL" id="hzl-ni-UYa"/>
+                        <outlet property="PasswordTextField" destination="GzZ-pM-UJZ" id="kJr-f5-Clc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="27.536231884057973" y="64.285714285714278"/>
+            <point key="canvasLocation" x="937.68115942028987" y="64.285714285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Signin View Controller-->
         <scene sceneID="CD6-aW-bUU">
             <objects>
-                <viewController id="qrL-qD-Nfl" customClass="ViewController" customModule="TODO" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SigninViewController" id="qrL-qD-Nfl" customClass="SigninViewController" customModule="TODO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fsp-2U-4yT">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQ9-mP-ekR">
-                                <rect key="frame" x="117.33333333333333" y="194" width="155.66666666666669" height="70"/>
+                                <rect key="frame" x="129" y="194" width="156" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="LyV-ng-gbk"/>
                                 </constraints>
@@ -145,37 +156,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUz-gF-400">
-                                <rect key="frame" x="32" y="721" width="326" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="Tex-G7-YkA"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="회원가입">
-                                    <backgroundConfiguration key="background" cornerRadius="10">
-                                        <color key="backgroundColor" name="AccentColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="uQM-PE-ZwG" userLabel="입력 Stack View">
-                                <rect key="frame" x="32" y="415" width="326" height="212"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="uQM-PE-ZwG" userLabel="입력 Stack View">
+                                <rect key="frame" x="32" y="467" width="350" height="212"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xpk-iR-wdY" userLabel="아이디 입력Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="326" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="29"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TT6-vI-W7Y" userLabel="아디 중복 View">
-                                                <rect key="frame" x="0.0" y="0.0" width="326" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="19"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디를 입력하세요" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GWv-PA-6Vb" userLabel="아이디입력">
-                                                        <rect key="frame" x="0.0" y="0.0" width="242.33333333333334" height="19"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="266.5" height="19"/>
                                                         <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gg5-bn-MJa">
-                                                        <rect key="frame" x="247.33333333333329" y="0.0" width="78.666666666666657" height="19"/>
+                                                        <rect key="frame" x="271.5" y="0.0" width="78.5" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="19" id="6NZ-wU-cQm"/>
                                                             <constraint firstAttribute="width" constant="78.569999999999993" id="V8V-LU-Eur"/>
@@ -192,7 +189,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ngc-0W-LZ4" userLabel="아입View">
-                                                <rect key="frame" x="0.0" y="27" width="326" height="2"/>
+                                                <rect key="frame" x="0.0" y="27" width="350" height="2"/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="LaI-yl-W9D"/>
@@ -201,19 +198,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T7W-Ed-LkP" userLabel="닉네임 입력Stack View">
-                                        <rect key="frame" x="0.0" y="61" width="326" height="29"/>
+                                        <rect key="frame" x="0.0" y="61" width="350" height="29"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wcH-iG-rbL" userLabel="닉넴 중복Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="326" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="19"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임를 입력하세요" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="t8p-a1-N9H" userLabel="닉네임입력">
-                                                        <rect key="frame" x="0.0" y="0.0" width="242.33333333333334" height="19"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="266.5" height="19"/>
                                                         <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heM-pp-ZYp">
-                                                        <rect key="frame" x="247.33333333333329" y="0.0" width="78.666666666666657" height="19"/>
+                                                        <rect key="frame" x="271.5" y="0.0" width="78.5" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="19" id="cRQ-aw-cEU"/>
                                                             <constraint firstAttribute="width" constant="78.569999999999993" id="og0-ej-24o"/>
@@ -230,7 +227,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sj2-Ni-0bG" userLabel="닉입View">
-                                                <rect key="frame" x="0.0" y="27" width="326" height="2"/>
+                                                <rect key="frame" x="0.0" y="27" width="350" height="2"/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="aO9-pf-WRD"/>
@@ -239,16 +236,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fd1-Fh-LCU" userLabel="비밀번호 입력Stack View">
-                                        <rect key="frame" x="0.0" y="122" width="326" height="29"/>
+                                        <rect key="frame" x="0.0" y="122" width="350" height="29"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력하세요" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6lB-fl-aSR" userLabel="비밀번호 확인">
-                                                <rect key="frame" x="0.0" y="0.0" width="326" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="19"/>
                                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUD-gt-EAb" userLabel="비입View">
-                                                <rect key="frame" x="0.0" y="27" width="326" height="2"/>
+                                                <rect key="frame" x="0.0" y="27" width="350" height="2"/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="x66-yA-bHX"/>
@@ -257,16 +254,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K7V-Eq-Wh1" userLabel="비밀번호 확인Stack View">
-                                        <rect key="frame" x="0.0" y="183" width="326" height="29"/>
+                                        <rect key="frame" x="0.0" y="183" width="350" height="29"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 확인해주세요" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aFq-Jb-Q5j" userLabel="비밀번호 확인">
-                                                <rect key="frame" x="0.0" y="0.0" width="326" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="19"/>
                                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9V-UW-8H7" userLabel="비확View">
-                                                <rect key="frame" x="0.0" y="27" width="326" height="2"/>
+                                                <rect key="frame" x="0.0" y="27" width="350" height="2"/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="ygs-N0-w8h"/>
@@ -276,24 +273,56 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUz-gF-400">
+                                <rect key="frame" x="32" y="773" width="350" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Tex-G7-YkA"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="회원가입">
+                                    <backgroundConfiguration key="background" cornerRadius="10">
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="30K-UF-axJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="LUz-gF-400" secondAttribute="bottom" constant="75" id="75G-gn-IzV"/>
                             <constraint firstItem="uQM-PE-ZwG" firstAttribute="leading" secondItem="30K-UF-axJ" secondAttribute="leading" constant="32" id="NmB-7w-YHn"/>
                             <constraint firstItem="pQ9-mP-ekR" firstAttribute="centerX" secondItem="fsp-2U-4yT" secondAttribute="centerX" id="Tuf-ed-UgI"/>
+                            <constraint firstItem="LUz-gF-400" firstAttribute="top" secondItem="uQM-PE-ZwG" secondAttribute="bottom" constant="94" id="V9p-vW-1oo"/>
                             <constraint firstItem="LUz-gF-400" firstAttribute="leading" secondItem="30K-UF-axJ" secondAttribute="leading" constant="32" id="aQg-xS-O7N"/>
-                            <constraint firstItem="LUz-gF-400" firstAttribute="top" secondItem="uQM-PE-ZwG" secondAttribute="bottom" constant="94" id="bRJ-yo-Mc0"/>
+                            <constraint firstItem="pQ9-mP-ekR" firstAttribute="top" secondItem="30K-UF-axJ" secondAttribute="top" constant="150" id="cjY-uu-cP0"/>
                             <constraint firstItem="30K-UF-axJ" firstAttribute="trailing" secondItem="LUz-gF-400" secondAttribute="trailing" constant="32" id="epJ-Ug-eHB"/>
                             <constraint firstItem="30K-UF-axJ" firstAttribute="trailing" secondItem="uQM-PE-ZwG" secondAttribute="trailing" constant="32" id="g6r-fv-A6s"/>
-                            <constraint firstItem="pQ9-mP-ekR" firstAttribute="top" secondItem="30K-UF-axJ" secondAttribute="top" constant="150" id="kay-k5-7MO"/>
-                            <constraint firstAttribute="bottom" secondItem="LUz-gF-400" secondAttribute="bottom" constant="75" id="w2Y-uc-Me6"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnX-bW-dDu" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="64"/>
+            <point key="canvasLocation" x="1671.0144927536232" y="63.616071428571423"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="H4I-lb-c1U">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ijl-b5-2VT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wV2-EW-gxZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="d71-kN-oZI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tSm-aZ-TWQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="27.536231884057973" y="64.285714285714278"/>
         </scene>
     </scenes>
     <resources>
