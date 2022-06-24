@@ -27,6 +27,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func LoginPressed(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Home", bundle: Bundle.main)
+        let homeVC = storyboard.instantiateViewController(identifier: "HomeViewController")
+        homeVC.modalPresentationStyle = .fullScreen
+        //homeVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(homeVC, animated: true)
     }
     
 }
