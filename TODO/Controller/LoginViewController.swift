@@ -21,16 +21,14 @@ class LoginViewController: UIViewController {
 
     @IBAction func ToSigninPressed(_ sender: UIButton) {
 
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SigninViewController") as! SigninViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        let signinVC = self.storyboard?.instantiateViewController(withIdentifier: "SigninViewController") as! SigninViewController
+        self.navigationController?.pushViewController(signinVC, animated: true)
     }
     
     @IBAction func LoginPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Home", bundle: Bundle.main)
         let homeVC = storyboard.instantiateViewController(identifier: "HomeViewController")
         homeVC.modalPresentationStyle = .fullScreen
-        //homeVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(homeVC, animated: true)
     }
     
