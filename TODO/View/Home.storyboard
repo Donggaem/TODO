@@ -69,16 +69,21 @@
         <!--Navigation Controller-->
         <scene sceneID="zxh-GF-v9z">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OAR-JY-a4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="w4c-wN-FR1" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rg8-H3-ODs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="AccentColor"/>
+                        <color key="barTintColor" name="AccentColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="cCU-E6-h2i" kind="relationship" relationship="rootViewController" id="3pu-vn-2I3"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OAR-JY-a4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="62" y="721"/>
         </scene>
@@ -91,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TN0-qE-uBi">
-                                <rect key="frame" x="32" y="453" width="350" height="40"/>
+                                <rect key="frame" x="32" y="521" width="350" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="TYj-qn-TKJ"/>
                                 </constraints>
@@ -105,7 +110,7 @@
                                 </buttonConfiguration>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="92V-Pj-dAz" userLabel="제.날Stack View">
-                                <rect key="frame" x="32" y="143" width="350" height="119"/>
+                                <rect key="frame" x="32" y="211" width="350" height="119"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yVb-ip-I7h" userLabel="제목Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="28"/>
@@ -146,7 +151,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XNo-yJ-bn1" userLabel="내용Stack View">
-                                <rect key="frame" x="32" y="343.5" width="350" height="28"/>
+                                <rect key="frame" x="32" y="411.5" width="350" height="28"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="내용을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ttz-ak-vg3">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
@@ -167,7 +172,7 @@
                         <viewLayoutGuide key="safeArea" id="Atn-ZS-E4m"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="TN0-qE-uBi" secondAttribute="bottom" constant="403" id="2LN-6V-YCR"/>
+                            <constraint firstItem="92V-Pj-dAz" firstAttribute="top" secondItem="Atn-ZS-E4m" secondAttribute="top" constant="123" id="A13-CI-AhD"/>
                             <constraint firstItem="TN0-qE-uBi" firstAttribute="leading" secondItem="Atn-ZS-E4m" secondAttribute="leading" constant="32" id="Jrq-WX-Tfb"/>
                             <constraint firstItem="XNo-yJ-bn1" firstAttribute="leading" secondItem="Atn-ZS-E4m" secondAttribute="leading" constant="32" id="PbD-bp-htB"/>
                             <constraint firstItem="Atn-ZS-E4m" firstAttribute="trailing" secondItem="XNo-yJ-bn1" secondAttribute="trailing" constant="32" id="RFz-Ll-ZgF"/>

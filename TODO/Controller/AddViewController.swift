@@ -12,18 +12,22 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.initTitle()
+        
     }
     
+    func initTitle() {
+        let nTitle = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
 
-    /*
-    // MARK: - Navigation
+        // 타이틀 속성
+        nTitle.textAlignment = .center
+        nTitle.font = UIFont.systemFont(ofSize: 24)
+        nTitle.text = "APP TODO"
+//        nTitle.textColor = .white
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let color = UIColor(red: 59, green: 130, blue: 246, alpha: 1.0)
+
+        self.navigationController?.navigationBar.backgroundColor = color
+        self.navigationItem.titleView = nTitle
     }
-    */
-
 }

@@ -113,11 +113,21 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Eg-b4-NpB">
+                                <rect key="frame" x="173.5" y="432.5" width="67" height="31"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="add:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UI7-6e-zhc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2OB-ph-rJb" secondAttribute="trailing" constant="32" id="6JJ-2I-qx8"/>
+                            <constraint firstItem="1Eg-b4-NpB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CPt-Ns-oQa"/>
                             <constraint firstAttribute="bottom" secondItem="xa9-hl-636" secondAttribute="bottom" constant="75" id="DpM-2k-3la"/>
                             <constraint firstItem="xa9-hl-636" firstAttribute="top" secondItem="t9o-wg-Lad" secondAttribute="bottom" constant="42" id="MIK-Bd-Dnn"/>
                             <constraint firstItem="aW9-SB-q80" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="Mua-Bv-LQU"/>
@@ -127,6 +137,7 @@
                             <constraint firstItem="t9o-wg-Lad" firstAttribute="top" secondItem="2OB-ph-rJb" secondAttribute="bottom" constant="10" id="m5B-cU-s7P"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t9o-wg-Lad" secondAttribute="trailing" constant="32" id="rWQ-kc-aso"/>
                             <constraint firstItem="aW9-SB-q80" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sfv-TA-pt6"/>
+                            <constraint firstItem="1Eg-b4-NpB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tUn-Xz-OQw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fzd-8E-4ce"/>
