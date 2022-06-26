@@ -9,16 +9,27 @@ import UIKit
 
 class AddViewController: UIViewController {
 
+    @IBOutlet weak var addView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.backgroundColor = .blue
+        //View 모서리설정
+        addView.layer.cornerRadius = 20
+        addView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        addView.layer.masksToBounds = true
+        
+        //back버튼 설정
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.topItem?.title = ""
+
+        //네비게이션 바 투명처리
+        self.navigationController?.navigationBar.backgroundColor = .clear
         self.initTitle()
         
     }
     
     func initTitle() {
-        let nTitle = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        let nTitle = UILabel(frame: CGRect(x: 0, y: 0, width: 128, height: 16))
 
         // 타이틀 속성
         nTitle.textAlignment = .center
@@ -26,9 +37,6 @@ class AddViewController: UIViewController {
         nTitle.text = "APP TODO"
         nTitle.textColor = .white
 
-//        let color = UIColor(red: 59, green: 130, blue: 246, alpha: 1.0)
-//
-//        self.navigationController?.navigationBar.backgroundColor = color
         self.navigationItem.titleView = nTitle
     }
 }

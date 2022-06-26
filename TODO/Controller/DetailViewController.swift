@@ -9,21 +9,35 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet var detailView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //View 모서리설정
+        detailView.layer.cornerRadius = 20
+        detailView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        detailView.layer.masksToBounds = true
+        
+        //back버튼 설정
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.topItem?.title = ""
+
+        //네비게이션 바 투명처리
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        self.initTitle()
+        
     }
     
+    func initTitle() {
+        let nTitle = UILabel(frame: CGRect(x: 0, y: 0, width: 128, height: 16))
 
-    /*
-    // MARK: - Navigation
+        // 타이틀 속성
+        nTitle.textAlignment = .center
+        nTitle.font = UIFont.systemFont(ofSize: 24)
+        nTitle.text = "APP TODO"
+        nTitle.textColor = .white
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        self.navigationItem.titleView = nTitle
     }
-    */
 
 }
