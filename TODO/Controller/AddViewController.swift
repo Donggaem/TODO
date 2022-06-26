@@ -12,6 +12,7 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.navigationBar.backgroundColor = .blue
         self.initTitle()
         
     }
@@ -23,7 +24,7 @@ class AddViewController: UIViewController {
         nTitle.textAlignment = .center
         nTitle.font = UIFont.systemFont(ofSize: 24)
         nTitle.text = "APP TODO"
-//        nTitle.textColor = .white
+        nTitle.textColor = .white
 
 //        let color = UIColor(red: 59, green: 130, blue: 246, alpha: 1.0)
 //

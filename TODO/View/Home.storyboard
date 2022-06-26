@@ -66,29 +66,6 @@
             </objects>
             <point key="canvasLocation" x="-87" y="67"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="zxh-GF-v9z">
-            <objects>
-                <navigationController id="w4c-wN-FR1" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rg8-H3-ODs">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </textAttributes>
-                        <navigationBarAppearance key="scrollEdgeAppearance">
-                            <color key="backgroundColor" name="AccentColor"/>
-                        </navigationBarAppearance>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="tak-8h-0ck" kind="relationship" relationship="rootViewController" id="IYe-Pb-dp1"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OAR-JY-a4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="62" y="721"/>
-        </scene>
         <!--Add View Controller-->
         <scene sceneID="ugm-9Q-7IV">
             <objects>
@@ -189,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MPc-iy-we8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="789" y="728"/>
+            <point key="canvasLocation" x="790" y="740"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Rfl-ms-lqs">
@@ -200,7 +177,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-Me-eDd">
-                                <rect key="frame" x="32" y="494.5" width="350" height="40"/>
+                                <rect key="frame" x="32" y="538.5" width="350" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7G4-U1-tjK"/>
                                 </constraints>
@@ -214,7 +191,7 @@
                                 </buttonConfiguration>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="sge-tY-gMR" userLabel="제.날Stack View">
-                                <rect key="frame" x="32" y="167" width="350" height="119"/>
+                                <rect key="frame" x="32" y="211" width="350" height="119"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="rXK-lu-9ud" userLabel="제목Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="28"/>
@@ -255,7 +232,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NcT-N7-thU" userLabel="내용Stack View">
-                                <rect key="frame" x="32" y="385" width="350" height="28"/>
+                                <rect key="frame" x="32" y="429" width="350" height="28"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="내용을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IvI-hj-pmd">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
@@ -287,10 +264,47 @@
                             <constraint firstItem="sge-tY-gMR" firstAttribute="leading" secondItem="Shk-yR-L9q" secondAttribute="leading" constant="32" id="x4o-fe-vL7"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dnK-sL-rrT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8Q-Se-QO1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1583" y="721"/>
+            <point key="canvasLocation" x="790" y="1404"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HVO-jr-NC9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jWu-gm-10C" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Ed-Fg-de5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AlB-64-ALB" kind="relationship" relationship="rootViewController" id="Yl0-F7-NC9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8IF-Fj-tI7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="61" y="1404"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BmL-vn-BcI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1zg-5G-ta8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1AO-B4-OQR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tak-8h-0ck" kind="relationship" relationship="rootViewController" id="1ke-Aq-q8h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UZC-Nn-93M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="61" y="740"/>
         </scene>
     </scenes>
     <resources>
