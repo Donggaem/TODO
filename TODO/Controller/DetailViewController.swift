@@ -9,7 +9,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet var detailView: UIView!
+    
+    @IBOutlet weak var detailView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
