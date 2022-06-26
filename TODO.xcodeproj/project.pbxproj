@@ -19,6 +19,7 @@
 		EBA03E262861969100564472 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBA03E252861969100564472 /* Assets.xcassets */; };
 		EBA03E292861969100564472 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBA03E272861969100564472 /* LaunchScreen.storyboard */; };
 		EBA03E342861ADE900564472 /* roboto in Resources */ = {isa = PBXBuildFile; fileRef = EBA03E332861ADE900564472 /* roboto */; };
+		EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BA712868894E008A4927 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		EBA03E282861969100564472 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBA03E2A2861969100564472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBA03E332861ADE900564472 /* roboto */ = {isa = PBXFileReference; lastKnownFileType = folder; name = roboto; path = ../../../roboto; sourceTree = "<group>"; };
+		EBA1BA712868894E008A4927 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				EB4A7B2928649C2200E0DE43 /* SigninViewController.swift */,
 				EB2E4ECD2865FEC100DCF02E /* HomeViewController.swift */,
 				EB2E4ECF2866209B00DCF02E /* AddViewController.swift */,
+				EBA1BA712868894E008A4927 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB2E4ECE2865FEC100DCF02E /* HomeViewController.swift in Sources */,
+				EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */,
 				EB4A7B2A28649C2200E0DE43 /* SigninViewController.swift in Sources */,
 				EB2E4ED02866209B00DCF02E /* AddViewController.swift in Sources */,
 				EBA03E212861968D00564472 /* LoginViewController.swift in Sources */,

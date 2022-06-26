@@ -25,9 +25,9 @@ class AddViewController: UIViewController {
         nTitle.text = "APP TODO"
 //        nTitle.textColor = .white
 
-        let color = UIColor(red: 59, green: 130, blue: 246, alpha: 1.0)
-
-        self.navigationController?.navigationBar.backgroundColor = color
+//        let color = UIColor(red: 59, green: 130, blue: 246, alpha: 1.0)
+//
+//        self.navigationController?.navigationBar.backgroundColor = color
         self.navigationItem.titleView = nTitle
     }
 }

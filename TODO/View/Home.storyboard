@@ -73,14 +73,16 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rg8-H3-ODs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="AccentColor"/>
-                        <color key="barTintColor" name="AccentColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" name="AccentColor"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <connections>
-                        <segue destination="cCU-E6-h2i" kind="relationship" relationship="rootViewController" id="3pu-vn-2I3"/>
+                        <segue destination="tak-8h-0ck" kind="relationship" relationship="rootViewController" id="IYe-Pb-dp1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OAR-JY-a4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -88,17 +90,76 @@
             <point key="canvasLocation" x="62" y="721"/>
         </scene>
         <!--Add View Controller-->
-        <scene sceneID="ejy-1J-b81">
+        <scene sceneID="ugm-9Q-7IV">
             <objects>
-                <viewController storyboardIdentifier="AddViewController" id="cCU-E6-h2i" customClass="AddViewController" customModule="TODO" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uSh-8M-yme">
+                <viewController storyboardIdentifier="AddViewController" id="tak-8h-0ck" customClass="AddViewController" customModule="TODO" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cwd-9c-VGp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TN0-qE-uBi">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="BvI-Y2-xM8" userLabel="제.날Stack View">
+                                <rect key="frame" x="32" y="211" width="350" height="119"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="LY0-Rw-6RC" userLabel="제목Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="28"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iIA-AO-TsC">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
+                                                <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwg-qX-Hym" userLabel="IDView">
+                                                <rect key="frame" x="0.0" y="26" width="350" height="2"/>
+                                                <color key="backgroundColor" red="0.21960784310000001" green="0.50980392159999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="2fd-of-89Y"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="neG-Wz-9Pz" userLabel="날짜Stack View">
+                                        <rect key="frame" x="0.0" y="91" width="350" height="28"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XD7-Xh-F3b">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
+                                                <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pm1-3I-t4d" userLabel="IDView">
+                                                <rect key="frame" x="0.0" y="26" width="350" height="2"/>
+                                                <color key="backgroundColor" red="0.21960784310000001" green="0.50980392159999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="tdT-Ew-CaM"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="WcL-0e-8YK" userLabel="내용Stack View">
+                                <rect key="frame" x="32" y="411.5" width="350" height="28"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="내용을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pJd-mB-zBO">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
+                                        <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOS-pz-ioD" userLabel="IDView">
+                                        <rect key="frame" x="0.0" y="26" width="350" height="2"/>
+                                        <color key="backgroundColor" red="0.21960784310000001" green="0.50980392159999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="Zn0-7G-KTi"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKP-IT-Ohz">
                                 <rect key="frame" x="32" y="521" width="350" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="TYj-qn-TKJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="AM7-ue-q9F"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="추가하기">
@@ -109,85 +170,127 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="92V-Pj-dAz" userLabel="제.날Stack View">
-                                <rect key="frame" x="32" y="211" width="350" height="119"/>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LOM-dB-Iii"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lKP-IT-Ohz" firstAttribute="top" secondItem="WcL-0e-8YK" secondAttribute="bottom" constant="81.5" id="6l4-bb-Jcg"/>
+                            <constraint firstItem="WcL-0e-8YK" firstAttribute="top" secondItem="BvI-Y2-xM8" secondAttribute="bottom" constant="81.5" id="M3Z-ur-rQG"/>
+                            <constraint firstItem="lKP-IT-Ohz" firstAttribute="leading" secondItem="LOM-dB-Iii" secondAttribute="leading" constant="32" id="Uly-9t-8P2"/>
+                            <constraint firstItem="LOM-dB-Iii" firstAttribute="trailing" secondItem="lKP-IT-Ohz" secondAttribute="trailing" constant="32" id="bkl-Oo-l0Y"/>
+                            <constraint firstItem="LOM-dB-Iii" firstAttribute="trailing" secondItem="BvI-Y2-xM8" secondAttribute="trailing" constant="32" id="eyL-7w-p3d"/>
+                            <constraint firstItem="WcL-0e-8YK" firstAttribute="leading" secondItem="LOM-dB-Iii" secondAttribute="leading" constant="32" id="pHE-K2-JSV"/>
+                            <constraint firstItem="BvI-Y2-xM8" firstAttribute="top" secondItem="LOM-dB-Iii" secondAttribute="top" constant="123" id="qEG-GY-y2q"/>
+                            <constraint firstItem="LOM-dB-Iii" firstAttribute="trailing" secondItem="WcL-0e-8YK" secondAttribute="trailing" constant="32" id="tZl-xw-AqE"/>
+                            <constraint firstItem="BvI-Y2-xM8" firstAttribute="leading" secondItem="LOM-dB-Iii" secondAttribute="leading" constant="32" id="tvr-bh-Rd9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="94Z-WQ-59e"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MPc-iy-we8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="789" y="728"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Rfl-ms-lqs">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="AlB-64-ALB" customClass="DetailViewController" customModule="TODO" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="09n-GQ-oO9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-Me-eDd">
+                                <rect key="frame" x="32" y="494.5" width="350" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7G4-U1-tjK"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="삭제하기">
+                                    <backgroundConfiguration key="background" cornerRadius="10">
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="sge-tY-gMR" userLabel="제.날Stack View">
+                                <rect key="frame" x="32" y="167" width="350" height="119"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yVb-ip-I7h" userLabel="제목Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="rXK-lu-9ud" userLabel="제목Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="28"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lYH-ZK-3DX">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6Br-lv-Ifv">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
                                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3I-vE-Yag" userLabel="IDView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xq-wF-GwZ" userLabel="IDView">
                                                 <rect key="frame" x="0.0" y="26" width="350" height="2"/>
-                                                <color key="backgroundColor" red="0.2196078431372549" green="0.50980392156862742" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.21960784310000001" green="0.50980392159999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="2" id="jB5-Lv-BaJ"/>
+                                                    <constraint firstAttribute="height" constant="2" id="DtJ-5s-UaW"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dKo-Wm-4ew" userLabel="날짜Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="155-Fh-2i3" userLabel="날짜Stack View">
                                         <rect key="frame" x="0.0" y="91" width="350" height="28"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cRc-PR-Pnz">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aVf-90-7Xs">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
                                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdU-jk-mff" userLabel="IDView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Qx-Jt-pP2" userLabel="IDView">
                                                 <rect key="frame" x="0.0" y="26" width="350" height="2"/>
                                                 <color key="backgroundColor" red="0.21960784310000001" green="0.50980392159999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="2" id="usZ-Xu-cJd"/>
+                                                    <constraint firstAttribute="height" constant="2" id="R4o-ql-HGD"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XNo-yJ-bn1" userLabel="내용Stack View">
-                                <rect key="frame" x="32" y="411.5" width="350" height="28"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NcT-N7-thU" userLabel="내용Stack View">
+                                <rect key="frame" x="32" y="385" width="350" height="28"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="내용을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ttz-ak-vg3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="내용을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IvI-hj-pmd">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
                                         <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Bs-bB-tHS" userLabel="IDView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KFz-6A-xqr" userLabel="IDView">
                                         <rect key="frame" x="0.0" y="26" width="350" height="2"/>
                                         <color key="backgroundColor" red="0.21960784310000001" green="0.50980392159999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="VgA-d5-yGo"/>
+                                            <constraint firstAttribute="height" constant="2" id="obC-gW-bKF"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Atn-ZS-E4m"/>
+                        <viewLayoutGuide key="safeArea" id="Shk-yR-L9q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="92V-Pj-dAz" firstAttribute="top" secondItem="Atn-ZS-E4m" secondAttribute="top" constant="123" id="A13-CI-AhD"/>
-                            <constraint firstItem="TN0-qE-uBi" firstAttribute="leading" secondItem="Atn-ZS-E4m" secondAttribute="leading" constant="32" id="Jrq-WX-Tfb"/>
-                            <constraint firstItem="XNo-yJ-bn1" firstAttribute="leading" secondItem="Atn-ZS-E4m" secondAttribute="leading" constant="32" id="PbD-bp-htB"/>
-                            <constraint firstItem="Atn-ZS-E4m" firstAttribute="trailing" secondItem="XNo-yJ-bn1" secondAttribute="trailing" constant="32" id="RFz-Ll-ZgF"/>
-                            <constraint firstItem="92V-Pj-dAz" firstAttribute="leading" secondItem="Atn-ZS-E4m" secondAttribute="leading" constant="32" id="iZ2-1p-p6i"/>
-                            <constraint firstItem="Atn-ZS-E4m" firstAttribute="trailing" secondItem="TN0-qE-uBi" secondAttribute="trailing" constant="32" id="jal-P4-wQp"/>
-                            <constraint firstItem="TN0-qE-uBi" firstAttribute="top" secondItem="XNo-yJ-bn1" secondAttribute="bottom" constant="81.5" id="kg3-kK-9xI"/>
-                            <constraint firstItem="XNo-yJ-bn1" firstAttribute="top" secondItem="92V-Pj-dAz" secondAttribute="bottom" constant="81.5" id="nOA-BR-Nun"/>
-                            <constraint firstItem="Atn-ZS-E4m" firstAttribute="trailing" secondItem="92V-Pj-dAz" secondAttribute="trailing" constant="32" id="ngt-37-tYW"/>
+                            <constraint firstItem="kAi-Me-eDd" firstAttribute="top" secondItem="NcT-N7-thU" secondAttribute="bottom" constant="81.5" id="1Ul-jX-8Tv"/>
+                            <constraint firstItem="NcT-N7-thU" firstAttribute="leading" secondItem="Shk-yR-L9q" secondAttribute="leading" constant="32" id="Pc0-3c-bga"/>
+                            <constraint firstItem="NcT-N7-thU" firstAttribute="top" secondItem="sge-tY-gMR" secondAttribute="bottom" constant="99" id="WnM-yl-h3W"/>
+                            <constraint firstItem="sge-tY-gMR" firstAttribute="top" secondItem="Shk-yR-L9q" secondAttribute="top" constant="123" id="ZrH-mN-PQa"/>
+                            <constraint firstItem="Shk-yR-L9q" firstAttribute="trailing" secondItem="sge-tY-gMR" secondAttribute="trailing" constant="32" id="jQV-F3-2mx"/>
+                            <constraint firstItem="kAi-Me-eDd" firstAttribute="leading" secondItem="Shk-yR-L9q" secondAttribute="leading" constant="32" id="ma8-Ye-z9W"/>
+                            <constraint firstItem="Shk-yR-L9q" firstAttribute="trailing" secondItem="NcT-N7-thU" secondAttribute="trailing" constant="32" id="nzS-ij-Eja"/>
+                            <constraint firstItem="Shk-yR-L9q" firstAttribute="trailing" secondItem="kAi-Me-eDd" secondAttribute="trailing" constant="32" id="pCu-3y-sFE"/>
+                            <constraint firstItem="sge-tY-gMR" firstAttribute="leading" secondItem="Shk-yR-L9q" secondAttribute="leading" constant="32" id="x4o-fe-vL7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6Pa-3o-8zF"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JuC-4P-p79" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N8Q-Se-QO1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908.69565217391312" y="720.53571428571422"/>
+            <point key="canvasLocation" x="1583" y="721"/>
         </scene>
     </scenes>
     <resources>
