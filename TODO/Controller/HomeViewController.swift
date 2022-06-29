@@ -30,6 +30,12 @@ class HomeViewController: UIViewController {
 
         setCalendar()
         
+        
+    }
+    
+    @IBAction func addBtn(_ sender: UIButton) {
+        let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
+        self.navigationController?.pushViewController(addVC, animated: true)
     }
     
 
@@ -56,7 +62,10 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         //yearLabel설정
         yearLabel.text = dateFormatter.string(from: calendarView.currentPage)
         yearLabel.sizeToFit()
+        
     }
+    
+    
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         yearLabel.text = self.dateFormatter.string(from: calendarView.currentPage)

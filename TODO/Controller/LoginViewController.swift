@@ -27,16 +27,13 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
+//        let homeStoryboard = UIStoryboard(name: "Home", bundle: Bundle.main)
+//        let homeVC = homeStoryboard.instantiateViewController(identifier: "HomeViewController")
+//        homeVC.modalPresentationStyle = .fullScreen
+//        self.present(homeVC, animated: true)
         let homeStoryboard = UIStoryboard(name: "Home", bundle: Bundle.main)
-        let homeVC = homeStoryboard.instantiateViewController(identifier: "HomeViewController")
-        homeVC.modalPresentationStyle = .fullScreen
-        self.present(homeVC, animated: true)
-    }
-    
-    @IBAction func add(_ sender: UIButton) {
-        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        let homeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        self.navigationController?.pushViewController(homeVC, animated: true)
     }
     
 }

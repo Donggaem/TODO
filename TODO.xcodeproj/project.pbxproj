@@ -98,7 +98,6 @@
 				EBA03E1C2861968D00564472 /* AppDelegate.swift */,
 				EBA03E1E2861968D00564472 /* SceneDelegate.swift */,
 				EBA03E252861969100564472 /* Assets.xcassets */,
-				EBA03E272861969100564472 /* LaunchScreen.storyboard */,
 				EBA03E2A2861969100564472 /* Info.plist */,
 				EBA03E332861ADE900564472 /* roboto */,
 			);
@@ -108,6 +107,7 @@
 		EBA03E302861974400564472 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EBA03E272861969100564472 /* LaunchScreen.storyboard */,
 				EBA03E222861968D00564472 /* Main.storyboard */,
 				EB2E4ECB2865FD6F00DCF02E /* Home.storyboard */,
 			);
