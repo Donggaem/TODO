@@ -10,27 +10,29 @@ import UIKit
 class LoginViewController: UIViewController {
 
     
-    @IBOutlet weak var IDTextField: UITextField!
-    @IBOutlet weak var PasswordTextField: UITextField!
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
     }
 
-    @IBAction func ToSigninPressed(_ sender: UIButton) {
-
+    //MARK: IBAction
+    @IBAction func toSigninPressed(_ sender: UIButton) {
         let signinVC = self.storyboard?.instantiateViewController(withIdentifier: "SigninViewController") as! SigninViewController
         self.navigationController?.pushViewController(signinVC, animated: true)
     }
     
-    @IBAction func LoginPressed(_ sender: UIButton) {
+    @IBAction func loginPressed(_ sender: UIButton) {
         let homeStoryboard = UIStoryboard(name: "Home", bundle: Bundle.main)
         let homeVC = homeStoryboard.instantiateViewController(identifier: "HomeViewController")
         homeVC.modalPresentationStyle = .fullScreen
         self.present(homeVC, animated: true)
     }
+    
     @IBAction func add(_ sender: UIButton) {
         let storyBoard = UIStoryboard(name: "Home", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController

@@ -45,7 +45,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="LoginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MxB-L2-nUA"/>
+                                    <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="caE-dA-XFG"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="t9o-wg-Lad" userLabel="회원 아비찾Stack View">
@@ -59,7 +59,7 @@
                                             <color key="titleColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="ToSigninPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Yu-UG-Ubf"/>
+                                            <action selector="toSigninPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z4b-Rf-ChJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrc-hu-qQB">
@@ -145,8 +145,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="fzd-8E-4ce"/>
                     <connections>
-                        <outlet property="IDTextField" destination="6vS-VS-YgL" id="hzl-ni-UYa"/>
-                        <outlet property="PasswordTextField" destination="GzZ-pM-UJZ" id="kJr-f5-Clc"/>
+                        <outlet property="idTextField" destination="6vS-VS-YgL" id="U0V-U4-quS"/>
+                        <outlet property="passwordTextField" destination="GzZ-pM-UJZ" id="a34-DC-xL2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
