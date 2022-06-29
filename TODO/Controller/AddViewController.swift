@@ -9,12 +9,10 @@ import UIKit
 
 class AddViewController: UIViewController {
 
-    @IBOutlet weak var addView: UIView!
     
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
     }
 }

@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var calendarView: FSCalendar!
+    @IBOutlet weak var todoTableView: UITableView!
     
     //날짜 포맷
     private lazy var dateFormatter: DateFormatter = {
@@ -28,17 +29,57 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.todoTableView.delegate = self
+        self.todoTableView.dataSource = self
+        self.todoTableView.register(UINib(nibName: "TodoTableViewCell", bundle: nil),  forCellReuseIdentifier: "TodoTableViewCell")
+        
         setCalendar()
         
         
     }
     
+    // AddView 화면으로 이동
     @IBAction func addBtn(_ sender: UIButton) {
         let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
         self.navigationController?.pushViewController(addVC, animated: true)
     }
     
 
+}
+
+//MARK: 테이블뷰
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    // 몇개의 Cell을 반환할지 Return하는 메소드
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    //각Row에서 해당하는 Cell을 Return하는 메소드
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let userCell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath) as! TodoTableViewCell
+                
+                userCell.textLabel?.text = String(indexPath.row)
+                
+                return userCell
+    }
+    
+    //클릭한 셀의 이벤트 처리
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+//    //셀 밀어서 삭제
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//
+//        }
+//    }
 }
 
 //MARK: 캘린더 설정
@@ -71,3 +112,5 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         yearLabel.text = self.dateFormatter.string(from: calendarView.currentPage)
         }
 }
+
+

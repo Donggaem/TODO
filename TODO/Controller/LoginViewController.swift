@@ -27,10 +27,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
-//        let homeStoryboard = UIStoryboard(name: "Home", bundle: Bundle.main)
-//        let homeVC = homeStoryboard.instantiateViewController(identifier: "HomeViewController")
-//        homeVC.modalPresentationStyle = .fullScreen
-//        self.present(homeVC, animated: true)
         let homeStoryboard = UIStoryboard(name: "Home", bundle: Bundle.main)
         let homeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.navigationController?.pushViewController(homeVC, animated: true)

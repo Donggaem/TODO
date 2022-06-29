@@ -104,6 +104,10 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LRh-0P-lSc">
                                         <rect key="frame" x="0.0" y="300" width="374" height="428"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Y6W-OH-hqX" id="1Y3-TH-wIl"/>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="BcV-AA-MBr"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <constraints>
@@ -123,6 +127,7 @@
                     <navigationItem key="navigationItem" id="pyz-4G-0Fm"/>
                     <connections>
                         <outlet property="calendarView" destination="rZx-n7-DTi" id="fcB-LU-qLx"/>
+                        <outlet property="todoTableView" destination="LRh-0P-lSc" id="fV1-BR-blU"/>
                         <outlet property="yearLabel" destination="Z9L-3t-yLp" id="uUp-UO-mRF"/>
                     </connections>
                 </viewController>

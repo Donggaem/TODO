@@ -20,6 +20,8 @@
 		EBA03E292861969100564472 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBA03E272861969100564472 /* LaunchScreen.storyboard */; };
 		EBA03E342861ADE900564472 /* roboto in Resources */ = {isa = PBXBuildFile; fileRef = EBA03E332861ADE900564472 /* roboto */; };
 		EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BA712868894E008A4927 /* DetailViewController.swift */; };
+		EBA53D89286CB2F700F8165E /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */; };
+		EBA53D8B286CCB6A00F8165E /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		EBA03E2A2861969100564472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBA03E332861ADE900564472 /* roboto */ = {isa = PBXFileReference; lastKnownFileType = folder; name = roboto; path = ../../../roboto; sourceTree = "<group>"; };
 		EBA1BA712868894E008A4927 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
+		EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 				EBA03E272861969100564472 /* LaunchScreen.storyboard */,
 				EBA03E222861968D00564472 /* Main.storyboard */,
 				EB2E4ECB2865FD6F00DCF02E /* Home.storyboard */,
+				EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 				EB2E4ECD2865FEC100DCF02E /* HomeViewController.swift */,
 				EB2E4ECF2866209B00DCF02E /* AddViewController.swift */,
 				EBA1BA712868894E008A4927 /* DetailViewController.swift */,
+				EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBA03E292861969100564472 /* LaunchScreen.storyboard in Resources */,
+				EBA53D89286CB2F700F8165E /* TodoTableViewCell.xib in Resources */,
 				EBA03E262861969100564472 /* Assets.xcassets in Resources */,
 				EBA03E242861968D00564472 /* Main.storyboard in Resources */,
 				EBA03E342861ADE900564472 /* roboto in Resources */,
@@ -253,6 +260,7 @@
 				EB2E4ECE2865FEC100DCF02E /* HomeViewController.swift in Sources */,
 				EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */,
 				EB4A7B2A28649C2200E0DE43 /* SigninViewController.swift in Sources */,
+				EBA53D8B286CCB6A00F8165E /* TodoTableViewCell.swift in Sources */,
 				EB2E4ED02866209B00DCF02E /* AddViewController.swift in Sources */,
 				EBA03E212861968D00564472 /* LoginViewController.swift in Sources */,
 				EBA03E1D2861968D00564472 /* AppDelegate.swift in Sources */,

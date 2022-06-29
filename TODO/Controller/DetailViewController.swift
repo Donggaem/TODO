@@ -10,8 +10,6 @@ import UIKit
 class DetailViewController: UIViewController {
 
     
-    @IBOutlet weak var detailView: UIView!
-    
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
