@@ -106,8 +106,6 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         
     }
     
-    
-    
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         yearLabel.text = self.dateFormatter.string(from: calendarView.currentPage)
         }
