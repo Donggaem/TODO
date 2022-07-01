@@ -9,9 +9,27 @@
 import UIKit
 import FSCalendar
 
+//테이블쎌 구조
+struct cellModel {
+    let title: String
+    let contents: String
+}
+
+
+
 class HomeViewController: UIViewController {
 
-
+    let testarray: [cellModel] = [
+        cellModel(title: "1", contents: "aaa"),
+        cellModel(title: "1", contents: "aaa"),
+        cellModel(title: "1", contents: "aaa"),
+        cellModel(title: "1", contents: "aaa"),
+        cellModel(title: "1", contents: "aaa"),
+        cellModel(title: "1", contents: "aaa"),
+        cellModel(title: "1", contents: "aaa"),
+        cellModel(title: "1", contents: "aaa"),
+        cellModel(title: "1", contents: "aaa")
+    ]
     
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var calendarView: FSCalendar!
@@ -52,16 +70,18 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     
     // 몇개의 Cell을 반환할지 Return하는 메소드
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.testarray.count
     }
     
     //각Row에서 해당하는 Cell을 Return하는 메소드
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userCell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath) as! TodoTableViewCell
                 
-                userCell.textLabel?.text = String(indexPath.row)
+        let data = self.testarray[indexPath.row]
+        userCell.cellTitleLabel.text = data.title
+        userCell.cellContentLabel.text = data.contents
                 
-                return userCell
+        return userCell
     }
     
     //클릭한 셀의 이벤트 처리
@@ -74,7 +94,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
 //    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 //        return true
 //    }
-//
+//    //투두 삭제
 //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 //        if editingStyle == .delete {
 //

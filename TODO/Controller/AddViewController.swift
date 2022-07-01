@@ -22,22 +22,27 @@ class AddViewController: UIViewController {
         setTextView()
         
     }
+    
+    @IBAction func addBtnPressed(_ sender: UIButton) {
+    }
 }
 
+//MARK: 텍스트뷰
 extension AddViewController: UITextViewDelegate {
 
     func setTextView(){
         
-        
+        //플레이스홀더 설정
         addTextView.text = textViewPlaceHolder
         addTextView.textColor = .lightGray
         
-        theTextViewHeightConstraint.isActive = false
+        theTextViewHeightConstraint.isActive = false // 스토리보드에 설정된 콘스트레이트 무시
         addTextView.sizeToFit()
         addTextView.isScrollEnabled = false
         textViewDidChange(addTextView)
     }
     
+    //텍스트뷰 열릴시
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == textViewPlaceHolder {
             textView.text = nil
@@ -45,6 +50,7 @@ extension AddViewController: UITextViewDelegate {
         }
     }
     
+    //텍스트뷰 닫힐시
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             textView.text = textViewPlaceHolder

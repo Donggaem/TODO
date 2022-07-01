@@ -217,6 +217,9 @@
                                     <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addBtnPressed:" destination="tak-8h-0ck" eventType="touchUpInside" id="pBd-2L-97z"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LOM-dB-Iii"/>
@@ -324,6 +327,9 @@
                                     <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteBtnPressed:" destination="AlB-64-ALB" eventType="touchUpInside" id="HJj-a8-7zo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhQ-E8-2Xw">
                                 <rect key="frame" x="32" y="706" width="350" height="40"/>
@@ -338,6 +344,9 @@
                                     <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="adaptBtnPressed:" destination="AlB-64-ALB" eventType="touchUpInside" id="cJJ-cM-qtM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Shk-yR-L9q"/>

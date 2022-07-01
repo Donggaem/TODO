@@ -20,13 +20,20 @@ class DetailViewController: UIViewController {
         setTextView()
         
     }
+    
+    @IBAction func adaptBtnPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func deleteBtnPressed(_ sender: UIButton) {
+    }
 }
 
+//MARK: 텍스트뷰
 extension DetailViewController: UITextViewDelegate {
 
     func setTextView(){
         
-        theTextViewHeightConstraint.isActive = false
+        theTextViewHeightConstraint.isActive = false // 스토리보드에 설정된 콘스트레이트 무시
         detlTextView.sizeToFit()
         detlTextView.isScrollEnabled = false
         textViewDidChange(detlTextView)
