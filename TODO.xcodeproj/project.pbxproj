@@ -12,6 +12,8 @@
 		EB2E4ECE2865FEC100DCF02E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2E4ECD2865FEC100DCF02E /* HomeViewController.swift */; };
 		EB2E4ED02866209B00DCF02E /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2E4ECF2866209B00DCF02E /* AddViewController.swift */; };
 		EB4A7B2A28649C2200E0DE43 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4A7B2928649C2200E0DE43 /* SigninViewController.swift */; };
+		EB5468362871C91E0022A99F /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5468352871C91E0022A99F /* LoginRequest.swift */; };
+		EB5468382871C9360022A99F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5468372871C9360022A99F /* LoginResponse.swift */; };
 		EBA03E1D2861968D00564472 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA03E1C2861968D00564472 /* AppDelegate.swift */; };
 		EBA03E1F2861968D00564472 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA03E1E2861968D00564472 /* SceneDelegate.swift */; };
 		EBA03E212861968D00564472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA03E202861968D00564472 /* LoginViewController.swift */; };
@@ -32,6 +34,8 @@
 		EB2E4ECD2865FEC100DCF02E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EB2E4ECF2866209B00DCF02E /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		EB4A7B2928649C2200E0DE43 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		EB5468352871C91E0022A99F /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		EB5468372871C9360022A99F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		EBA03E192861968D00564472 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBA03E1C2861968D00564472 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBA03E1E2861968D00564472 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 		EBA03E312861975100564472 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EB5468352871C91E0022A99F /* LoginRequest.swift */,
+				EB5468372871C9360022A99F /* LoginResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -257,9 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5468362871C91E0022A99F /* LoginRequest.swift in Sources */,
 				EB2E4ECE2865FEC100DCF02E /* HomeViewController.swift in Sources */,
 				EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */,
 				EB4A7B2A28649C2200E0DE43 /* SigninViewController.swift in Sources */,
+				EB5468382871C9360022A99F /* LoginResponse.swift in Sources */,
 				EBA53D8B286CCB6A00F8165E /* TodoTableViewCell.swift in Sources */,
 				EB2E4ED02866209B00DCF02E /* AddViewController.swift in Sources */,
 				EBA03E212861968D00564472 /* LoginViewController.swift in Sources */,
