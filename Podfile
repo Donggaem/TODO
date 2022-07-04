@@ -9,4 +9,5 @@ target 'TODO' do
 pod 'Alamofire'
 pod 'IQKeyboardManagerSwift'
 pod 'FSCalendar'
+pod 'SnapKit'
 end

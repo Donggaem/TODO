@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
         
         
     }
-
+    
     //MARK: IBAction
     @IBAction func toSigninPressed(_ sender: UIButton) {
         let signinVC = self.storyboard?.instantiateViewController(withIdentifier: "SigninViewController") as! SigninViewController
@@ -27,9 +27,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
-        let homeStoryboard = UIStoryboard(name: "Home", bundle: Bundle.main)
-        let homeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        self.navigationController?.pushViewController(homeVC, animated: true)
+        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+        let homeNav = storyBoard.instantiateViewController(identifier: "HomeNav")
+        self.changeRootViewController(homeNav)
     }
     
 }
