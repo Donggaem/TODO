@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 //로그인 Response 서버에서 받아오는 값
 struct LoginResponse: Codable {
     var isSuccess: Bool
