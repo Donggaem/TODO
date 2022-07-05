@@ -366,8 +366,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="adaptBtn" destination="BhQ-E8-2Xw" id="YgW-Hd-kSn"/>
+                        <outlet property="dayTextField" destination="aVf-90-7Xs" id="juZ-Vg-aR0"/>
+                        <outlet property="deleteBtn" destination="kAi-Me-eDd" id="PPV-tQ-7Py"/>
                         <outlet property="detlTextView" destination="9tZ-xs-MWl" id="79K-jt-1RC"/>
                         <outlet property="theTextViewHeightConstraint" destination="sNG-Bb-5vU" id="gmm-S3-x9l"/>
+                        <outlet property="titleTextField" destination="6Br-lv-Ifv" id="44E-8s-45I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8Q-Se-QO1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
