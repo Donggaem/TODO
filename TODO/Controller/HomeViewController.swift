@@ -109,6 +109,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         calendarView.delegate = self
         calendarView.dataSource = self
 
+        calendarView.placeholderType = .none
         calendarView.appearance.titleDefaultColor = .gray // 평일 날짜 색깔
         calendarView.appearance.titleWeekendColor = .gray // 주말 날짜 색깔
         calendarView.appearance.weekdayTextColor = .gray // 요일 날짜 색깔
