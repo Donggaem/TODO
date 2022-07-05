@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UIViewController {
     
@@ -30,6 +31,23 @@ class LoginViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "Home", bundle: nil)
         let homeNav = storyBoard.instantiateViewController(identifier: "HomeNav")
         self.changeRootViewController(homeNav)
+    }
+    
+    func postLogin(_ parameters: LoginRequest){
+        AF.request(<#T##convertible: URLConvertible##URLConvertible#>, method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+        .validate()
+        .responseDecodable(of: LoginResponse.self) { [self] response in
+            switch response.result {
+            case .success(let response):
+                if response.isSuccess == true {
+                    print("로그인 성공")
+                } else {
+                    print("로그인 실패")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
 }
