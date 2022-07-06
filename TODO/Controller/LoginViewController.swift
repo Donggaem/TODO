@@ -28,19 +28,27 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
-        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-        let homeNav = storyBoard.instantiateViewController(identifier: "HomeNav")
-        self.changeRootViewController(homeNav)
+
+        
+        let id = idTextField.text ?? ""
+        let pw = passwordTextField.text ?? ""
+        
+        let param = LoginRequest(userId: id, password: pw)
+        postLogin(param)
     }
     
     func postLogin(_ parameters: LoginRequest){
-        AF.request(<#T##convertible: URLConvertible##URLConvertible#>, method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+        AF.request("http://13.209.10.30:3030/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
         .validate()
         .responseDecodable(of: LoginResponse.self) { [self] response in
             switch response.result {
             case .success(let response):
-                if response.isSuccess == true {
+                if response.check == true {
                     print("로그인 성공")
+                    let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+                    let homeNav = storyBoard.instantiateViewController(identifier: "HomeNav")
+                    self.changeRootViewController(homeNav)
+                    
                 } else {
                     print("로그인 실패")
                 }
