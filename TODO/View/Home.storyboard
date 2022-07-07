@@ -147,7 +147,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iIA-AO-TsC">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
-                                                <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -165,7 +165,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XD7-Xh-F3b">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
-                                                <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -201,7 +201,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKP-IT-Ohz">
-                                <rect key="frame" x="32" y="766" width="350" height="40"/>
+                                <rect key="frame" x="32" y="781" width="350" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="AM7-ue-q9F"/>
                                 </constraints>
@@ -222,7 +222,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="BvI-Y2-xM8" firstAttribute="top" secondItem="LOM-dB-Iii" secondAttribute="top" constant="50" id="1el-RO-nsg"/>
-                            <constraint firstItem="LOM-dB-Iii" firstAttribute="bottom" secondItem="lKP-IT-Ohz" secondAttribute="bottom" constant="56" id="57q-JR-eq9"/>
+                            <constraint firstAttribute="bottom" secondItem="lKP-IT-Ohz" secondAttribute="bottom" constant="75" id="57q-JR-eq9"/>
                             <constraint firstItem="uOS-pz-ioD" firstAttribute="leading" secondItem="Cwd-9c-VGp" secondAttribute="leading" constant="32" id="7Yy-wh-coE"/>
                             <constraint firstItem="LOM-dB-Iii" firstAttribute="trailing" secondItem="BvI-Y2-xM8" secondAttribute="trailing" constant="32" id="EYz-Up-JWR"/>
                             <constraint firstItem="LOM-dB-Iii" firstAttribute="trailing" secondItem="lKP-IT-Ohz" secondAttribute="trailing" constant="32" id="NPp-PV-zAC"/>
@@ -237,6 +237,7 @@
                     </view>
                     <connections>
                         <outlet property="addTextView" destination="hax-w7-6Js" id="Hr9-5O-QFp"/>
+                        <outlet property="dateTextField" destination="XD7-Xh-F3b" id="wz8-mb-HXG"/>
                         <outlet property="theTextViewHeightConstraint" destination="Yw9-pV-586" id="6ZY-Lh-JBv"/>
                     </connections>
                 </viewController>
@@ -260,7 +261,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6Br-lv-Ifv">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
-                                                <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -278,7 +279,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜을 입력해주세요" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aVf-90-7Xs">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
-                                                <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -311,7 +312,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-Me-eDd">
-                                <rect key="frame" x="32" y="766" width="350" height="40"/>
+                                <rect key="frame" x="32" y="781" width="350" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7G4-U1-tjK"/>
                                 </constraints>
@@ -328,7 +329,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhQ-E8-2Xw">
-                                <rect key="frame" x="32" y="706" width="350" height="40"/>
+                                <rect key="frame" x="32" y="721" width="350" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ZGp-a2-uZP"/>
                                 </constraints>
@@ -360,14 +361,14 @@
                             <constraint firstItem="Q6k-8H-tCV" firstAttribute="top" secondItem="9tZ-xs-MWl" secondAttribute="bottom" constant="2" id="jJp-y0-hHW"/>
                             <constraint firstItem="sge-tY-gMR" firstAttribute="leading" secondItem="Shk-yR-L9q" secondAttribute="leading" constant="32" id="jyc-1q-fdT"/>
                             <constraint firstItem="kAi-Me-eDd" firstAttribute="top" secondItem="BhQ-E8-2Xw" secondAttribute="bottom" constant="20" id="meB-KL-R9Q"/>
-                            <constraint firstItem="Shk-yR-L9q" firstAttribute="bottom" secondItem="kAi-Me-eDd" secondAttribute="bottom" constant="56" id="r3F-1u-b0G"/>
+                            <constraint firstAttribute="bottom" secondItem="kAi-Me-eDd" secondAttribute="bottom" constant="75" id="r3F-1u-b0G"/>
                             <constraint firstItem="BhQ-E8-2Xw" firstAttribute="leading" secondItem="Shk-yR-L9q" secondAttribute="leading" constant="32" id="upb-uE-JEX"/>
                             <constraint firstItem="Shk-yR-L9q" firstAttribute="trailing" secondItem="BhQ-E8-2Xw" secondAttribute="trailing" constant="32" id="v2S-bl-H9H"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="adaptBtn" destination="BhQ-E8-2Xw" id="YgW-Hd-kSn"/>
-                        <outlet property="dayTextField" destination="aVf-90-7Xs" id="juZ-Vg-aR0"/>
+                        <outlet property="dateTextField" destination="aVf-90-7Xs" id="b2a-Xf-BK6"/>
                         <outlet property="deleteBtn" destination="kAi-Me-eDd" id="PPV-tQ-7Py"/>
                         <outlet property="detlTextView" destination="9tZ-xs-MWl" id="79K-jt-1RC"/>
                         <outlet property="theTextViewHeightConstraint" destination="sNG-Bb-5vU" id="gmm-S3-x9l"/>
