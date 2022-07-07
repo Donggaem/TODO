@@ -8,7 +8,7 @@
 import Foundation
 
 //로그인 Requset 서버에 주는값
-struct LoginRequest: Codable {
-    var userId: String
-    var password: String
+struct LoginRequest: Encodable {
+    var userid: String
+    var userpw: String
 }

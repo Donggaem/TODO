@@ -24,6 +24,10 @@
 		EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BA712868894E008A4927 /* DetailViewController.swift */; };
 		EBA53D89286CB2F700F8165E /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */; };
 		EBA53D8B286CCB6A00F8165E /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */; };
+		EBC222E028772D8600E455B7 /* SigninRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222DF28772D8600E455B7 /* SigninRequest.swift */; };
+		EBC222E228772D9B00E455B7 /* SigninResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222E128772D9B00E455B7 /* SigninResponse.swift */; };
+		EBC222E42877442C00E455B7 /* IdCheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222E32877442C00E455B7 /* IdCheckRequest.swift */; };
+		EBC222E62877444D00E455B7 /* IdCheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222E52877444D00E455B7 /* IdCheckResponse.swift */; };
 		EBE557312873331800EBA622 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE557302873331800EBA622 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +53,10 @@
 		EBA1BA712868894E008A4927 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		EBC222DF28772D8600E455B7 /* SigninRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninRequest.swift; sourceTree = "<group>"; };
+		EBC222E128772D9B00E455B7 /* SigninResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninResponse.swift; sourceTree = "<group>"; };
+		EBC222E32877442C00E455B7 /* IdCheckRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdCheckRequest.swift; sourceTree = "<group>"; };
+		EBC222E52877444D00E455B7 /* IdCheckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdCheckResponse.swift; sourceTree = "<group>"; };
 		EBE557302873331800EBA622 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +139,10 @@
 			children = (
 				EB5468352871C91E0022A99F /* LoginRequest.swift */,
 				EB5468372871C9360022A99F /* LoginResponse.swift */,
+				EBC222DF28772D8600E455B7 /* SigninRequest.swift */,
+				EBC222E128772D9B00E455B7 /* SigninResponse.swift */,
+				EBC222E32877442C00E455B7 /* IdCheckRequest.swift */,
+				EBC222E52877444D00E455B7 /* IdCheckResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,12 +281,16 @@
 				EB5468362871C91E0022A99F /* LoginRequest.swift in Sources */,
 				EBE557312873331800EBA622 /* UIViewController+Extension.swift in Sources */,
 				EB2E4ECE2865FEC100DCF02E /* HomeViewController.swift in Sources */,
+				EBC222E028772D8600E455B7 /* SigninRequest.swift in Sources */,
 				EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */,
+				EBC222E42877442C00E455B7 /* IdCheckRequest.swift in Sources */,
 				EB4A7B2A28649C2200E0DE43 /* SigninViewController.swift in Sources */,
+				EBC222E62877444D00E455B7 /* IdCheckResponse.swift in Sources */,
 				EB5468382871C9360022A99F /* LoginResponse.swift in Sources */,
 				EBA53D8B286CCB6A00F8165E /* TodoTableViewCell.swift in Sources */,
 				EB2E4ED02866209B00DCF02E /* AddViewController.swift in Sources */,
 				EBA03E212861968D00564472 /* LoginViewController.swift in Sources */,
+				EBC222E228772D9B00E455B7 /* SigninResponse.swift in Sources */,
 				EBA03E1D2861968D00564472 /* AppDelegate.swift in Sources */,
 				EBA03E1F2861968D00564472 /* SceneDelegate.swift in Sources */,
 			);

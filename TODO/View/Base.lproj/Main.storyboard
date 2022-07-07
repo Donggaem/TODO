@@ -188,6 +188,9 @@
                                                             <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="idCheckBtn:" destination="qrL-qD-Nfl" eventType="touchUpInside" id="cmZ-Sj-fHX"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -289,6 +292,9 @@
                                     <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signInBtn:" destination="qrL-qD-Nfl" eventType="touchUpInside" id="9dq-rT-7vS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="30K-UF-axJ"/>
@@ -304,6 +310,12 @@
                             <constraint firstItem="30K-UF-axJ" firstAttribute="trailing" secondItem="uQM-PE-ZwG" secondAttribute="trailing" constant="32" id="g6r-fv-A6s"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="idTextField" destination="GWv-PA-6Vb" id="2Mu-fU-qna"/>
+                        <outlet property="ninknameTextField" destination="t8p-a1-N9H" id="ieo-vt-PRF"/>
+                        <outlet property="pwCheckField" destination="aFq-Jb-Q5j" id="ghw-uy-ZLg"/>
+                        <outlet property="pwTextField" destination="6lB-fl-aSR" id="xbY-Rg-X85"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnX-bW-dDu" sceneMemberID="firstResponder"/>
             </objects>
