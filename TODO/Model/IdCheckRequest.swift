@@ -8,5 +8,7 @@
 import Foundation
 
 struct IDCheckRequset: Encodable{
+   
     var userid: String
+    
 }

@@ -8,8 +8,10 @@
 import Foundation
 
 struct SigninRequest: Encodable {
+    
     var username: String
     var userid: String
     var userpw: String
     var userpw_check: String
+    
 }

@@ -14,6 +14,12 @@
 		EB4A7B2A28649C2200E0DE43 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4A7B2928649C2200E0DE43 /* SigninViewController.swift */; };
 		EB5468362871C91E0022A99F /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5468352871C91E0022A99F /* LoginRequest.swift */; };
 		EB5468382871C9360022A99F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5468372871C9360022A99F /* LoginResponse.swift */; };
+		EB87C7B12879CF3200DFC1A2 /* AddTodoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7B02879CF3100DFC1A2 /* AddTodoRequest.swift */; };
+		EB87C7B32879CF4800DFC1A2 /* AddTodoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7B22879CF4800DFC1A2 /* AddTodoResponse.swift */; };
+		EB87C7B52879CF8F00DFC1A2 /* TodoListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7B42879CF8F00DFC1A2 /* TodoListRequest.swift */; };
+		EB87C7B72879CFA200DFC1A2 /* TodoListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7B62879CFA200DFC1A2 /* TodoListResponse.swift */; };
+		EB87C7B92879CFC400DFC1A2 /* DeleteTodoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7B82879CFC400DFC1A2 /* DeleteTodoRequest.swift */; };
+		EB87C7BB2879CFD400DFC1A2 /* DeleteTodoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7BA2879CFD400DFC1A2 /* DeleteTodoResponse.swift */; };
 		EBA03E1D2861968D00564472 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA03E1C2861968D00564472 /* AppDelegate.swift */; };
 		EBA03E1F2861968D00564472 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA03E1E2861968D00564472 /* SceneDelegate.swift */; };
 		EBA03E212861968D00564472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA03E202861968D00564472 /* LoginViewController.swift */; };
@@ -41,6 +47,12 @@
 		EB4A7B2928649C2200E0DE43 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		EB5468352871C91E0022A99F /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		EB5468372871C9360022A99F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		EB87C7B02879CF3100DFC1A2 /* AddTodoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoRequest.swift; sourceTree = "<group>"; };
+		EB87C7B22879CF4800DFC1A2 /* AddTodoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoResponse.swift; sourceTree = "<group>"; };
+		EB87C7B42879CF8F00DFC1A2 /* TodoListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListRequest.swift; sourceTree = "<group>"; };
+		EB87C7B62879CFA200DFC1A2 /* TodoListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListResponse.swift; sourceTree = "<group>"; };
+		EB87C7B82879CFC400DFC1A2 /* DeleteTodoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoRequest.swift; sourceTree = "<group>"; };
+		EB87C7BA2879CFD400DFC1A2 /* DeleteTodoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoResponse.swift; sourceTree = "<group>"; };
 		EBA03E192861968D00564472 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBA03E1C2861968D00564472 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBA03E1E2861968D00564472 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +155,12 @@
 				EBC222E128772D9B00E455B7 /* SigninResponse.swift */,
 				EBC222E32877442C00E455B7 /* IdCheckRequest.swift */,
 				EBC222E52877444D00E455B7 /* IdCheckResponse.swift */,
+				EB87C7B02879CF3100DFC1A2 /* AddTodoRequest.swift */,
+				EB87C7B22879CF4800DFC1A2 /* AddTodoResponse.swift */,
+				EB87C7B42879CF8F00DFC1A2 /* TodoListRequest.swift */,
+				EB87C7B62879CFA200DFC1A2 /* TodoListResponse.swift */,
+				EB87C7B82879CFC400DFC1A2 /* DeleteTodoRequest.swift */,
+				EB87C7BA2879CFD400DFC1A2 /* DeleteTodoResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,17 +300,23 @@
 				EBE557312873331800EBA622 /* UIViewController+Extension.swift in Sources */,
 				EB2E4ECE2865FEC100DCF02E /* HomeViewController.swift in Sources */,
 				EBC222E028772D8600E455B7 /* SigninRequest.swift in Sources */,
+				EB87C7B92879CFC400DFC1A2 /* DeleteTodoRequest.swift in Sources */,
 				EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */,
 				EBC222E42877442C00E455B7 /* IdCheckRequest.swift in Sources */,
 				EB4A7B2A28649C2200E0DE43 /* SigninViewController.swift in Sources */,
+				EB87C7B12879CF3200DFC1A2 /* AddTodoRequest.swift in Sources */,
 				EBC222E62877444D00E455B7 /* IdCheckResponse.swift in Sources */,
 				EB5468382871C9360022A99F /* LoginResponse.swift in Sources */,
 				EBA53D8B286CCB6A00F8165E /* TodoTableViewCell.swift in Sources */,
 				EB2E4ED02866209B00DCF02E /* AddViewController.swift in Sources */,
+				EB87C7B72879CFA200DFC1A2 /* TodoListResponse.swift in Sources */,
 				EBA03E212861968D00564472 /* LoginViewController.swift in Sources */,
+				EB87C7BB2879CFD400DFC1A2 /* DeleteTodoResponse.swift in Sources */,
 				EBC222E228772D9B00E455B7 /* SigninResponse.swift in Sources */,
 				EBA03E1D2861968D00564472 /* AppDelegate.swift in Sources */,
+				EB87C7B52879CF8F00DFC1A2 /* TodoListRequest.swift in Sources */,
 				EBA03E1F2861968D00564472 /* SceneDelegate.swift in Sources */,
+				EB87C7B32879CF4800DFC1A2 /* AddTodoResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

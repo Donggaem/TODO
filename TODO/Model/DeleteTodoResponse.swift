@@ -1,13 +1,13 @@
 //
-//  IdCheckResponse.swift
+//  DeleteTodoResponse.swift
 //  TODO
 //
-//  Created by 김동겸 on 2022/07/08.
+//  Created by 김동겸 on 2022/07/10.
 //
 
 import Foundation
 
-struct IDCheckResponse: Decodable{
+struct DeleteTodoResponse: Decodable {
     
     var isSuccess: Bool
     var code: Int

@@ -47,6 +47,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calendarView.delegate = self
+        calendarView.datasource = self
+        
         self.todoTableView.delegate = self
         self.todoTableView.dataSource = self
         self.todoTableView.register(UINib(nibName: "TodoTableViewCell", bundle: nil),  forCellReuseIdentifier: "TodoTableViewCell")
