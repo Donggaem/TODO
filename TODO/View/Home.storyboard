@@ -91,6 +91,9 @@
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="qgw-dD-tvL"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -239,6 +242,7 @@
                         <outlet property="addTextView" destination="hax-w7-6Js" id="Hr9-5O-QFp"/>
                         <outlet property="dateTextField" destination="XD7-Xh-F3b" id="wz8-mb-HXG"/>
                         <outlet property="theTextViewHeightConstraint" destination="Yw9-pV-586" id="6ZY-Lh-JBv"/>
+                        <outlet property="titleTextField" destination="iIA-AO-TsC" id="Nvp-zD-qdG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MPc-iy-we8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

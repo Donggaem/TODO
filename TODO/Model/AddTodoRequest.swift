@@ -10,7 +10,7 @@ import Foundation
 struct AddTodoRequest: Encodable {
     
     var title: String
-    var comtent: String
+    var content: String
     var userid: String
     var date: String
     

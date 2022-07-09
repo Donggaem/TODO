@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class AddViewController: UIViewController {
     
     @IBOutlet weak var addTextView: UITextView!
     @IBOutlet weak var theTextViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
     
     //date picker 로 바꾸기 프로퍼티
     private let datePicker = UIDatePicker()
@@ -30,6 +32,13 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func addBtnPressed(_ sender: UIButton) {
+        let title = titleTextField.text ?? ""
+        let content = addTextView.text ?? ""
+        let date = dateTextField.text ?? ""
+        let userid = UserDefaults.standard.string(forKey: "userid")!
+        
+        let param = AddTodoRequest(title: title, content: content, userid: userid, date: date)
+        postAddTodo(param)
     }
     
     //MARK: DATE PICKER
@@ -50,6 +59,38 @@ class AddViewController: UIViewController {
         formmater.locale = Locale(identifier: "ko_KR") // 한국어 표현
         self.diaryDate = datePicker.date // datePicker 에서 선택된 date값 넘기기
         self.dateTextField.text = formmater.string(from: datePicker.date) // 포멧한 데이트 값을 텍스트 필드에 표시
+    }
+    
+    //MARK: POST ADDTODO
+    func postAddTodo(_ parameters: AddTodoRequest){
+        AF.request("http://13.209.10.30:4004/todo", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+            .validate()
+            .responseDecodable(of: AddTodoResponse.self) { [self] response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess == true {
+                        let addTodo_alert = UIAlertController(title: "추가 완료", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default) {
+                            (action) in self.navigationController?.popViewController(animated: true)
+                        }
+                        addTodo_alert.addAction(okAction)
+                        present(addTodo_alert, animated: false, completion: nil)
+                        
+                    } else {
+                        print("추가 실패")
+                        let addFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        addFail_alert.addAction(okAction)
+                        present(addFail_alert, animated: false, completion: nil)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    let addFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    addFail_alert.addAction(okAction)
+                    present(addFail_alert, animated: false, completion: nil)
+                }
+            }
     }
 }
 

@@ -46,9 +46,7 @@ class HomeViewController: UIViewController {
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        calendarView.delegate = self
-        calendarView.datasource = self
+
         
         self.todoTableView.delegate = self
         self.todoTableView.dataSource = self

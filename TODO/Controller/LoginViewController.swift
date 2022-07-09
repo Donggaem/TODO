@@ -45,6 +45,7 @@ class LoginViewController: UIViewController {
                 case .success(let response):
                     if response.isSuccess == true {
                         print("로그인 성공")
+                        UserDefaults.standard.set(idTextField.text, forKey: "userid")
                         let storyBoard = UIStoryboard(name: "Home", bundle: nil)
                         let homeNav = storyBoard.instantiateViewController(identifier: "HomeNav")
                         self.changeRootViewController(homeNav)
