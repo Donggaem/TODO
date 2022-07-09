@@ -40,8 +40,8 @@ class DetailViewController: UIViewController {
         configureDatePicker()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//    }
+    //    override func viewWillAppear(_ animated: Bool) {
+    //    }
     
     @IBAction func adaptBtnPressed(_ sender: UIButton) {
         detlTextView.isUserInteractionEnabled = true

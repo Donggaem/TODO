@@ -18,7 +18,7 @@ struct cellModel {
 
 
 class HomeViewController: UIViewController {
-
+    
     let testarray: [cellModel] = [
         cellModel(title: "1", contents: "aaa"),
         cellModel(title: "1", contents: "aaa"),
@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.todoTableView.delegate = self
         self.todoTableView.dataSource = self
         self.todoTableView.register(UINib(nibName: "TodoTableViewCell", bundle: nil),  forCellReuseIdentifier: "TodoTableViewCell")
@@ -62,7 +62,7 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(addVC, animated: true)
     }
     
-
+    
 }
 
 //MARK: 테이블뷰
@@ -76,11 +76,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     //각Row에서 해당하는 Cell을 Return하는 메소드
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userCell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath) as! TodoTableViewCell
-                
+        
         let data = self.testarray[indexPath.row]
         userCell.cellTitleLabel.text = data.title
         userCell.cellContentLabel.text = data.contents
-                
+        
         return userCell
     }
     
@@ -90,16 +90,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
-//    //셀 밀어서 삭제
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//    //투두 삭제
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//
-//        }
-//    }
+    //    //셀 밀어서 삭제
+    //    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    //        return true
+    //    }
+    //    //투두 삭제
+    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        if editingStyle == .delete {
+    //
+    //        }
+    //    }
 }
 
 //MARK: 캘린더 설정
@@ -108,19 +108,19 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         
         calendarView.delegate = self
         calendarView.dataSource = self
-
+        
         calendarView.placeholderType = .none // 전,다음달 날짜 숨기기
         calendarView.appearance.titleDefaultColor = .gray // 평일 날짜 색깔
         calendarView.appearance.titleWeekendColor = .gray // 주말 날짜 색깔
         calendarView.appearance.weekdayTextColor = .gray // 요일 날짜 색깔
         calendarView.appearance.headerTitleColor = .black // 헤더의 폰트 색상 설정
-
+        
         calendarView.appearance.headerDateFormat = "YYYY년 MM월" // 헤더의 날짜 포맷 설정
         calendarView.appearance.headerTitleAlignment = .left // 헤더의 폰트 정렬 설정
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0 // 헤더 양 옆(전달 & 다음 달) 글씨 투명도
         calendarView.calendarHeaderView.isHidden = true // 헤더 숨기기
         calendarView.headerHeight = 0 // 헤더 높이 조정
-
+        
         //yearLabel설정
         yearLabel.text = dateFormatter.string(from: calendarView.currentPage)
         yearLabel.sizeToFit()
@@ -129,7 +129,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         yearLabel.text = self.dateFormatter.string(from: calendarView.currentPage)
-        }
+    }
 }
 
 

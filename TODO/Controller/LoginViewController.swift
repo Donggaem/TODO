@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
-
+        
         
         let id = idTextField.text ?? ""
         let pw = passwordTextField.text ?? ""
@@ -39,31 +39,31 @@ class LoginViewController: UIViewController {
     
     func postLogin(_ parameters: LoginRequest){
         AF.request("http://13.209.10.30:4004/user/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
-        .validate()
-        .responseDecodable(of: LoginResponse.self) { [self] response in
-            switch response.result {
-            case .success(let response):
-                if response.isSuccess == true {
-                    print("로그인 성공")
-                    let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-                    let homeNav = storyBoard.instantiateViewController(identifier: "HomeNav")
-                    self.changeRootViewController(homeNav)
-                    
-                } else {
-                    let loginFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
+            .validate()
+            .responseDecodable(of: LoginResponse.self) { [self] response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess == true {
+                        print("로그인 성공")
+                        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+                        let homeNav = storyBoard.instantiateViewController(identifier: "HomeNav")
+                        self.changeRootViewController(homeNav)
+                        
+                    } else {
+                        let loginFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        loginFail_alert.addAction(okAction)
+                        present(loginFail_alert, animated: false, completion: nil)
+                        
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    let loginFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "OK", style: .default)
                     loginFail_alert.addAction(okAction)
                     present(loginFail_alert, animated: false, completion: nil)
-                        
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
-                let loginFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
-                let okAction = UIAlertAction(title: "OK", style: .default)
-                loginFail_alert.addAction(okAction)
-                present(loginFail_alert, animated: false, completion: nil)
             }
-        }
     }
     
 }
