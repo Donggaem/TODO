@@ -31,6 +31,10 @@ class AddViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     @IBAction func addBtnPressed(_ sender: UIButton) {
         let title = titleTextField.text ?? ""
         let content = addTextView.text ?? ""

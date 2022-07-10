@@ -20,7 +20,7 @@ struct cellModel {
 class HomeViewController: UIViewController {
     
     let testarray: [cellModel] = [
-        cellModel(title: "1", contents: "aaa"),
+        cellModel(title: "1", contents: "aaaaaaaaaaaaaaaaaaaaaaaaa"),
         cellModel(title: "1", contents: "aaa"),
         cellModel(title: "1", contents: "aaa"),
         cellModel(title: "1", contents: "aaa"),
@@ -54,7 +54,14 @@ class HomeViewController: UIViewController {
         
         setCalendar()
         
+        self.navigationController?.isNavigationBarHidden = true
         
+        //테이블뷰 셀 선 없애기
+        todoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     // AddView 화면으로 이동
@@ -68,6 +75,11 @@ class HomeViewController: UIViewController {
 
 //MARK: 테이블뷰
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    //셀크기 동적 변화
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+        }
     
     // 몇개의 Cell을 반환할지 Return하는 메소드
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,6 +102,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
+    
+
     
     //    //셀 밀어서 삭제
     //    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
