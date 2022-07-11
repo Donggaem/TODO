@@ -5,7 +5,7 @@
 //  Created by 김동겸 on 2022/06/24.
 //
 
-
+import Foundation
 import UIKit
 import FSCalendar
 import Alamofire
@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
     
     var todoList: [TodoList] = []
     var selectedList: [TodoList] = []
+
+    var selectedDate = ""
     
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var calendarView: FSCalendar!
@@ -21,16 +23,22 @@ class HomeViewController: UIViewController {
     
     //날짜 포맷
     private lazy var dateFormatter: DateFormatter = {
-        let fomatter = DateFormatter()
-        fomatter.locale = Locale(identifier: "ko_KR")
-        fomatter.dateFormat = "YYYY년 MM월"
-        return fomatter
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy 년 MM 월"
+        return formatter
     }()
     
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let date = NSDate()
+        let toDayformatter = DateFormatter()
+        toDayformatter.dateFormat = "yyyy년MM월dd일(EEEEE)"
+        toDayformatter.locale = Locale(identifier: "ko_KR")
+        selectedDate = toDayformatter.string(from: date as Date)
+        
         self.calendarView.delegate = self
         self.calendarView.dataSource = self
         self.todoTableView.delegate = self
@@ -74,22 +82,33 @@ class HomeViewController: UIViewController {
                         self.todoList = response.todo
                         print(todoList)
                         
+                        self.selectedList.removeAll()
+                        
+                        for index in 0..<todoList.count {
+                            let arr = todoList[index].date.components(separatedBy: " ")
+                            if arr[0] == selectedDate {
+                                let data = todoList[index]
+                                let todoData: TodoList = TodoList(no: data.no, title: data.title, content: data.content, userid: data.userid, date: data.date)
+                                self.selectedList.append(todoData)
+                            }
+                        }
+                        
                         self.todoTableView.reloadData()
                         self.calendarView.reloadData()
                         
                     } else {
                         print("추가 실패")
-                        let addFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let todoFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
                         let okAction = UIAlertAction(title: "OK", style: .default)
-                        addFail_alert.addAction(okAction)
-                        present(addFail_alert, animated: false, completion: nil)
+                        todoFail_alert.addAction(okAction)
+                        present(todoFail_alert, animated: false, completion: nil)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
-                    let addFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
+                    let todoFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "OK", style: .default)
-                    addFail_alert.addAction(okAction)
-                    present(addFail_alert, animated: false, completion: nil)
+                    todoFail_alert.addAction(okAction)
+                    present(todoFail_alert, animated: false, completion: nil)
                 }
             }
     }
@@ -107,14 +126,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     
     // 몇개의 Cell을 반환할지 Return하는 메소드
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.todoList.count
+        return self.selectedList.count
     }
     
     //각Row에서 해당하는 Cell을 Return하는 메소드
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userCell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath) as! TodoTableViewCell
         
-        let data = self.todoList[indexPath.row]
+        let data = self.selectedList[indexPath.row]
         userCell.cellTitleLabel.text = data.title
         userCell.cellContentLabel.text = data.content
         
@@ -169,9 +188,29 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     
     //날짜 선택
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy년MM월dd일(EEEEE)"
+        dateformatter.locale = Locale(identifier: "ko_KR")
+        selectedDate = dateformatter.string(from: date)
+        print(selectedDate)
+        
+        //배열 초기화
+        self.selectedList.removeAll()
+        
+        for index in 0..<todoList.count {
             
+            let arr = todoList[index].date.components(separatedBy: " ")
             
+            if arr[0] == selectedDate {
+                let data = todoList[index]
+                let todoData: TodoList = TodoList(no: data.no, title: data.title, content: data.content, userid: data.userid, date: data.date)
+                self.selectedList.append(todoData)
+                
+            }
         }
+        todoTableView.reloadData()
+    }
 }
 
 

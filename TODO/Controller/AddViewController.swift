@@ -59,7 +59,7 @@ class AddViewController: UIViewController {
     //addTarget 두번쨰 파라미터 셀렉터 메서드
     @ objc private func datePickerValueDidChange(_ datePicker: UIDatePicker){
         let formmater = DateFormatter() // 데이트 타입을 사람이 읽을 수 있도록 사람이 변환을 해주거나, 날짜 타입에서 데이트 타입을 변환을시켜주는 역할
-        formmater.dateFormat = "yyyy 년 MM 월 dd 일(EEEEE)" //데이트 포멧형식 잡기
+        formmater.dateFormat = "yyyy년MM월dd일(EEEEE)" //데이트 포멧형식 잡기
         formmater.locale = Locale(identifier: "ko_KR") // 한국어 표현
         self.diaryDate = datePicker.date // datePicker 에서 선택된 date값 넘기기
         self.dateTextField.text = formmater.string(from: datePicker.date) // 포멧한 데이트 값을 텍스트 필드에 표시
