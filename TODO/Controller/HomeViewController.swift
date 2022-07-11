@@ -8,28 +8,12 @@
 
 import UIKit
 import FSCalendar
-
-//테이블쎌 구조
-struct cellModel {
-    let title: String
-    let contents: String
-}
-
-
+import Alamofire
 
 class HomeViewController: UIViewController {
     
-    let testarray: [cellModel] = [
-        cellModel(title: "1", contents: "aaaaaaaaaaaaaaaaaaaaaaaaa"),
-        cellModel(title: "1", contents: "aaa"),
-        cellModel(title: "1", contents: "aaa"),
-        cellModel(title: "1", contents: "aaa"),
-        cellModel(title: "1", contents: "aaa"),
-        cellModel(title: "1", contents: "aaa"),
-        cellModel(title: "1", contents: "aaa"),
-        cellModel(title: "1", contents: "aaa"),
-        cellModel(title: "1", contents: "aaa")
-    ]
+    var todoList: [TodoList] = []
+    var selectedList: [TodoList] = []
     
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var calendarView: FSCalendar!
@@ -37,17 +21,18 @@ class HomeViewController: UIViewController {
     
     //날짜 포맷
     private lazy var dateFormatter: DateFormatter = {
-        let df = DateFormatter()
-        df.locale = Locale(identifier: "ko_KR")
-        df.dateFormat = "yyyy년 M월"
-        return df
+        let fomatter = DateFormatter()
+        fomatter.locale = Locale(identifier: "ko_KR")
+        fomatter.dateFormat = "YYYY년 MM월"
+        return fomatter
     }()
     
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        self.calendarView.delegate = self
+        self.calendarView.dataSource = self
         self.todoTableView.delegate = self
         self.todoTableView.dataSource = self
         self.todoTableView.register(UINib(nibName: "TodoTableViewCell", bundle: nil),  forCellReuseIdentifier: "TodoTableViewCell")
@@ -58,9 +43,16 @@ class HomeViewController: UIViewController {
         
         //테이블뷰 셀 선 없애기
         todoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        let userid = UserDefaults.standard.string(forKey: "userid")!
+        let param = TodoListRequest(userid: userid)
+        postTodoList(param)
+        
         self.navigationController?.isNavigationBarHidden = true
     }
     
@@ -68,6 +60,38 @@ class HomeViewController: UIViewController {
     @IBAction func addBtn(_ sender: UIButton) {
         let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
         self.navigationController?.pushViewController(addVC, animated: true)
+    }
+    
+    //MARK: POSTLIST
+    func postTodoList(_ parameters: TodoListRequest){
+        AF.request("http://13.209.10.30:4004/todo/list", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+            .validate()
+            .responseDecodable(of: TodoListResponse.self) { [self] response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess == true {
+                        
+                        self.todoList = response.todo
+                        print(todoList)
+                        
+                        self.todoTableView.reloadData()
+                        self.calendarView.reloadData()
+                        
+                    } else {
+                        print("추가 실패")
+                        let addFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        addFail_alert.addAction(okAction)
+                        present(addFail_alert, animated: false, completion: nil)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    let addFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    addFail_alert.addAction(okAction)
+                    present(addFail_alert, animated: false, completion: nil)
+                }
+            }
     }
     
     
@@ -83,16 +107,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     
     // 몇개의 Cell을 반환할지 Return하는 메소드
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.testarray.count
+        return self.todoList.count
     }
     
     //각Row에서 해당하는 Cell을 Return하는 메소드
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userCell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath) as! TodoTableViewCell
         
-        let data = self.testarray[indexPath.row]
+        let data = self.todoList[indexPath.row]
         userCell.cellTitleLabel.text = data.title
-        userCell.cellContentLabel.text = data.contents
+        userCell.cellContentLabel.text = data.content
         
         return userCell
     }
@@ -121,9 +145,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
 extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     private func setCalendar() {
         
-        calendarView.delegate = self
-        calendarView.dataSource = self
-        
         calendarView.placeholderType = .none // 전,다음달 날짜 숨기기
         calendarView.appearance.titleDefaultColor = .gray // 평일 날짜 색깔
         calendarView.appearance.titleWeekendColor = .gray // 주말 날짜 색깔
@@ -145,6 +166,12 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         yearLabel.text = self.dateFormatter.string(from: calendarView.currentPage)
     }
+    
+    //날짜 선택
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+            
+            
+        }
 }
 
 
