@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     
     var todoList: [TodoList] = []
     var selectedList: [TodoList] = []
-
+    
     var selectedDate = ""
     
     @IBOutlet weak var yearLabel: UILabel!
@@ -113,7 +113,36 @@ class HomeViewController: UIViewController {
             }
     }
     
-    
+    //MARK: POSTDELETE
+    func postDelete(_ parameters: DeleteTodoRequest){
+        AF.request("http://13.209.10.30:4004/todo/delete", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+            .validate()
+            .responseDecodable(of: DeleteTodoResponse.self) { [self] response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess == true {
+                        print("투두 삭제 성공")
+                        
+                        let userid = UserDefaults.standard.string(forKey: "userid")!
+                        let param = TodoListRequest(userid: userid)
+                        postTodoList(param)
+                        
+                    } else {
+                        print("투두 삭제 실패")
+                        let deleteFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        deleteFail_alert.addAction(okAction)
+                        present(deleteFail_alert, animated: false, completion: nil)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    let deleteFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    deleteFail_alert.addAction(okAction)
+                    present(deleteFail_alert, animated: false, completion: nil)
+                }
+            }
+    }
 }
 
 //MARK: 테이블뷰
@@ -122,7 +151,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     //셀크기 동적 변화
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-        }
+    }
     
     // 몇개의 Cell을 반환할지 Return하는 메소드
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -144,20 +173,36 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         self.navigationController?.pushViewController(detailVC, animated: true)
+        
+        detailVC.paramTitle = self.selectedList[indexPath.row].title
+        detailVC.paramDate = self.selectedList[indexPath.row].date
+        detailVC.paramContent = self.selectedList[indexPath.row].content
+        detailVC.paramNo = self.selectedList[indexPath.row].no
+
     }
     
-
+        //셀 밀어서 삭제
+        func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+            return true
+        }
+        //투두 삭제
+        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                
+                let tbDelete_alert = UIAlertController(title: "삭제", message: "투두를 삭제하시겠습니끼?", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                  
+                    print(self.selectedList)
+                    let userid = UserDefaults.standard.string(forKey: "userid")!
+                    let no = self.selectedList[indexPath.row].no
+                    let param = DeleteTodoRequest(no: no, userid: userid)
+                    self.postDelete(param)
+                }
+                tbDelete_alert.addAction(okAction)
+                present(tbDelete_alert, animated: false, completion: nil)
     
-    //    //셀 밀어서 삭제
-    //    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    //        return true
-    //    }
-    //    //투두 삭제
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == .delete {
-    //
-    //        }
-    //    }
+            }
+        }
 }
 
 //MARK: 캘린더 설정
@@ -188,7 +233,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     
     //날짜 선택
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-
+        
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "yyyy년MM월dd일(EEEEE)"
         dateformatter.locale = Locale(identifier: "ko_KR")

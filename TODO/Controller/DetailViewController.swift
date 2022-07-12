@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class DetailViewController: UIViewController {
     
@@ -25,6 +26,16 @@ class DetailViewController: UIViewController {
     
     let textViewPlaceHolder = "내용을 입력하세요"
     
+    var paramTitle = ""
+    var paramDate = ""
+    var paramContent = ""
+    var paramNo = 0
+    
+    enum Btntitle: String {
+        case detail = "수정하기"
+        case finsh = "완료"
+    }
+    
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +49,18 @@ class DetailViewController: UIViewController {
         setTextView()
         
         configureDatePicker()
+        
+        titleTextField.text = paramTitle
+        dateTextField.text = paramDate
+        detlTextView.text = paramContent
+        
+        detlTextView.textColor = .black
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
+    
     
     @IBAction func adaptBtnPressed(_ sender: UIButton) {
         detlTextView.isUserInteractionEnabled = true
@@ -52,6 +70,46 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func deleteBtnPressed(_ sender: UIButton) {
+        
+        let delete_alert = UIAlertController(title: "삭제", message: "삭제 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default){ (action) in
+            let userid = UserDefaults.standard.string(forKey: "userid")!
+            let no = self.paramNo
+            let param = DeleteTodoRequest(no: no, userid: userid)
+            self.postDelete(param)
+            
+        }
+        
+        delete_alert.addAction(okAction)
+        present(delete_alert, animated: false, completion: nil)
+    }
+    
+    //MARK: POSTDELETE
+    func postDelete(_ parameters: DeleteTodoRequest){
+        AF.request("http://13.209.10.30:4004/todo/delete", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+            .validate()
+            .responseDecodable(of: DeleteTodoResponse.self) { [self] response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess == true {
+                        print("투두 삭제 성공")
+                        self.navigationController?.popViewController(animated: true)
+                        
+                    } else {
+                        print("투두 삭제 실패")
+                        let deleteFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        deleteFail_alert.addAction(okAction)
+                        present(deleteFail_alert, animated: false, completion: nil)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    let deleteFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    deleteFail_alert.addAction(okAction)
+                    present(deleteFail_alert, animated: false, completion: nil)
+                }
+            }
     }
     
     //MARK: DATE PICKER
@@ -73,6 +131,7 @@ class DetailViewController: UIViewController {
         self.diaryDate = datePicker.date // datePicker 에서 선택된 date값 넘기기
         self.dateTextField.text = formmater.string(from: datePicker.date) // 포멧한 데이트 값을 텍스트 필드에 표시
     }
+    
 }
 
 //MARK: 텍스트뷰
