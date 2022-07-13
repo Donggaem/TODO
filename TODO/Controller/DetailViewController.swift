@@ -31,10 +31,7 @@ class DetailViewController: UIViewController {
     var paramContent = ""
     var paramNo = 0
     
-    enum Btntitle: String {
-        case detail = "수정하기"
-        case finsh = "완료"
-    }
+    var buttonValue = false
     
     //MARK: LifeCycle
     override func viewDidLoad() {
@@ -55,24 +52,33 @@ class DetailViewController: UIViewController {
         detlTextView.text = paramContent
         
         detlTextView.textColor = .black
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
     
+
     
     @IBAction func adaptBtnPressed(_ sender: UIButton) {
-        detlTextView.isUserInteractionEnabled = true
-        titleTextField.isUserInteractionEnabled = true
-        dateTextField.isUserInteractionEnabled = true
-        adaptBtn.setTitle("완료", for: .normal)
+        if buttonValue == false{
+            detlTextView.isUserInteractionEnabled = true
+            titleTextField.isUserInteractionEnabled = true
+            dateTextField.isUserInteractionEnabled = true
+            adaptBtn.setTitle("완료", for: .normal)
+            
+            buttonValue = true
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
+        
     }
     
     @IBAction func deleteBtnPressed(_ sender: UIButton) {
         
         let delete_alert = UIAlertController(title: "삭제", message: "삭제 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "OK", style: .default){ (action) in
+        let okAction = UIAlertAction(title: "예", style: .default){ (action) in
             let userid = UserDefaults.standard.string(forKey: "userid")!
             let no = self.paramNo
             let param = DeleteTodoRequest(no: no, userid: userid)
@@ -80,7 +86,9 @@ class DetailViewController: UIViewController {
             
         }
         
+        let noAction = UIAlertAction(title: "아니요", style: .default)
         delete_alert.addAction(okAction)
+        delete_alert.addAction(noAction)
         present(delete_alert, animated: false, completion: nil)
     }
     

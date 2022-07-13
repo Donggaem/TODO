@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     
     var todoList: [TodoList] = []
     var selectedList: [TodoList] = []
+    var events: [String] = []
     
     var selectedDate = ""
     
@@ -99,14 +100,14 @@ class HomeViewController: UIViewController {
                     } else {
                         print("추가 실패")
                         let todoFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
                         todoFail_alert.addAction(okAction)
                         present(todoFail_alert, animated: false, completion: nil)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
                     let todoFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    let okAction = UIAlertAction(title: "확인", style: .default)
                     todoFail_alert.addAction(okAction)
                     present(todoFail_alert, animated: false, completion: nil)
                 }
@@ -130,14 +131,14 @@ class HomeViewController: UIViewController {
                     } else {
                         print("투두 삭제 실패")
                         let deleteFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
                         deleteFail_alert.addAction(okAction)
                         present(deleteFail_alert, animated: false, completion: nil)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
                     let deleteFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    let okAction = UIAlertAction(title: "확인", style: .default)
                     deleteFail_alert.addAction(okAction)
                     present(deleteFail_alert, animated: false, completion: nil)
                 }
@@ -178,31 +179,35 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         detailVC.paramDate = self.selectedList[indexPath.row].date
         detailVC.paramContent = self.selectedList[indexPath.row].content
         detailVC.paramNo = self.selectedList[indexPath.row].no
-
+        
     }
     
-        //셀 밀어서 삭제
-        func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-            return true
-        }
-        //투두 삭제
-        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if editingStyle == .delete {
+    //셀 밀어서 삭제
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    //투두 삭제
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let tbDelete_alert = UIAlertController(title: "삭제", message: "투두를 삭제하시겠습니끼?", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "예", style: .default) { (action) in
                 
-                let tbDelete_alert = UIAlertController(title: "삭제", message: "투두를 삭제하시겠습니끼?", preferredStyle: UIAlertController.Style.alert)
-                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                  
-                    print(self.selectedList)
-                    let userid = UserDefaults.standard.string(forKey: "userid")!
-                    let no = self.selectedList[indexPath.row].no
-                    let param = DeleteTodoRequest(no: no, userid: userid)
-                    self.postDelete(param)
-                }
-                tbDelete_alert.addAction(okAction)
-                present(tbDelete_alert, animated: false, completion: nil)
-    
+                print(self.selectedList)
+                let userid = UserDefaults.standard.string(forKey: "userid")!
+                let no = self.selectedList[indexPath.row].no
+                let param = DeleteTodoRequest(no: no, userid: userid)
+                self.postDelete(param)
             }
+            
+            let noAction = UIAlertAction(title: "아니요", style: .default)
+            tbDelete_alert.addAction(okAction)
+            tbDelete_alert.addAction(noAction)
+            
+            present(tbDelete_alert, animated: false, completion: nil)
+            
         }
+    }
 }
 
 //MARK: 캘린더 설정
@@ -220,6 +225,14 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0 // 헤더 양 옆(전달 & 다음 달) 글씨 투명도
         calendarView.calendarHeaderView.isHidden = true // 헤더 숨기기
         calendarView.headerHeight = 0 // 헤더 높이 조정
+        
+        //이벤트 닷
+        calendarView.appearance.eventDefaultColor = UIColor.init(red: 0.231, green: 0.51, blue: 0.965, alpha: 1)
+        calendarView.appearance.eventSelectionColor = UIColor.init(red: 0.231, green: 0.51, blue: 0.965, alpha: 1)
+        
+        //오늘, 선택한 날짝 색
+        calendarView.appearance.todayColor = UIColor.init(red: 0.176, green: 0.831, blue: 0.749, alpha: 1)
+        calendarView.appearance.selectionColor = UIColor.init(red: 0.231, green: 0.51, blue: 0.965, alpha: 1)
         
         //yearLabel설정
         yearLabel.text = dateFormatter.string(from: calendarView.currentPage)
@@ -255,6 +268,28 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
             }
         }
         todoTableView.reloadData()
+    }
+    
+    func setEvents(){
+        for index in 0..<todoList.count {
+            let arr = todoList[index].date.components(separatedBy: " ")
+            events.append(arr[0])
+        }
+    }
+    
+    //이벤트 닷 표시갯수
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        setEvents()
+        let eventformatter = DateFormatter()
+        eventformatter.dateFormat = "yyyy년MM월dd일(EEEEE)"
+        eventformatter.locale = Locale(identifier: "ko_KR")
+        let eventDate = eventformatter.string(from: date)
+        
+        if events.contains(eventDate) {
+            return 1
+        } else {
+            return 0
+        }
     }
 }
 
