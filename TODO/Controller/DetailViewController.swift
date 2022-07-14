@@ -136,14 +136,14 @@ class DetailViewController: UIViewController {
     
     //MARK: POSTUPDATE
     func postUpdate(_ parameters: UpdateTodoRequest){
-        AF.request("http://13.209.10.30:4040/update", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+        AF.request("http://13.209.10.30:4004/todo/update", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
             .responseDecodable(of: UpdateTodoResponse.self) { [self] response in
                 switch response.result {
                 case .success(let response):
                     if response.isSuccess == true {
                         print("투두 수정 성공")
-                        self.navigationController?.popViewController(animated: true)
+                        print(response.message)
                         
                     } else {
                         print("투두 수정 실패")

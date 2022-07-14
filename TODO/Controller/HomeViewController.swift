@@ -62,6 +62,9 @@ class HomeViewController: UIViewController {
         let param = TodoListRequest(userid: userid)
         postTodoList(param)
         
+        todoTableView.reloadData()
+        calendarView.reloadData()
+        
         self.navigationController?.isNavigationBarHidden = true
     }
     
@@ -81,8 +84,7 @@ class HomeViewController: UIViewController {
                     if response.isSuccess == true {
                         
                         self.todoList = response.todo
-                        print(todoList)
-                        
+
                         self.selectedList.removeAll()
                         
                         for index in 0..<todoList.count {
