@@ -30,6 +30,8 @@
 		EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BA712868894E008A4927 /* DetailViewController.swift */; };
 		EBA53D89286CB2F700F8165E /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */; };
 		EBA53D8B286CCB6A00F8165E /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */; };
+		EBB6ADE0287F901200AF29A0 /* UpdateTodoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6ADDF287F901200AF29A0 /* UpdateTodoResponse.swift */; };
+		EBB6ADE2287F916B00AF29A0 /* UpdateToRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6ADE1287F916B00AF29A0 /* UpdateToRequest.swift */; };
 		EBC222E028772D8600E455B7 /* SigninRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222DF28772D8600E455B7 /* SigninRequest.swift */; };
 		EBC222E228772D9B00E455B7 /* SigninResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222E128772D9B00E455B7 /* SigninResponse.swift */; };
 		EBC222E42877442C00E455B7 /* IdCheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222E32877442C00E455B7 /* IdCheckRequest.swift */; };
@@ -65,6 +67,8 @@
 		EBA1BA712868894E008A4927 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		EBB6ADDF287F901200AF29A0 /* UpdateTodoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTodoResponse.swift; sourceTree = "<group>"; };
+		EBB6ADE1287F916B00AF29A0 /* UpdateToRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateToRequest.swift; sourceTree = "<group>"; };
 		EBC222DF28772D8600E455B7 /* SigninRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninRequest.swift; sourceTree = "<group>"; };
 		EBC222E128772D9B00E455B7 /* SigninResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninResponse.swift; sourceTree = "<group>"; };
 		EBC222E32877442C00E455B7 /* IdCheckRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdCheckRequest.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				EB87C7B62879CFA200DFC1A2 /* TodoListResponse.swift */,
 				EB87C7B82879CFC400DFC1A2 /* DeleteTodoRequest.swift */,
 				EB87C7BA2879CFD400DFC1A2 /* DeleteTodoResponse.swift */,
+				EBB6ADDF287F901200AF29A0 /* UpdateTodoResponse.swift */,
+				EBB6ADE1287F916B00AF29A0 /* UpdateToRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,10 +305,12 @@
 				EB5468362871C91E0022A99F /* LoginRequest.swift in Sources */,
 				EBE557312873331800EBA622 /* UIViewController+Extension.swift in Sources */,
 				EB2E4ECE2865FEC100DCF02E /* HomeViewController.swift in Sources */,
+				EBB6ADE2287F916B00AF29A0 /* UpdateToRequest.swift in Sources */,
 				EBC222E028772D8600E455B7 /* SigninRequest.swift in Sources */,
 				EB87C7B92879CFC400DFC1A2 /* DeleteTodoRequest.swift in Sources */,
 				EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */,
 				EBC222E42877442C00E455B7 /* IdCheckRequest.swift in Sources */,
+				EBB6ADE0287F901200AF29A0 /* UpdateTodoResponse.swift in Sources */,
 				EB4A7B2A28649C2200E0DE43 /* SigninViewController.swift in Sources */,
 				EB87C7B12879CF3200DFC1A2 /* AddTodoRequest.swift in Sources */,
 				EBC222E62877444D00E455B7 /* IdCheckResponse.swift in Sources */,

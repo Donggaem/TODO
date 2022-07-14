@@ -70,7 +70,21 @@ class DetailViewController: UIViewController {
             
             buttonValue = true
         } else {
-            self.navigationController?.popViewController(animated: true)
+            let update_alert = UIAlertController(title: "수정완료", message: "수정을 완료 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "예", style: .default){ (action) in
+                let no = self.paramNo
+                let title = self.paramTitle
+                let content = self.paramContent
+                let userid = UserDefaults.standard.string(forKey: "userid")!
+                let date = self.paramDate
+                let param = UpdateTodoRequest(no: no, title: title, content: content, userid: userid, date: date)
+                self.postUpdate(param)
+                self.navigationController?.popViewController(animated: true)
+            }
+            let noAction = UIAlertAction(title: "아니요", style: .default)
+            update_alert.addAction(okAction)
+            update_alert.addAction(noAction)
+            present(update_alert, animated: false, completion: nil)
         }
         
     }
@@ -114,6 +128,34 @@ class DetailViewController: UIViewController {
                     print(error.localizedDescription)
                     let deleteFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "OK", style: .default)
+                    deleteFail_alert.addAction(okAction)
+                    present(deleteFail_alert, animated: false, completion: nil)
+                }
+            }
+    }
+    
+    //MARK: POSTUPDATE
+    func postUpdate(_ parameters: UpdateTodoRequest){
+        AF.request("http://13.209.10.30:4040/update", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+            .validate()
+            .responseDecodable(of: UpdateTodoResponse.self) { [self] response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess == true {
+                        print("투두 수정 성공")
+                        self.navigationController?.popViewController(animated: true)
+                        
+                    } else {
+                        print("투두 수정 실패")
+                        let deleteFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
+                        deleteFail_alert.addAction(okAction)
+                        present(deleteFail_alert, animated: false, completion: nil)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    let deleteFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "확인", style: .default)
                     deleteFail_alert.addAction(okAction)
                     present(deleteFail_alert, animated: false, completion: nil)
                 }
