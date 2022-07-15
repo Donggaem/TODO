@@ -73,10 +73,10 @@ class DetailViewController: UIViewController {
             let update_alert = UIAlertController(title: "수정완료", message: "수정을 완료 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "예", style: .default){ (action) in
                 let no = self.paramNo
-                let title = self.paramTitle
-                let content = self.paramContent
+                let title = self.titleTextField.text ?? ""
+                let content = self.detlTextView.text ?? ""
                 let userid = UserDefaults.standard.string(forKey: "userid")!
-                let date = self.paramDate
+                let date = self.dateTextField.text ?? ""
                 let param = UpdateTodoRequest(no: no, title: title, content: content, userid: userid, date: date)
                 self.postUpdate(param)
                 self.navigationController?.popViewController(animated: true)
@@ -170,13 +170,13 @@ class DetailViewController: UIViewController {
         self.datePicker.addTarget(self, action: #selector(datePickerValueDidChange(_:)), for: .valueChanged)
         
         self.datePicker.locale = Locale(identifier: "ko-KR") // 한국어 설정
-        self.dateTextField.inputView = self.datePicker // 키보드대신 datePicker 보이기
+        self.dateTextField.inputView = datePicker // 키보드대신 datePicker 보이기
     }
     
     //addTarget 두번쨰 파라미터 셀렉터 메서드
     @ objc private func datePickerValueDidChange(_ datePicker: UIDatePicker){
         let formmater = DateFormatter() // 데이트 타입을 사람이 읽을 수 있도록 사람이 변환을 해주거나, 날짜 타입에서 데이트 타입을 변환을시켜주는 역할
-        formmater.dateFormat = "yyyy 년 MM 월 dd 일(EEEEE)" //데이트 포멧형식 잡기
+        formmater.dateFormat = "yyyy년MM월dd일(EEEEE)" //데이트 포멧형식 잡기
         formmater.locale = Locale(identifier: "ko_KR") // 한국어 표현
         self.diaryDate = datePicker.date // datePicker 에서 선택된 date값 넘기기
         self.dateTextField.text = formmater.string(from: datePicker.date) // 포멧한 데이트 값을 텍스트 필드에 표시

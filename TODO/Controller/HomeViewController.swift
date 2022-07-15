@@ -57,13 +57,14 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+                
         let userid = UserDefaults.standard.string(forKey: "userid")!
         let param = TodoListRequest(userid: userid)
         postTodoList(param)
         
-        todoTableView.reloadData()
-        calendarView.reloadData()
+        self.todoTableView.reloadData()
+        self.calendarView.reloadData()
+        setEvents()
         
         self.navigationController?.isNavigationBarHidden = true
     }
@@ -82,7 +83,6 @@ class HomeViewController: UIViewController {
                 switch response.result {
                 case .success(let response):
                     if response.isSuccess == true {
-                        
                         self.todoList = response.todo
 
                         self.selectedList.removeAll()
@@ -96,6 +96,7 @@ class HomeViewController: UIViewController {
                             }
                         }
                         
+                        setEvents()
                         self.todoTableView.reloadData()
                         self.calendarView.reloadData()
                         
@@ -273,6 +274,9 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     }
     
     func setEvents(){
+        
+        events.removeAll()
+        
         for index in 0..<todoList.count {
             let arr = todoList[index].date.components(separatedBy: " ")
             events.append(arr[0])
