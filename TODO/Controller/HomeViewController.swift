@@ -53,6 +53,8 @@ class HomeViewController: UIViewController {
         //테이블뷰 셀 선 없애기
         todoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
+        todoTableView.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: CGFloat.leastNonzeroMagnitude))
+        
         
     }
     
@@ -151,11 +153,6 @@ class HomeViewController: UIViewController {
 
 //MARK: 테이블뷰
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
-    
-    //셀크기 동적 변화
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
     
     // 몇개의 Cell을 반환할지 Return하는 메소드
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

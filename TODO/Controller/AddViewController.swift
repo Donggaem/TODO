@@ -105,7 +105,8 @@ extension AddViewController: UITextViewDelegate {
         
         //플레이스홀더 설정
         addTextView.text = textViewPlaceHolder
-        addTextView.textColor = .lightGray
+        addTextView.textColor = UIColor(red: 0.631, green: 0.631, blue: 0.667, alpha: 1)
+        addTextView.font = UIFont(name: "Inter-SemiBold", size: 14)
         
         theTextViewHeightConstraint.isActive = false // 스토리보드에 설정된 콘스트레이트 무시
         addTextView.sizeToFit()

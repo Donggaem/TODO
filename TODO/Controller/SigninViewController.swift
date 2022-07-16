@@ -10,6 +10,7 @@ import Alamofire
 
 class SigninViewController: UIViewController {
     
+
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var ninknameTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
@@ -17,7 +18,7 @@ class SigninViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
     
     @IBAction func signInBtn(_ sender: UIButton) {

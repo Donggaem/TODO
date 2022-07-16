@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
@@ -23,11 +26,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aW9-SB-q80">
-                                <rect key="frame" x="129" y="150" width="156" height="70"/>
+                                <rect key="frame" x="129.5" y="150" width="155.5" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="5Ht-81-yOz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="60"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -41,7 +44,7 @@
                                     <backgroundConfiguration key="background" cornerRadius="10">
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                    <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -151,11 +154,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQ9-mP-ekR">
-                                <rect key="frame" x="129" y="150" width="156" height="70"/>
+                                <rect key="frame" x="129.5" y="150" width="155.5" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="LyV-ng-gbk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="60"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -185,7 +188,7 @@
                                                             <backgroundConfiguration key="background" cornerRadius="10">
                                                                 <color key="backgroundColor" name="AccentColor"/>
                                                             </backgroundConfiguration>
-                                                            <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                            <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -226,7 +229,7 @@
                                                             <backgroundConfiguration key="background" cornerRadius="10">
                                                                 <color key="backgroundColor" name="AccentColor"/>
                                                             </backgroundConfiguration>
-                                                            <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                            <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                     </button>
@@ -289,7 +292,7 @@
                                     <backgroundConfiguration key="background" cornerRadius="10">
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                    <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>

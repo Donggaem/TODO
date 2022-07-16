@@ -6,10 +6,18 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Medium.otf">
+            <string>Inter-Medium</string>
+        </array>
+        <array key="Inter-SemiBold.otf">
+            <string>Inter-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="67" id="dob-UP-jE2" customClass="TodoTableViewCell" customModule="TODO" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" rowHeight="67" id="dob-UP-jE2" customClass="TodoTableViewCell" customModule="TODO" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="413" height="67"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dob-UP-jE2" id="cmp-HK-vri">
@@ -17,8 +25,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etd-6C-NyJ">
-                        <rect key="frame" x="25" y="4.5" width="19.5" height="13.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <rect key="frame" x="25" y="4.5" width="378" height="13.5"/>
+                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="11"/>
                         <color key="textColor" red="0.63137254901960782" green="0.63137254901960782" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -38,9 +46,9 @@
                             <color key="baseForegroundColor" name="AccentColor"/>
                         </buttonConfiguration>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llr-Vw-y6w">
-                        <rect key="frame" x="25" y="19" width="21" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llr-Vw-y6w">
+                        <rect key="frame" x="25" y="19" width="378" height="16"/>
+                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -50,9 +58,11 @@
                     <constraint firstAttribute="bottom" secondItem="Llr-Vw-y6w" secondAttribute="bottom" constant="32" id="OZn-z1-Cm4"/>
                     <constraint firstItem="eRx-aJ-PJp" firstAttribute="leading" secondItem="cmp-HK-vri" secondAttribute="leading" constant="5" id="YQl-1q-zLr"/>
                     <constraint firstItem="etd-6C-NyJ" firstAttribute="leading" secondItem="eRx-aJ-PJp" secondAttribute="trailing" constant="8" id="YaE-MA-5fT"/>
+                    <constraint firstAttribute="trailing" secondItem="Llr-Vw-y6w" secondAttribute="trailing" constant="10" id="ab3-M7-lbu"/>
                     <constraint firstItem="etd-6C-NyJ" firstAttribute="centerY" secondItem="eRx-aJ-PJp" secondAttribute="centerY" id="cE4-g2-I8S"/>
                     <constraint firstItem="eRx-aJ-PJp" firstAttribute="top" secondItem="cmp-HK-vri" secondAttribute="top" constant="5" id="crv-qz-W5Q"/>
                     <constraint firstItem="Llr-Vw-y6w" firstAttribute="top" secondItem="etd-6C-NyJ" secondAttribute="bottom" constant="1" id="ftM-X9-dLW"/>
+                    <constraint firstAttribute="trailing" secondItem="etd-6C-NyJ" secondAttribute="trailing" constant="10" id="sMC-jg-I7U"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

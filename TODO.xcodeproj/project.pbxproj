@@ -36,6 +36,7 @@
 		EBC222E228772D9B00E455B7 /* SigninResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222E128772D9B00E455B7 /* SigninResponse.swift */; };
 		EBC222E42877442C00E455B7 /* IdCheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222E32877442C00E455B7 /* IdCheckRequest.swift */; };
 		EBC222E62877444D00E455B7 /* IdCheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222E52877444D00E455B7 /* IdCheckResponse.swift */; };
+		EBD9DF602882F15B00407AF1 /* inter-cufonfonts in Resources */ = {isa = PBXBuildFile; fileRef = EBD9DF5F2882F15B00407AF1 /* inter-cufonfonts */; };
 		EBE557312873331800EBA622 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE557302873331800EBA622 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		EBC222E128772D9B00E455B7 /* SigninResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninResponse.swift; sourceTree = "<group>"; };
 		EBC222E32877442C00E455B7 /* IdCheckRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdCheckRequest.swift; sourceTree = "<group>"; };
 		EBC222E52877444D00E455B7 /* IdCheckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdCheckResponse.swift; sourceTree = "<group>"; };
+		EBD9DF5F2882F15B00407AF1 /* inter-cufonfonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "inter-cufonfonts"; path = "../../../../Downloads/inter-cufonfonts"; sourceTree = "<group>"; };
 		EBE557302873331800EBA622 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 				EBA03E1E2861968D00564472 /* SceneDelegate.swift */,
 				EBA03E252861969100564472 /* Assets.xcassets */,
 				EBA03E2A2861969100564472 /* Info.plist */,
+				EBD9DF5F2882F15B00407AF1 /* inter-cufonfonts */,
 				EBA03E332861ADE900564472 /* roboto */,
 				EBE557302873331800EBA622 /* UIViewController+Extension.swift */,
 			);
@@ -249,6 +252,7 @@
 				EBA03E262861969100564472 /* Assets.xcassets in Resources */,
 				EBA03E242861968D00564472 /* Main.storyboard in Resources */,
 				EBA03E342861ADE900564472 /* roboto in Resources */,
+				EBD9DF602882F15B00407AF1 /* inter-cufonfonts in Resources */,
 				EB2E4ECC2865FD6F00DCF02E /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
