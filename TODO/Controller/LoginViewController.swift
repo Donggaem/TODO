@@ -12,12 +12,21 @@ class LoginViewController: UIViewController {
     
     
     @IBOutlet weak var idTextField: UITextField!
+//    {
+//        didSet{
+//            idTextField.font = UIFont(name: "Roboto-Regular", size: 20)
+//            let idPlaceholder = NSAttributedString(string: "ID", attributes:[NSAttributedString.Key.foregroundColor : UIColor.init(red: 0.512, green: 0.512, blue: 0.512, alpha: 1), NSAttributedString.Key.font : UIFont.init(name: "Roboto-Regular", size: 20) ?? "System"])
+//            
+//            idTextField.attributedPlaceholder = idPlaceholder
+//        }
+//    }
     @IBOutlet weak var passwordTextField: UITextField!
     
+                                                                   
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
     
     //MARK: IBAction
