@@ -252,6 +252,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addBtn" destination="lKP-IT-Ohz" id="cx7-3d-dyB"/>
                         <outlet property="addTextView" destination="hax-w7-6Js" id="Hr9-5O-QFp"/>
                         <outlet property="dateTextField" destination="XD7-Xh-F3b" id="wz8-mb-HXG"/>
                         <outlet property="theTextViewHeightConstraint" destination="Yw9-pV-586" id="6ZY-Lh-JBv"/>

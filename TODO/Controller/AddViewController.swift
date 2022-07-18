@@ -15,6 +15,8 @@ class AddViewController: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
     
+    @IBOutlet weak var addBtn: UIButton!
+    
     //date picker 로 바꾸기 프로퍼티
     private let datePicker = UIDatePicker()
     private var diaryDate: Date? // 데이트 피커 에서 선택된 데이트 값 (옵셔널)
@@ -28,6 +30,14 @@ class AddViewController: UIViewController {
         addTextView.delegate = self
         setTextView()
         configureDatePicker()
+        
+        //버튼 그림자
+        addBtn.layer.cornerRadius = 10
+        addBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor // 색깔
+        addBtn.layer.masksToBounds = false
+        addBtn.layer.shadowOffset = CGSize(width:0, height: 4) // 위치조정
+        addBtn.layer.shadowRadius = 4 // 반경
+        addBtn.layer.shadowOpacity = 1 // alpha값
         
     }
     
@@ -103,10 +113,10 @@ extension AddViewController: UITextViewDelegate {
     
     func setTextView(){
         
+        
         //플레이스홀더 설정
         addTextView.text = textViewPlaceHolder
-        addTextView.textColor = UIColor(red: 0.631, green: 0.631, blue: 0.667, alpha: 1)
-        addTextView.font = UIFont(name: "Inter-SemiBold", size: 20)
+        addTextView.textColor = .lightGray
         
         theTextViewHeightConstraint.isActive = false // 스토리보드에 설정된 콘스트레이트 무시
         addTextView.sizeToFit()

@@ -53,6 +53,22 @@ class DetailViewController: UIViewController {
         
         detlTextView.textColor = .black
         
+        //버튼 그림자
+        deleteBtn.layer.cornerRadius = 10
+        deleteBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor // 색깔
+        deleteBtn.layer.masksToBounds = false
+        deleteBtn.layer.shadowOffset = CGSize(width:0, height: 4) // 위치조정
+        deleteBtn.layer.shadowRadius = 4 // 반경
+        deleteBtn.layer.shadowOpacity = 1 // alpha값
+        
+        //버튼 그림자
+        adaptBtn.layer.cornerRadius = 10
+        adaptBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor // 색깔
+        adaptBtn.layer.masksToBounds = false
+        adaptBtn.layer.shadowOffset = CGSize(width:0, height: 4) // 위치조정
+        adaptBtn.layer.shadowRadius = 4 // 반경
+        adaptBtn.layer.shadowOpacity = 1 // alpha값
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="70" id="5Ht-81-yOz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="60"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xa9-hl-636">
@@ -86,7 +86,6 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ID" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6vS-VS-YgL">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="28"/>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -138,7 +137,9 @@
                     <navigationItem key="navigationItem" id="fzd-8E-4ce"/>
                     <connections>
                         <outlet property="idTextField" destination="6vS-VS-YgL" id="U0V-U4-quS"/>
+                        <outlet property="loginBtn" destination="xa9-hl-636" id="29A-Ye-8oD"/>
                         <outlet property="passwordTextField" destination="GzZ-pM-UJZ" id="a34-DC-xL2"/>
+                        <outlet property="todoLabel" destination="aW9-SB-q80" id="jkc-KN-nj1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -159,7 +160,7 @@
                                     <constraint firstAttribute="height" constant="70" id="LyV-ng-gbk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="60"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="uQM-PE-ZwG" userLabel="입력 Stack View">
@@ -318,6 +319,7 @@
                         <outlet property="ninknameTextField" destination="t8p-a1-N9H" id="ieo-vt-PRF"/>
                         <outlet property="pwCheckField" destination="aFq-Jb-Q5j" id="ghw-uy-ZLg"/>
                         <outlet property="pwTextField" destination="6lB-fl-aSR" id="xbY-Rg-X85"/>
+                        <outlet property="signinBtn" destination="LUz-gF-400" id="MHk-9D-yrr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnX-bW-dDu" sceneMemberID="firstResponder"/>

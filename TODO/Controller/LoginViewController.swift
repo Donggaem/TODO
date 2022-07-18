@@ -12,21 +12,23 @@ class LoginViewController: UIViewController {
     
     
     @IBOutlet weak var idTextField: UITextField!
-//    {
-//        didSet{
-//            idTextField.font = UIFont(name: "Roboto-Regular", size: 20)
-//            let idPlaceholder = NSAttributedString(string: "ID", attributes:[NSAttributedString.Key.foregroundColor : UIColor.init(red: 0.512, green: 0.512, blue: 0.512, alpha: 1), NSAttributedString.Key.font : UIFont.init(name: "Roboto-Regular", size: 20) ?? "System"])
-//            
-//            idTextField.attributedPlaceholder = idPlaceholder
-//        }
-//    }
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var todoLabel: UILabel!
     
-                                                                   
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //버튼 그림자
+        loginBtn.layer.cornerRadius = 10
+        loginBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor // 색깔
+        loginBtn.layer.masksToBounds = false
+        loginBtn.layer.shadowOffset = CGSize(width:4, height: 4) // 위치조정
+        loginBtn.layer.shadowRadius = 10 // 반경
+        loginBtn.layer.shadowOpacity = 1 // alpha값
+        
+        todoLabel.frame = CGRect(x: 0, y: 0, width: 158, height: 70)
     }
     
     //MARK: IBAction

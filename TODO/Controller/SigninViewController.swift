@@ -16,9 +16,18 @@ class SigninViewController: UIViewController {
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var pwCheckField: UITextField!
     
+    @IBOutlet weak var signinBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //버튼 그림자
+        signinBtn.layer.cornerRadius = 10
+        signinBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor // 색깔
+        signinBtn.layer.masksToBounds = false  
+        signinBtn.layer.shadowOffset = CGSize(width:4, height: 4) // 위치조정
+        signinBtn.layer.shadowRadius = 10 // 반경
+        signinBtn.layer.shadowOpacity = 1 // alpha값
     }
     
     @IBAction func signInBtn(_ sender: UIButton) {
