@@ -28,7 +28,6 @@ class LoginViewController: UIViewController {
         loginBtn.layer.shadowRadius = 10 // 반경
         loginBtn.layer.shadowOpacity = 1 // alpha값
         
-        todoLabel.frame = CGRect(x: 0, y: 0, width: 158, height: 70)
     }
     
     //MARK: IBAction
