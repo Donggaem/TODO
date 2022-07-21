@@ -11,7 +11,7 @@ struct AddTodoRequest: Encodable {
     
     var title: String
     var content: String
-    var userid: String
+//    var userid: String
     var date: String
     
 }

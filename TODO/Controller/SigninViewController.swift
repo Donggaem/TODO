@@ -36,7 +36,7 @@ class SigninViewController: UIViewController {
         let nickname = ninknameTextField.text ?? ""
         let pwCheck = pwCheckField.text ?? ""
         
-        let param = SigninRequest(username: nickname, userid: id, userpw: pw, userpw_check: pwCheck)
+        let param = SigninRequest(user_name: nickname, user_id: id, user_pw: pw, user_confirmPw: pwCheck)
         postSignin(param)
         
     }
@@ -50,7 +50,7 @@ class SigninViewController: UIViewController {
     
     //MARK: POSTSIGIN
     func postSignin(_ parameters: SigninRequest){
-        AF.request("http://13.209.10.30:4004/user", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+        AF.request("http://15.164.102.4:3001/enroll", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
             .responseDecodable(of: SigninResponse.self) { [self] response in
                 switch response.result {

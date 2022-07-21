@@ -9,9 +9,9 @@ import Foundation
 
 struct SigninRequest: Encodable {
     
-    var username: String
-    var userid: String
-    var userpw: String
-    var userpw_check: String
+    var user_name: String
+    var user_id: String
+    var user_pw: String
+    var user_confirmPw: String
     
 }

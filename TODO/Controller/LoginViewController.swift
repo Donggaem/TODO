@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var todoLabel: UILabel!
     
+//    let jsonObj: [String: Any] = [:]
+    
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +44,22 @@ class LoginViewController: UIViewController {
         let id = idTextField.text ?? ""
         let pw = passwordTextField.text ?? ""
         
-        let param = LoginRequest(userid: id, userpw: pw)
+        let param = LoginRequest(user_id: id, user_pw: pw)
         postLogin(param)
     }
     
     func postLogin(_ parameters: LoginRequest){
-        AF.request("http://13.209.10.30:4004/user/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+        AF.request("http://15.164.102.4:3001/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
             .responseDecodable(of: LoginResponse.self) { [self] response in
                 switch response.result {
                 case .success(let response):
                     if response.isSuccess == true {
+                        
+//                        let accessToken = jsonObj["access_token"] as! String
+//                        let tk = TokenUtils()
+//                        tk.create("http://15.164.102.4:3001/login", account: "accessToken", value: accessToken)
+                        
                         print("로그인 성공")
                         UserDefaults.standard.set(idTextField.text, forKey: "userid")
                         let storyBoard = UIStoryboard(name: "Home", bundle: nil)
