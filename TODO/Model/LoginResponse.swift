@@ -13,5 +13,9 @@ struct LoginResponse: Decodable {
     var isSuccess: Bool
     var code: Int
     var message: String
-    
+    var data: token
+}
+
+struct token: Decodable{
+    var token: String
 }

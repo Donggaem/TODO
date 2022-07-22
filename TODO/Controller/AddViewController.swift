@@ -49,7 +49,6 @@ class AddViewController: UIViewController {
         let title = titleTextField.text ?? ""
         let content = addTextView.text ?? ""
         let date = dateTextField.text ?? ""
-//        let userid = UserDefaults.standard.string(forKey: "userid")!
         
         let param = AddTodoRequest(title: title, content: content, date: date)
         postAddTodo(param)
@@ -69,20 +68,26 @@ class AddViewController: UIViewController {
     //addTarget 두번쨰 파라미터 셀렉터 메서드
     @ objc private func datePickerValueDidChange(_ datePicker: UIDatePicker){
         let formmater = DateFormatter() // 데이트 타입을 사람이 읽을 수 있도록 사람이 변환을 해주거나, 날짜 타입에서 데이트 타입을 변환을시켜주는 역할
-        formmater.dateFormat = "yyyy년MM월dd일(EEEEE)" //데이트 포멧형식 잡기
+        formmater.dateFormat = "yyyy-MM-dd" //데이트 포멧형식 잡기
         formmater.locale = Locale(identifier: "ko_KR") // 한국어 표현
         self.diaryDate = datePicker.date // datePicker 에서 선택된 date값 넘기기
         self.dateTextField.text = formmater.string(from: datePicker.date) // 포멧한 데이트 값을 텍스트 필드에 표시
     }
     
+
     //MARK: POST ADDTODO
+    let header: HTTPHeaders = ["authorization": UserDefaults.standard.string(forKey: "data")!]
     func postAddTodo(_ parameters: AddTodoRequest){
-        AF.request("http://15.164.102.4:3001/todo", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+        AF.request("http://15.164.102.4:3001/todo", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: AddTodoResponse.self) { [self] response in
                 switch response.result {
                 case .success(let response):
+                    print(response)
                     if response.isSuccess == true {
+                        
+                        UserDefaults.standard.set(dateTextField.text, forKey: "date")
+                        
                         let addTodo_alert = UIAlertController(title: "추가 완료", message: response.message, preferredStyle: UIAlertController.Style.alert)
                         let okAction = UIAlertAction(title: "OK", style: .default) {
                             (action) in self.navigationController?.popViewController(animated: true)

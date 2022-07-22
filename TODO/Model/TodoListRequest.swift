@@ -9,6 +9,5 @@ import Foundation
 
 struct TodoListRequest: Encodable {
    
-    var userid: String
-    
+    var date: String
 }

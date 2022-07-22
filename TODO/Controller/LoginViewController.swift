@@ -56,12 +56,12 @@ class LoginViewController: UIViewController {
                 case .success(let response):
                     if response.isSuccess == true {
                         
-//                        let accessToken = jsonObj["access_token"] as! String
-//                        let tk = TokenUtils()
-//                        tk.create("http://15.164.102.4:3001/login", account: "accessToken", value: accessToken)
-                        
                         print("로그인 성공")
-                        UserDefaults.standard.set(idTextField.text, forKey: "userid")
+                        UserDefaults.standard.set(idTextField.text, forKey: "user_id")
+                        UserDefaults.standard.set(response.data.token, forKey: "data")
+
+                        print(response.data)
+                        
                         let storyBoard = UIStoryboard(name: "Home", bundle: nil)
                         let homeNav = storyBoard.instantiateViewController(identifier: "HomeNav")
                         self.changeRootViewController(homeNav)

@@ -8,9 +8,8 @@
 import Foundation
 
 struct UpdateTodoRequest: Encodable{
-    var no: Int
     var title: String
     var content: String
-    var userid: String
+    var id: String
     var date: String
 }

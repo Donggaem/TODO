@@ -8,6 +8,7 @@
 import Foundation
 
 struct UpdateTodoResponse: Decodable {
+    
     var isSuccess: Bool
     var code: Int
     var message: String

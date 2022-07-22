@@ -9,6 +9,5 @@ import Foundation
 
 struct DeleteTodoRequest: Encodable {
     
-    var no: Int
-    var userid: String
+    var id: String
 }
