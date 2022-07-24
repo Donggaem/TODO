@@ -78,7 +78,7 @@ class AddViewController: UIViewController {
     //MARK: POST ADDTODO
     let header: HTTPHeaders = ["authorization": UserDefaults.standard.string(forKey: "data")!]
     func postAddTodo(_ parameters: AddTodoRequest){
-        AF.request("http://15.164.102.4:3001/todo", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
+        AF.request(TodoURL.baseURL, method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: AddTodoResponse.self) { [self] response in
                 switch response.result {

@@ -12,14 +12,19 @@ struct TodoListResponse: Decodable {
     var isSuccess: Bool
     var code: Int
     var message: String
-    var data: [findedTodo]
+    var data: todo?
 }
 
-struct findedTodo: Decodable {
+struct todo: Decodable {
     
-    var title: String
-    var content: String
+    var findedTodo: [Object]
+
+}
+
+struct Object: Decodable {
+    
     var id: String
     var date: String
-    
+    var title: String
+    var content: String
 }

@@ -12,8 +12,8 @@ import Alamofire
 
 class HomeViewController: UIViewController {
     
-    var todoList: [findedTodo] = []
-    var selectedList: [findedTodo] = []
+    var todoList: [Object] = []
+    var selectedList: [Object] = []
     var events: [String] = []
     
     var selectedDate = ""
@@ -56,15 +56,11 @@ class HomeViewController: UIViewController {
         
         todoTableView.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: CGFloat.leastNonzeroMagnitude))
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-                
-//        let userid = UserDefaults.standard.string(forKey: "user_id")!
-//        let date = selectedDate
-//        let param = TodoListRequest(date: date)
-//        postTodoList(param)
+                    
+        getTodo()
         
         self.todoTableView.reloadData()
         self.calendarView.reloadData()
@@ -80,59 +76,79 @@ class HomeViewController: UIViewController {
 
     //MARK: POSTLIST
     let header: HTTPHeaders = ["authorization": UserDefaults.standard.string(forKey: "data")!]
-    func postTodoList(_ parameters: TodoListRequest){
-        AF.request("http://15.164.102.4:3001/todo", method: .get, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
-            .validate()
-            .responseDecodable(of: TodoListResponse.self) { [self] response in
-                switch response.result {
-                case .success(let response):
-                    print(response.data)
-                    print(todoList)
-                    print(selectedList)
-
-                    if response.isSuccess == true {
-                        
-                        self.todoList = response.data
-                        print(todoList)
-                        self.selectedList = todoList
-                        print(selectedList)
+//    func postTodoList(_ parameters: TodoListRequest){
+//        AF.request("http://15.164.102.4:3001/todo", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
+//            .validate()
+//            .responseDecodable(of: TodoListResponse.self) { [self] response in
+//                switch response.result {
+//                case .success(let response):
+//                    if response.isSuccess == true {
+//
+//                        self.todoList = response.data!
+//                        print(todoList)
+//                        self.selectedList = todoList
+//                        print(selectedList)
 //
 //                        setEvents()
 //                        self.todoTableView.reloadData()
 //                        self.calendarView.reloadData()
-                        
-                    } else {
-                        print("추가 실패")
-                        let todoFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
-                        let okAction = UIAlertAction(title: "확인", style: .default)
-                        todoFail_alert.addAction(okAction)
-                        present(todoFail_alert, animated: false, completion: nil)
+//
+//                    } else {
+//                        print("조회 실패")
+//                        let todoFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
+//                        let okAction = UIAlertAction(title: "확인", style: .default)
+//                        todoFail_alert.addAction(okAction)
+//                        present(todoFail_alert, animated: false, completion: nil)
+//                    }
+//                case .failure(let error):
+//                    print(error.localizedDescription)
+//                    let todoFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
+//                    let okAction = UIAlertAction(title: "확인", style: .default)
+//                    todoFail_alert.addAction(okAction)
+//                    present(todoFail_alert, animated: false, completion: nil)
+//                }
+//            }
+//    }
+    
+    func getTodo() {
+            AF.request("\(TodoURL.baseURL)/\(selectedDate)", method: .get, headers: header)
+                .validate()
+                .responseDecodable(of: TodoListResponse.self) { response in
+                    switch response.result {
+                    case .success(let response):
+                        if response.isSuccess == true {
+
+                            self.selectedList.removeAll()
+
+                            self.selectedList = response.data?.findedTodo ?? []
+                            print(self.selectedList)
+                            
+//                            self.setEvents()
+                            self.todoTableView.reloadData()
+                            self.calendarView.reloadData()
+
+
+                        } else {
+                            print("조회실패")
+                        }
+                    case .failure(let error):
+                        self.selectedList.removeAll()
+                         print("failure: \(error.localizedDescription)")
                     }
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    let todoFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "확인", style: .default)
-                    todoFail_alert.addAction(okAction)
-                    present(todoFail_alert, animated: false, completion: nil)
                 }
-            }
-    }
+        }
     
     //MARK: POSTDELETE
     func postDelete(_ parameters: DeleteTodoRequest){
-        AF.request("http://15.164.102.4:3001/todo", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
+        AF.request(TodoURL.baseURL, method: .delete, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: DeleteTodoResponse.self) { [self] response in
                 switch response.result {
                 case .success(let response):
                     if response.isSuccess == true {
                         print("투두 삭제 성공")
-                        
-//                        let userid = UserDefaults.standard.string(forKey: "userid")!
-                        let date = UserDefaults.standard.string(forKey: "date")!
-
-                        let param = TodoListRequest(date: date )
-                        postTodoList(param)
+                        print(response)
+                        getTodo()
                         
                     } else {
                         print("투두 삭제 실패")
@@ -175,7 +191,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         self.navigationController?.pushViewController(detailVC, animated: true)
+                
+        print(self.selectedList[indexPath.row].id)
         
+        detailVC.paramuuid = self.selectedList[indexPath.row].id
         detailVC.paramTitle = self.selectedList[indexPath.row].title
         detailVC.paramDate = self.selectedList[indexPath.row].date
         detailVC.paramContent = self.selectedList[indexPath.row].content
@@ -194,8 +213,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
             let okAction = UIAlertAction(title: "예", style: .default) { (action) in
                 
                 print(self.selectedList)
-                let userid = UserDefaults.standard.string(forKey: "userid")!
-                let param = DeleteTodoRequest(id: userid)
+                let uuid = self.selectedList[indexPath.row].id
+                let param = DeleteTodoRequest(id: uuid )
                 self.postDelete(param)
             }
             
@@ -246,27 +265,37 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     //날짜 선택
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
+        selectedDate = ""
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy-MM-dd"
+//        dateformatter.locale = Locale(identifier: "ko_KR")
+        selectedDate = dateformatter.string(from: date)
+        print(selectedDate)
+        
+        getTodo()
+
+        todoTableView.reloadData()
  
     }
     
-    func setEvents(){
-        selectedList = todoList
-    }
-    
-    //이벤트 닷 표시갯수
-    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        setEvents()
-        let eventformatter = DateFormatter()
-        eventformatter.dateFormat = "yyyy-MM-dd"
-        eventformatter.locale = Locale(identifier: "ko_KR")
-        let eventDate = eventformatter.string(from: date)
-        
-        if events.contains(eventDate) {
-            return 1
-        } else {
-            return 0
-        }
-    }
+//    func setEvents(){
+//        selectedList = todoList
+//    }
+//
+//    //이벤트 닷 표시갯수
+//    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+//        setEvents()
+//        let eventformatter = DateFormatter()
+//        eventformatter.dateFormat = "yyyy-MM-dd"
+//        eventformatter.locale = Locale(identifier: "ko_KR")
+//        let eventDate = eventformatter.string(from: date)
+//
+//        if events.contains(eventDate) {
+//            return 1
+//        } else {
+//            return 0
+//        }
+//    }
 }
 
 

@@ -57,7 +57,6 @@ class LoginViewController: UIViewController {
                     if response.isSuccess == true {
                         
                         print("로그인 성공")
-                        UserDefaults.standard.set(idTextField.text, forKey: "user_id")
                         UserDefaults.standard.set(response.data.token, forKey: "data")
 
                         print(response.data)

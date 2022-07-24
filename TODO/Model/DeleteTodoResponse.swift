@@ -17,8 +17,8 @@ struct DeleteTodoResponse: Decodable {
 
 struct deletedTodo: Decodable {
     
+    var date: String
     var title: String
     var content: String
-    var date: String
     
 }

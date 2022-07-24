@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
     var paramTitle = ""
     var paramDate = ""
     var paramContent = ""
-    var paramNo = 0
+    var paramuuid = ""
     
     var buttonValue = false
     
@@ -92,7 +92,7 @@ class DetailViewController: UIViewController {
                 let content = self.detlTextView.text ?? ""
                 let userid = UserDefaults.standard.string(forKey: "userid")!
                 let date = self.dateTextField.text ?? ""
-                let param = UpdateTodoRequest(title: title, content: content, id: userid, date: date)
+                let param = UpdateTodoRequest(id: title, date: content, title: userid, content: date)
                 self.postUpdate(param)
                 self.navigationController?.popViewController(animated: true)
             }
@@ -108,8 +108,8 @@ class DetailViewController: UIViewController {
         
         let delete_alert = UIAlertController(title: "삭제", message: "삭제 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "예", style: .default){ (action) in
-            let userid = UserDefaults.standard.string(forKey: "userid")!
-            let param = DeleteTodoRequest(id: userid)
+            let uuid = self.paramuuid
+            let param = DeleteTodoRequest(id: uuid)
             self.postDelete(param)
             
         }
@@ -123,7 +123,7 @@ class DetailViewController: UIViewController {
     //MARK: POSTDELETE
     let header: HTTPHeaders = ["authorization": UserDefaults.standard.string(forKey: "data")!]
     func postDelete(_ parameters: DeleteTodoRequest){
-        AF.request("http://15.164.102.4:3001/todo", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
+        AF.request(TodoURL.baseURL, method: .delete, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: DeleteTodoResponse.self) { [self] response in
                 switch response.result {
@@ -151,7 +151,7 @@ class DetailViewController: UIViewController {
     
     //MARK: POSTUPDATE
     func postUpdate(_ parameters: UpdateTodoRequest){
-        AF.request("http://15.164.102.4:3001/todo", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
+        AF.request(TodoURL.baseURL, method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: UpdateTodoResponse.self) { [self] response in
                 switch response.result {

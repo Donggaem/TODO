@@ -37,6 +37,7 @@
 		EBC222E42877442C00E455B7 /* IdCheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222E32877442C00E455B7 /* IdCheckRequest.swift */; };
 		EBC222E62877444D00E455B7 /* IdCheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222E52877444D00E455B7 /* IdCheckResponse.swift */; };
 		EBD9DF602882F15B00407AF1 /* inter-cufonfonts in Resources */ = {isa = PBXBuildFile; fileRef = EBD9DF5F2882F15B00407AF1 /* inter-cufonfonts */; };
+		EBDFF297288D038C00BDB8FC /* TodoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF296288D038C00BDB8FC /* TodoURL.swift */; };
 		EBE557312873331800EBA622 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE557302873331800EBA622 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		EBC222E32877442C00E455B7 /* IdCheckRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdCheckRequest.swift; sourceTree = "<group>"; };
 		EBC222E52877444D00E455B7 /* IdCheckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdCheckResponse.swift; sourceTree = "<group>"; };
 		EBD9DF5F2882F15B00407AF1 /* inter-cufonfonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "inter-cufonfonts"; path = "../../../../Downloads/inter-cufonfonts"; sourceTree = "<group>"; };
+		EBDFF296288D038C00BDB8FC /* TodoURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoURL.swift; sourceTree = "<group>"; };
 		EBE557302873331800EBA622 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,8 +170,9 @@
 				EB87C7B62879CFA200DFC1A2 /* TodoListResponse.swift */,
 				EB87C7B82879CFC400DFC1A2 /* DeleteTodoRequest.swift */,
 				EB87C7BA2879CFD400DFC1A2 /* DeleteTodoResponse.swift */,
-				EBB6ADDF287F901200AF29A0 /* UpdateTodoResponse.swift */,
 				EBB6ADE1287F916B00AF29A0 /* UpdateToRequest.swift */,
+				EBB6ADDF287F901200AF29A0 /* UpdateTodoResponse.swift */,
+				EBDFF296288D038C00BDB8FC /* TodoURL.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */,
 				EBC222E42877442C00E455B7 /* IdCheckRequest.swift in Sources */,
 				EBB6ADE0287F901200AF29A0 /* UpdateTodoResponse.swift in Sources */,
+				EBDFF297288D038C00BDB8FC /* TodoURL.swift in Sources */,
 				EB4A7B2A28649C2200E0DE43 /* SigninViewController.swift in Sources */,
 				EB87C7B12879CF3200DFC1A2 /* AddTodoRequest.swift in Sources */,
 				EBC222E62877444D00E455B7 /* IdCheckResponse.swift in Sources */,
