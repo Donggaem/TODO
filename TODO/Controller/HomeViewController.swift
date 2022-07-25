@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
         let date = NSDate()
         let toDayformatter = DateFormatter()
         toDayformatter.dateFormat = "yyyy-MM-dd"
-//        toDayformatter.locale = Locale(identifier: "ko_KR")
+        //        toDayformatter.locale = Locale(identifier: "ko_KR")
         selectedDate = toDayformatter.string(from: date as Date)
         print(selectedDate)
         
@@ -60,9 +60,11 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-                    
+        
+        
         getTodo()
         getAllTodo()
+        setEvents()
         
         self.todoTableView.reloadData()
         self.calendarView.reloadData()
@@ -75,62 +77,62 @@ class HomeViewController: UIViewController {
         let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
         self.navigationController?.pushViewController(addVC, animated: true)
     }
-
+    
     //MARK: GET TODOLIST
     let header: HTTPHeaders = ["authorization": UserDefaults.standard.string(forKey: "data")!]
     func getTodo() {
-            AF.request("\(TodoURL.baseURL)/\(selectedDate)", method: .get, headers: header)
-                .validate()
-                .responseDecodable(of: TodoListResponse.self) { response in
-                    switch response.result {
-                    case .success(let response):
-                        if response.isSuccess == true {
-
-                            self.selectedList.removeAll()
-
-                            self.selectedList = response.data?.findedTodo ?? []
-                            print(self.selectedList)
-                            
-                            self.todoTableView.reloadData()
-                            self.calendarView.reloadData()
-
-
-                        } else {
-                            print("조회실패")
-                        }
-                    case .failure(let error):
+        AF.request("\(TodoURL.baseURL)/\(selectedDate)", method: .get, headers: header)
+            .validate()
+            .responseDecodable(of: TodoListResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess == true {
+                        
                         self.selectedList.removeAll()
-                         print("failure: \(error.localizedDescription)")
+                        
+                        self.selectedList = response.data?.findedTodo ?? []
+                        print(self.selectedList)
+                        
+                        self.todoTableView.reloadData()
+                        self.calendarView.reloadData()
+                        
+                        
+                    } else {
+                        print("조회실패")
                     }
+                case .failure(let error):
+                    self.selectedList.removeAll()
+                    print("failure: \(error.localizedDescription)")
                 }
-        }
+            }
+    }
     
     //MARK: GET ALLTODOLIST
     func getAllTodo() {
-            AF.request(TodoURL.baseURL, method: .get, headers: header)
-                .validate()
-                .responseDecodable(of: AllTodoListResponse.self) { response in
-                    switch response.result {
-                    case .success(let response):
-                        if response.isSuccess == true {
-
-                            self.todoList = response.data?.findedAllTodo ?? []
-                            print(self.todoList)
-                            
-                            self.setEvents()
-                            self.todoTableView.reloadData()
-                            self.calendarView.reloadData()
-
-
-                        } else {
-                            print("조회실패")
-                        }
-                    case .failure(let error):
-                        self.selectedList.removeAll()
-                         print("failure: \(error.localizedDescription)")
+        AF.request(TodoURL.baseURL, method: .get, headers: header)
+            .validate()
+            .responseDecodable(of: AllTodoListResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess == true {
+                        
+                        self.todoList = response.data?.findedAllTodo ?? []
+                        print(self.todoList)
+                        
+                        self.setEvents()
+                        self.todoTableView.reloadData()
+                        self.calendarView.reloadData()
+                        
+                        
+                    } else {
+                        print("조회실패")
                     }
+                case .failure(let error):
+                    self.selectedList.removeAll()
+                    print("failure: \(error.localizedDescription)")
                 }
-        }
+            }
+    }
     
     //MARK: DELETETODO
     func postDelete(_ parameters: DeleteTodoRequest){
@@ -185,7 +187,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         self.navigationController?.pushViewController(detailVC, animated: true)
-                
+        
         print(self.selectedList[indexPath.row].id)
         
         detailVC.paramuuid = self.selectedList[indexPath.row].id
@@ -266,9 +268,9 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         print(selectedDate)
         
         getTodo()
-
+        
         todoTableView.reloadData()
- 
+        
     }
     
     func setEvents(){
@@ -278,16 +280,15 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
             let arr = todoList[index].date.components(separatedBy: "T00:00:00.000Z")
             events.append(arr[0])
         }
-        print(events)
     }
-
+    
     //이벤트 닷 표시갯수
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         setEvents()
         let eventformatter = DateFormatter()
         eventformatter.dateFormat = "yyyy-MM-dd"
         let eventDate = eventformatter.string(from: date)
-
+        
         if events.contains(eventDate) {
             return 1
         } else {

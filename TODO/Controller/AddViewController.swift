@@ -28,9 +28,10 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         
         addTextView.delegate = self
+        dateTextField.delegate = self
         setTextView()
         configureDatePicker()
-        
+                
         //버튼 그림자
         addBtn.layer.cornerRadius = 10
         addBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor // 색깔
@@ -39,11 +40,14 @@ class AddViewController: UIViewController {
         addBtn.layer.shadowRadius = 4 // 반경
         addBtn.layer.shadowOpacity = 1 // alpha값
         
+        self.addTextView.textContainerInset =
+        UIEdgeInsets(top: 0, left: -addTextView.textContainer.lineFragmentPadding, bottom: 0, right: -addTextView.textContainer.lineFragmentPadding)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
+    
     
     @IBAction func addBtnPressed(_ sender: UIButton) {
         let title = titleTextField.text ?? ""
@@ -54,6 +58,15 @@ class AddViewController: UIViewController {
         postAddTodo(param)
     }
     
+    @IBAction func dateEdit(_ sender: UITextField) {
+        let date = NSDate()
+        let formater = DateFormatter() // 데이트 타입을 사람이 읽을 수 있도록 사람이 변환을 해주거나, 날짜 타입에서 데이트 타입을 변환을시켜주는 역할
+        formater.dateFormat = "yyyy-MM-dd"
+        self.dateTextField.text = formater.string(from: date as Date)
+    }
+    
+    
+    
     //MARK: DATE PICKER
     
     private func configureDatePicker(){
@@ -63,6 +76,7 @@ class AddViewController: UIViewController {
         
         self.datePicker.locale = Locale(identifier: "ko-KR") // 한국어 설정
         self.dateTextField.inputView = self.datePicker // 키보드대신 datePicker 보이기
+        
     }
     
     //addTarget 두번쨰 파라미터 셀렉터 메서드
@@ -113,6 +127,15 @@ class AddViewController: UIViewController {
     }
 }
 
+//MARK: 데이트 텍스트필드]
+extension AddViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+            return false
+        }
+}
+
 //MARK: 텍스트뷰
 extension AddViewController: UITextViewDelegate {
     
@@ -121,7 +144,8 @@ extension AddViewController: UITextViewDelegate {
         
         //플레이스홀더 설정
         addTextView.text = textViewPlaceHolder
-        addTextView.textColor = .lightGray
+        addTextView.textColor = .placeholderText
+        addTextView.font = .systemFont(ofSize: 14.5)
         
         theTextViewHeightConstraint.isActive = false // 스토리보드에 설정된 콘스트레이트 무시
         addTextView.sizeToFit()
@@ -134,6 +158,7 @@ extension AddViewController: UITextViewDelegate {
         if textView.text == textViewPlaceHolder {
             textView.text = nil
             textView.textColor = .black
+            
         }
     }
     
@@ -141,7 +166,8 @@ extension AddViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             textView.text = textViewPlaceHolder
-            textView.textColor = .lightGray
+            textView.textColor = .placeholderText
+            textView.font = .systemFont(ofSize: 14.5)
         }
     }
     

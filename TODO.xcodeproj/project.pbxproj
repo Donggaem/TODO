@@ -16,7 +16,6 @@
 		EB5468382871C9360022A99F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5468372871C9360022A99F /* LoginResponse.swift */; };
 		EB87C7B12879CF3200DFC1A2 /* AddTodoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7B02879CF3100DFC1A2 /* AddTodoRequest.swift */; };
 		EB87C7B32879CF4800DFC1A2 /* AddTodoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7B22879CF4800DFC1A2 /* AddTodoResponse.swift */; };
-		EB87C7B52879CF8F00DFC1A2 /* TodoListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7B42879CF8F00DFC1A2 /* TodoListRequest.swift */; };
 		EB87C7B72879CFA200DFC1A2 /* TodoListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7B62879CFA200DFC1A2 /* TodoListResponse.swift */; };
 		EB87C7B92879CFC400DFC1A2 /* DeleteTodoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7B82879CFC400DFC1A2 /* DeleteTodoRequest.swift */; };
 		EB87C7BB2879CFD400DFC1A2 /* DeleteTodoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7BA2879CFD400DFC1A2 /* DeleteTodoResponse.swift */; };
@@ -54,7 +53,6 @@
 		EB5468372871C9360022A99F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		EB87C7B02879CF3100DFC1A2 /* AddTodoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoRequest.swift; sourceTree = "<group>"; };
 		EB87C7B22879CF4800DFC1A2 /* AddTodoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoResponse.swift; sourceTree = "<group>"; };
-		EB87C7B42879CF8F00DFC1A2 /* TodoListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListRequest.swift; sourceTree = "<group>"; };
 		EB87C7B62879CFA200DFC1A2 /* TodoListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListResponse.swift; sourceTree = "<group>"; };
 		EB87C7B82879CFC400DFC1A2 /* DeleteTodoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoRequest.swift; sourceTree = "<group>"; };
 		EB87C7BA2879CFD400DFC1A2 /* DeleteTodoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoResponse.swift; sourceTree = "<group>"; };
@@ -132,12 +130,11 @@
 		EB93DACE288D30A5008D3BC8 /* TodoListModel */ = {
 			isa = PBXGroup;
 			children = (
-				EB87C7B42879CF8F00DFC1A2 /* TodoListRequest.swift */,
 				EB87C7B62879CFA200DFC1A2 /* TodoListResponse.swift */,
+				EB93DAD4288D318E008D3BC8 /* AllTodoListResponse.swift */,
 				EB93DACF288D30BC008D3BC8 /* Add */,
 				EB93DAD1288D30D4008D3BC8 /* Update */,
 				EB93DAD0288D30CC008D3BC8 /* Delete */,
-				EB93DAD4288D318E008D3BC8 /* AllTodoListResponse.swift */,
 			);
 			path = TodoListModel;
 			sourceTree = "<group>";
@@ -382,7 +379,6 @@
 				EB87C7BB2879CFD400DFC1A2 /* DeleteTodoResponse.swift in Sources */,
 				EBC222E228772D9B00E455B7 /* SigninResponse.swift in Sources */,
 				EBA03E1D2861968D00564472 /* AppDelegate.swift in Sources */,
-				EB87C7B52879CF8F00DFC1A2 /* TodoListRequest.swift in Sources */,
 				EBA03E1F2861968D00564472 /* SceneDelegate.swift in Sources */,
 				EB87C7B32879CF4800DFC1A2 /* AddTodoResponse.swift in Sources */,
 			);

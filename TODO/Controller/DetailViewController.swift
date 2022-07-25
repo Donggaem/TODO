@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
     var paramDate = ""
     var paramContent = ""
     var paramuuid = ""
-    
+        
     var buttonValue = false
     
     //MARK: LifeCycle
@@ -47,8 +47,11 @@ class DetailViewController: UIViewController {
         
         configureDatePicker()
         
+        let endIdx: String.Index = paramDate.index(paramDate.startIndex, offsetBy: 9)
+        
+        
         titleTextField.text = paramTitle
-        dateTextField.text = paramDate
+        dateTextField.text = String(paramDate[...endIdx])
         detlTextView.text = paramContent
         
         detlTextView.textColor = .black
@@ -69,6 +72,9 @@ class DetailViewController: UIViewController {
         adaptBtn.layer.shadowRadius = 4 // 반경
         adaptBtn.layer.shadowOpacity = 1 // alpha값
         
+        //텍스트뷰 안쪽 여백 없애기
+        self.detlTextView.textContainerInset =
+        UIEdgeInsets(top: 0, left: -detlTextView.textContainer.lineFragmentPadding, bottom: 0, right: -detlTextView.textContainer.lineFragmentPadding)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,7 +157,7 @@ class DetailViewController: UIViewController {
     
     //MARK: POSTUPDATE
     func postUpdate(_ parameters: UpdateTodoRequest){
-        AF.request(TodoURL.baseURL, method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
+        AF.request(TodoURL.baseURL, method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: UpdateTodoResponse.self) { [self] response in
                 switch response.result {
@@ -186,13 +192,13 @@ class DetailViewController: UIViewController {
         
         self.datePicker.locale = Locale(identifier: "ko-KR") // 한국어 설정
         self.dateTextField.inputView = datePicker // 키보드대신 datePicker 보이기
+        
     }
     
     //addTarget 두번쨰 파라미터 셀렉터 메서드
     @ objc private func datePickerValueDidChange(_ datePicker: UIDatePicker){
         let formmater = DateFormatter() // 데이트 타입을 사람이 읽을 수 있도록 사람이 변환을 해주거나, 날짜 타입에서 데이트 타입을 변환을시켜주는 역할
-        formmater.dateFormat = "yyyy년MM월dd일(EEEEE)" //데이트 포멧형식 잡기
-        formmater.locale = Locale(identifier: "ko_KR") // 한국어 표현
+        formmater.dateFormat = "yyyy-MM-dd" //데이트 포멧형식 잡기
         self.diaryDate = datePicker.date // datePicker 에서 선택된 date값 넘기기
         self.dateTextField.text = formmater.string(from: datePicker.date) // 포멧한 데이트 값을 텍스트 필드에 표시
     }
@@ -206,7 +212,8 @@ extension DetailViewController: UITextViewDelegate {
         
         //플레이스홀더 설정
         detlTextView.text = textViewPlaceHolder
-        detlTextView.textColor = .lightGray
+        detlTextView.textColor = .placeholderText
+        detlTextView.font = .systemFont(ofSize: 14.5)
         
         theTextViewHeightConstraint.isActive = false // 스토리보드에 설정된 콘스트레이트 무시
         detlTextView.sizeToFit()
@@ -226,7 +233,9 @@ extension DetailViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             textView.text = textViewPlaceHolder
-            textView.textColor = .lightGray
+            textView.textColor = .placeholderText
+            textView.font = .systemFont(ofSize: 14.5)
+
         }
     }
     
