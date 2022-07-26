@@ -57,14 +57,18 @@ class HomeViewController: UIViewController {
         
         todoTableView.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: CGFloat.leastNonzeroMagnitude))
         
+        getTodo()
+        getAllTodo()
+        
+        self.todoTableView.reloadData()
+        self.calendarView.reloadData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
         getTodo()
         getAllTodo()
-        setEvents()
         
         self.todoTableView.reloadData()
         self.calendarView.reloadData()
@@ -76,6 +80,8 @@ class HomeViewController: UIViewController {
     @IBAction func addBtn(_ sender: UIButton) {
         let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
         self.navigationController?.pushViewController(addVC, animated: true)
+        
+        addVC.paramdate = selectedDate
     }
     
     //MARK: GET TODOLIST
@@ -91,7 +97,6 @@ class HomeViewController: UIViewController {
                         self.selectedList.removeAll()
                         
                         self.selectedList = response.data?.findedTodo ?? []
-                        print(self.selectedList)
                         
                         self.todoTableView.reloadData()
                         self.calendarView.reloadData()
@@ -116,8 +121,9 @@ class HomeViewController: UIViewController {
                 case .success(let response):
                     if response.isSuccess == true {
                         
+                        self.todoList.removeAll()
+                        
                         self.todoList = response.data?.findedAllTodo ?? []
-                        print(self.todoList)
                         
                         self.setEvents()
                         self.todoTableView.reloadData()
@@ -141,10 +147,10 @@ class HomeViewController: UIViewController {
             .responseDecodable(of: DeleteTodoResponse.self) { [self] response in
                 switch response.result {
                 case .success(let response):
+                    print(response)
                     if response.isSuccess == true {
                         print("투두 삭제 성공")
-                        print(response)
-                        getTodo()
+                        
                         
                     } else {
                         print("투두 삭제 실패")
@@ -154,6 +160,7 @@ class HomeViewController: UIViewController {
                         present(deleteFail_alert, animated: false, completion: nil)
                     }
                 case .failure(let error):
+                    print(response)
                     print(error.localizedDescription)
                     let deleteFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "확인", style: .default)
@@ -188,8 +195,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         self.navigationController?.pushViewController(detailVC, animated: true)
         
-        print(self.selectedList[indexPath.row].id)
-        
         detailVC.paramuuid = self.selectedList[indexPath.row].id
         detailVC.paramTitle = self.selectedList[indexPath.row].title
         detailVC.paramDate = self.selectedList[indexPath.row].date
@@ -205,13 +210,18 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            let tbDelete_alert = UIAlertController(title: "삭제", message: "투두를 삭제하시겠습니끼?", preferredStyle: UIAlertController.Style.alert)
+            let tbDelete_alert = UIAlertController(title: "삭제", message: "투두를 삭제하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "예", style: .default) { (action) in
                 
-                print(self.selectedList)
                 let uuid = self.selectedList[indexPath.row].id
                 let param = DeleteTodoRequest(id: uuid )
                 self.postDelete(param)
+                
+                self.getTodo()
+                self.getAllTodo()
+                
+                self.todoTableView.reloadData()
+                self.calendarView.reloadData()
             }
             
             let noAction = UIAlertAction(title: "아니요", style: .default)
@@ -261,16 +271,17 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     //날짜 선택
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
-        selectedDate = ""
+//        selectedDate = ""
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "yyyy-MM-dd"
         selectedDate = dateformatter.string(from: date)
         print(selectedDate)
         
-        getTodo()
         
         todoTableView.reloadData()
-        
+        calendarView.reloadData()
+        getTodo()
+        print(selectedList)
     }
     
     func setEvents(){
@@ -284,6 +295,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     
     //이벤트 닷 표시갯수
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        
         setEvents()
         let eventformatter = DateFormatter()
         eventformatter.dateFormat = "yyyy-MM-dd"

@@ -53,6 +53,7 @@ class DetailViewController: UIViewController {
         titleTextField.text = paramTitle
         dateTextField.text = String(paramDate[...endIdx])
         detlTextView.text = paramContent
+        print(paramuuid)
         
         detlTextView.textColor = .black
         
@@ -96,9 +97,10 @@ class DetailViewController: UIViewController {
             let okAction = UIAlertAction(title: "예", style: .default){ (action) in
                 let title = self.titleTextField.text ?? ""
                 let content = self.detlTextView.text ?? ""
-                let userid = UserDefaults.standard.string(forKey: "userid")!
+                let uuid = self.paramuuid
                 let date = self.dateTextField.text ?? ""
-                let param = UpdateTodoRequest(id: title, date: content, title: userid, content: date)
+                let param = UpdateTodoRequest(id: uuid, date: date, title: title, content: content)
+                print(param)
                 self.postUpdate(param)
                 self.navigationController?.popViewController(animated: true)
             }
@@ -138,6 +140,7 @@ class DetailViewController: UIViewController {
                         print("투두 삭제 성공")
                         self.navigationController?.popViewController(animated: true)
                         
+                        
                     } else {
                         print("투두 삭제 실패")
                         let deleteFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
@@ -165,20 +168,24 @@ class DetailViewController: UIViewController {
                     if response.isSuccess == true {
                         print("투두 수정 성공")
                         print(response.message)
+                        let update_alert = UIAlertController(title: "성공", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
+                        update_alert.addAction(okAction)
+                        present(update_alert, animated: false, completion: nil)
                         
                     } else {
                         print("투두 수정 실패")
-                        let deleteFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let updateFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
                         let okAction = UIAlertAction(title: "확인", style: .default)
-                        deleteFail_alert.addAction(okAction)
-                        present(deleteFail_alert, animated: false, completion: nil)
+                        updateFail_alert.addAction(okAction)
+                        present(updateFail_alert, animated: false, completion: nil)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
-                    let deleteFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
+                    let updateFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "확인", style: .default)
-                    deleteFail_alert.addAction(okAction)
-                    present(deleteFail_alert, animated: false, completion: nil)
+                    updateFail_alert.addAction(okAction)
+                    present(updateFail_alert, animated: false, completion: nil)
                 }
             }
     }

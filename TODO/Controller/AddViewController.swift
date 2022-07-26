@@ -22,6 +22,7 @@ class AddViewController: UIViewController {
     private var diaryDate: Date? // 데이트 피커 에서 선택된 데이트 값 (옵셔널)
     
     let textViewPlaceHolder = "내용을 입력하세요"
+    var paramdate = ""
     
     //MARK: LifeCycle
     override func viewDidLoad() {
@@ -59,10 +60,11 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func dateEdit(_ sender: UITextField) {
-        let date = NSDate()
-        let formater = DateFormatter() // 데이트 타입을 사람이 읽을 수 있도록 사람이 변환을 해주거나, 날짜 타입에서 데이트 타입을 변환을시켜주는 역할
-        formater.dateFormat = "yyyy-MM-dd"
-        self.dateTextField.text = formater.string(from: date as Date)
+//        let date = NSDate()
+//        let formater = DateFormatter() // 데이트 타입을 사람이 읽을 수 있도록 사람이 변환을 해주거나, 날짜 타입에서 데이트 타입을 변환을시켜주는 역할
+//        formater.dateFormat = "yyyy-MM-dd"
+//        self.dateTextField.text = formater.string(from: date as Date)
+        self.dateTextField.text = paramdate
     }
     
     
