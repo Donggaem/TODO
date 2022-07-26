@@ -151,7 +151,11 @@ class HomeViewController: UIViewController {
                     if response.isSuccess == true {
                         print("투두 삭제 성공")
                         
+                        self.getAllTodo()
+                        self.getTodo()
                         
+                        self.todoTableView.reloadData()
+                        self.calendarView.reloadData()
                     } else {
                         print("투두 삭제 실패")
                         let deleteFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
@@ -216,12 +220,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
                 let uuid = self.selectedList[indexPath.row].id
                 let param = DeleteTodoRequest(id: uuid )
                 self.postDelete(param)
-                
-                self.getTodo()
-                self.getAllTodo()
-                
-                self.todoTableView.reloadData()
-                self.calendarView.reloadData()
             }
             
             let noAction = UIAlertAction(title: "아니요", style: .default)

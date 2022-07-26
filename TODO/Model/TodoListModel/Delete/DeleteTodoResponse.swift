@@ -12,10 +12,14 @@ struct DeleteTodoResponse: Decodable {
     var isSuccess: Bool
     var code: Int
     var message: String
-    var data: deletedTodo
+    var data: DeletedTodo
+}
+struct DeletedTodo: Decodable {
+    var deletedTodo: Dobject
 }
 
-struct deletedTodo: Decodable {
+
+struct Dobject: Decodable {
     
     var date: String
     var title: String
