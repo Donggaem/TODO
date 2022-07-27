@@ -10,7 +10,6 @@ import UIKit
 class TodoTableViewCell: UITableViewCell, UITableViewDelegate {
     
     @IBOutlet weak var cellTitleLabel: UILabel!
-    
     @IBOutlet weak var cellContentLabel: UILabel!
     
 }

@@ -21,18 +21,24 @@ class AddViewController: UIViewController {
     private let datePicker = UIDatePicker()
     private var diaryDate: Date? // 데이트 피커 에서 선택된 데이트 값 (옵셔널)
     
-    let textViewPlaceHolder = "내용을 입력하세요"
+    private let textViewPlaceHolder = "내용을 입력하세요"
     var paramdate = ""
     
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addTextView.delegate = self
-        dateTextField.delegate = self
-        setTextView()
-        configureDatePicker()
-                
+        setUI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    //MARK: SET UI
+    private func setUI() {
         //버튼 그림자
         addBtn.layer.cornerRadius = 10
         addBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor // 색깔
@@ -41,15 +47,18 @@ class AddViewController: UIViewController {
         addBtn.layer.shadowRadius = 4 // 반경
         addBtn.layer.shadowOpacity = 1 // alpha값
         
+        addTextView.delegate = self
         self.addTextView.textContainerInset =
-        UIEdgeInsets(top: 0, left: -addTextView.textContainer.lineFragmentPadding, bottom: 0, right: -addTextView.textContainer.lineFragmentPadding)
+        UIEdgeInsets(top: 0, left: -addTextView.textContainer.lineFragmentPadding, bottom: 0, right: -addTextView.textContainer.lineFragmentPadding) // 텍스트뷰 안쪽 marin없애기
+        
+        setTextView()
+        
+        dateTextField.delegate = self
+        
+        configureDatePicker()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
-    
+    //MARK: IBAction
     @IBAction func addBtnPressed(_ sender: UIButton) {
         let title = titleTextField.text ?? ""
         let content = addTextView.text ?? ""
@@ -60,17 +69,11 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func dateEdit(_ sender: UITextField) {
-//        let date = NSDate()
-//        let formater = DateFormatter() // 데이트 타입을 사람이 읽을 수 있도록 사람이 변환을 해주거나, 날짜 타입에서 데이트 타입을 변환을시켜주는 역할
-//        formater.dateFormat = "yyyy-MM-dd"
-//        self.dateTextField.text = formater.string(from: date as Date)
+        
         self.dateTextField.text = paramdate
     }
     
-    
-    
     //MARK: DATE PICKER
-    
     private func configureDatePicker(){
         self.datePicker.datePickerMode = .date // 날짜만 나오게
         self.datePicker.preferredDatePickerStyle = .wheels // 데이트피커 스타일
@@ -90,10 +93,10 @@ class AddViewController: UIViewController {
         self.dateTextField.text = formmater.string(from: datePicker.date) // 포멧한 데이트 값을 텍스트 필드에 표시
     }
     
-
+    
     //MARK: POST ADDTODO
     let header: HTTPHeaders = ["authorization": UserDefaults.standard.string(forKey: "data")!]
-    func postAddTodo(_ parameters: AddTodoRequest){
+    private func postAddTodo(_ parameters: AddTodoRequest){
         AF.request(TodoURL.baseURL, method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: AddTodoResponse.self) { [self] response in
@@ -133,15 +136,15 @@ class AddViewController: UIViewController {
 extension AddViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-            return false
-        }
+        
+        return false
+    }
 }
 
 //MARK: 텍스트뷰
 extension AddViewController: UITextViewDelegate {
     
-    func setTextView(){
+    private func setTextView(){
         
         
         //플레이스홀더 설정

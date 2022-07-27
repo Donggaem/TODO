@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     private var selectedList: [Object] = []
     private var events: [String] = []
     
-    var selectedDate = ""
+    private var selectedDate = ""
     
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var calendarView: FSCalendar!
@@ -34,38 +34,20 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let date = NSDate()
-        let toDayformatter = DateFormatter()
-        toDayformatter.dateFormat = "yyyy-MM-dd"
-        //        toDayformatter.locale = Locale(identifier: "ko_KR")
-        selectedDate = toDayformatter.string(from: date as Date)
-        print(selectedDate)
-        
-        self.calendarView.delegate = self
-        self.calendarView.dataSource = self
-        self.todoTableView.delegate = self
-        self.todoTableView.dataSource = self
-        self.todoTableView.register(UINib(nibName: "TodoTableViewCell", bundle: nil),  forCellReuseIdentifier: "TodoTableViewCell")
-        
-        setCalendar()
-        
-        
         self.navigationController?.isNavigationBarHidden = true
         
-        //테이블뷰 셀 선 없애기
-        todoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        
-        todoTableView.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: CGFloat.leastNonzeroMagnitude))
+        setUI()
         
         getTodo()
         getAllTodo()
-        
-        self.todoTableView.reloadData()
-        self.calendarView.reloadData()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.navigationController?.isNavigationBarHidden = true
+        
         
         getTodo()
         getAllTodo()
@@ -73,9 +55,38 @@ class HomeViewController: UIViewController {
         self.todoTableView.reloadData()
         self.calendarView.reloadData()
         
-        self.navigationController?.isNavigationBarHidden = true
     }
     
+    //MARK: SET UI
+    private func setUI() {
+        
+        //오늘날짜
+        let date = NSDate()
+        let toDayformatter = DateFormatter()
+        toDayformatter.dateFormat = "yyyy-MM-dd"
+        selectedDate = toDayformatter.string(from: date as Date)
+        print(selectedDate)
+        
+        //CalendarView
+        self.calendarView.delegate = self
+        self.calendarView.dataSource = self
+        
+        setCalendar()
+    
+        self.calendarView.reloadData()
+        
+        //TableView
+        self.todoTableView.delegate = self
+        self.todoTableView.dataSource = self
+        self.todoTableView.register(UINib(nibName: "TodoTableViewCell", bundle: nil),  forCellReuseIdentifier: "TodoTableViewCell")
+        
+        todoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none //테이블뷰 셀 선 없애기
+        todoTableView.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: CGFloat.leastNonzeroMagnitude))
+        self.todoTableView.reloadData()
+        
+    }
+    
+    //MARK: IBAction
     // AddView 화면으로 이동
     @IBAction func addBtn(_ sender: UIButton) {
         let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
@@ -86,7 +97,7 @@ class HomeViewController: UIViewController {
     
     //MARK: GET TODOLIST
     let header: HTTPHeaders = ["authorization": UserDefaults.standard.string(forKey: "data")!]
-    func getTodo() {
+    private func getTodo() {
         AF.request("\(TodoURL.baseURL)/\(selectedDate)", method: .get, headers: header)
             .validate()
             .responseDecodable(of: TodoListResponse.self) { response in
@@ -113,7 +124,7 @@ class HomeViewController: UIViewController {
     }
     
     //MARK: GET ALLTODOLIST
-    func getAllTodo() {
+    private func getAllTodo() {
         AF.request(TodoURL.baseURL, method: .get, headers: header)
             .validate()
             .responseDecodable(of: AllTodoListResponse.self) { response in
@@ -141,7 +152,7 @@ class HomeViewController: UIViewController {
     }
     
     //MARK: DELETETODO
-    func postDelete(_ parameters: DeleteTodoRequest){
+    private func postDelete(_ parameters: DeleteTodoRequest){
         AF.request(TodoURL.baseURL, method: .delete, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: DeleteTodoResponse.self) { [self] response in
@@ -156,6 +167,7 @@ class HomeViewController: UIViewController {
                         
                         self.todoTableView.reloadData()
                         self.calendarView.reloadData()
+                        
                     } else {
                         print("투두 삭제 실패")
                         let deleteFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
@@ -215,11 +227,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         if editingStyle == .delete {
             
             let tbDelete_alert = UIAlertController(title: "삭제", message: "투두를 삭제하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+
             let okAction = UIAlertAction(title: "예", style: .default) { (action) in
                 
                 let uuid = self.selectedList[indexPath.row].id
                 let param = DeleteTodoRequest(id: uuid )
                 self.postDelete(param)
+
             }
             
             let noAction = UIAlertAction(title: "아니요", style: .default)
@@ -269,7 +283,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     //날짜 선택
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
-//        selectedDate = ""
+        //        selectedDate = ""
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "yyyy-MM-dd"
         selectedDate = dateformatter.string(from: date)
@@ -282,7 +296,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         print(selectedList)
     }
     
-    func setEvents(){
+    private func setEvents(){
         events.removeAll()
         
         for index in 0..<todoList.endIndex {

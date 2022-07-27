@@ -9,6 +9,5 @@ import Foundation
 
 struct DeleteTodoRequest: Encodable {
     
-    //삭제할 Todo의 UUID
-    var id: String
+    var id: String//삭제할 Todo의 UUID
 }

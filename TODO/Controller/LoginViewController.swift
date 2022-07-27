@@ -15,13 +15,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var todoLabel: UILabel!
-    
-//    let jsonObj: [String: Any] = [:]
-    
+        
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setUI()
+        
+    }
+    
+    //MARK: SET UI
+    private func setUI() {
+        
         //버튼 그림자
         loginBtn.layer.cornerRadius = 10
         loginBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor // 색깔
@@ -48,7 +53,8 @@ class LoginViewController: UIViewController {
         postLogin(param)
     }
     
-    func postLogin(_ parameters: LoginRequest){
+    //MARK: POST LOGIN
+    private func postLogin(_ parameters: LoginRequest){
         AF.request("http://15.164.102.4:3001/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
             .responseDecodable(of: LoginResponse.self) { [self] response in
@@ -57,9 +63,10 @@ class LoginViewController: UIViewController {
                     if response.isSuccess == true {
                         
                         print("로그인 성공")
-                        UserDefaults.standard.set(response.data.token, forKey: "data")
-
-                        print(response.data)
+                        
+                        UserDefaults.standard.set(response.data?.token, forKey: "data")
+                        
+                        print(response.data ?? "")
                         
                         let storyBoard = UIStoryboard(name: "Home", bundle: nil)
                         let homeNav = storyBoard.instantiateViewController(identifier: "HomeNav")

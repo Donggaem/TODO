@@ -30,32 +30,29 @@ class DetailViewController: UIViewController {
     var paramDate = ""
     var paramContent = ""
     var paramuuid = ""
-        
-    var buttonValue = false
+    
+    private var buttonValue = false
     
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
+        setUI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    //MARK: SET UI
+    private func setUI(){
         detlTextView.isUserInteractionEnabled = false
         titleTextField.isUserInteractionEnabled = false
         dateTextField.isUserInteractionEnabled = false
         adaptBtn.setTitle("수정하기", for: .normal)
-        
-        detlTextView.delegate = self
-        setTextView()
-        
-        configureDatePicker()
-        
-        let endIdx: String.Index = paramDate.index(paramDate.startIndex, offsetBy: 9)
-        
-        
-        titleTextField.text = paramTitle
-        dateTextField.text = String(paramDate[...endIdx])
-        detlTextView.text = paramContent
-        print(paramuuid)
-        
-        detlTextView.textColor = .black
         
         //버튼 그림자
         deleteBtn.layer.cornerRadius = 10
@@ -73,17 +70,23 @@ class DetailViewController: UIViewController {
         adaptBtn.layer.shadowRadius = 4 // 반경
         adaptBtn.layer.shadowOpacity = 1 // alpha값
         
-        //텍스트뷰 안쪽 여백 없애기
+        detlTextView.delegate = self
+        setTextView()
+        
+        let endIdx: String.Index = paramDate.index(paramDate.startIndex, offsetBy: 9)
+        dateTextField.text = String(paramDate[...endIdx])
+        titleTextField.text = paramTitle
+        detlTextView.text = paramContent
+        
+        detlTextView.textColor = .black
+        
         self.detlTextView.textContainerInset =
-        UIEdgeInsets(top: 0, left: -detlTextView.textContainer.lineFragmentPadding, bottom: 0, right: -detlTextView.textContainer.lineFragmentPadding)
+        UIEdgeInsets(top: 0, left: -detlTextView.textContainer.lineFragmentPadding, bottom: 0, right: -detlTextView.textContainer.lineFragmentPadding)//텍스트뷰 안쪽 여백 없애기
+        
+        configureDatePicker()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
-
-    
+    //MARK: IBAction
     @IBAction func adaptBtnPressed(_ sender: UIButton) {
         if buttonValue == false{
             detlTextView.isUserInteractionEnabled = true
@@ -130,7 +133,7 @@ class DetailViewController: UIViewController {
     
     //MARK: POSTDELETE
     let header: HTTPHeaders = ["authorization": UserDefaults.standard.string(forKey: "data")!]
-    func postDelete(_ parameters: DeleteTodoRequest){
+    private func postDelete(_ parameters: DeleteTodoRequest){
         AF.request(TodoURL.baseURL, method: .delete, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: DeleteTodoResponse.self) { [self] response in
@@ -159,7 +162,7 @@ class DetailViewController: UIViewController {
     }
     
     //MARK: POSTUPDATE
-    func postUpdate(_ parameters: UpdateTodoRequest){
+    private func postUpdate(_ parameters: UpdateTodoRequest){
         AF.request(TodoURL.baseURL, method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: UpdateTodoResponse.self) { [self] response in
@@ -215,7 +218,7 @@ class DetailViewController: UIViewController {
 //MARK: 텍스트뷰
 extension DetailViewController: UITextViewDelegate {
     
-    func setTextView(){
+    private func setTextView(){
         
         //플레이스홀더 설정
         detlTextView.text = textViewPlaceHolder
@@ -242,7 +245,7 @@ extension DetailViewController: UITextViewDelegate {
             textView.text = textViewPlaceHolder
             textView.textColor = .placeholderText
             textView.font = .systemFont(ofSize: 14.5)
-
+            
         }
     }
     

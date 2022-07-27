@@ -10,7 +10,7 @@ import Alamofire
 
 class SigninViewController: UIViewController {
     
-
+    
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var ninknameTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
@@ -20,16 +20,25 @@ class SigninViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setUI()
+        
+    }
+    
+    //MARK: SET UI
+    private func setUI() {
+        
         //버튼 그림자
         signinBtn.layer.cornerRadius = 10
         signinBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor // 색깔
-        signinBtn.layer.masksToBounds = false  
+        signinBtn.layer.masksToBounds = false
         signinBtn.layer.shadowOffset = CGSize(width:4, height: 4) // 위치조정
         signinBtn.layer.shadowRadius = 10 // 반경
         signinBtn.layer.shadowOpacity = 1 // alpha값
+        
     }
     
+    //MARK: IBAction
     @IBAction func signInBtn(_ sender: UIButton) {
         let id = idTextField.text ?? ""
         let pw = pwTextField.text ?? ""
@@ -48,8 +57,8 @@ class SigninViewController: UIViewController {
         postIDCheck(param)
     }
     
-    //MARK: POSTSIGIN
-    func postSignin(_ parameters: SigninRequest){
+    //MARK: POST SIGIN
+    private func postSignin(_ parameters: SigninRequest){
         AF.request("http://15.164.102.4:3001/enroll", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
             .responseDecodable(of: SigninResponse.self) { [self] response in
@@ -82,7 +91,7 @@ class SigninViewController: UIViewController {
     }
     
     //MARK: POST IDCHECK
-    func postIDCheck(_ parameters: IDCheckRequset){
+    private func postIDCheck(_ parameters: IDCheckRequset){
         AF.request("http://13.209.10.30:4004/user/duplicate", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
             .responseDecodable(of: IDCheckResponse.self) { [self] response in
