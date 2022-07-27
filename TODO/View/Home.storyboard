@@ -47,6 +47,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" image="line.horizontal.3" catalog="system" title="">
                                                             <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="settingBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ICi-Cf-MZk"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Hh-Wo-h3l">
                                                         <rect key="frame" x="298" y="14.5" width="14" height="14"/>
@@ -418,10 +421,83 @@
             </objects>
             <point key="canvasLocation" x="60.869565217391312" y="23.4375"/>
         </scene>
+        <!--Setting Page View Controller-->
+        <scene sceneID="YeT-TR-iLW">
+            <objects>
+                <viewController storyboardIdentifier="SettingPageViewController" id="FBP-AY-NWf" customClass="SettingPageViewController" customModule="TODO" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vUd-9K-RjF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="zWI-qv-03f">
+                                <rect key="frame" x="20" y="44" width="374" height="187.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1n-hd-Fb5">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ATz-Ux-Cg1"/>
+                                        </constraints>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="questionmark.circle" catalog="system" title="    오픈 소스 라이선스">
+                                            <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="openSourcePressed:" destination="FBP-AY-NWf" eventType="touchUpInside" id="sfv-d7-Fgs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aX2-kb-xBF">
+                                        <rect key="frame" x="0.0" y="80" width="374" height="39"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="power" catalog="system" title="    로그아웃">
+                                            <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="logoutPressed:" destination="FBP-AY-NWf" eventType="touchUpInside" id="J0o-HI-z7O"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tk4-Py-aHG">
+                                        <rect key="frame" x="0.0" y="149" width="374" height="38.5"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="   회원탈퇴">
+                                            <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="ResignPressed:" destination="FBP-AY-NWf" eventType="touchUpInside" id="sct-iL-r2P"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Tk4-Py-aHG" firstAttribute="height" secondItem="a1n-hd-Fb5" secondAttribute="height" multiplier="0.775" id="Su9-10-Swh"/>
+                                    <constraint firstItem="aX2-kb-xBF" firstAttribute="height" secondItem="a1n-hd-Fb5" secondAttribute="height" multiplier="0.775" id="lTR-dN-VlL"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YhC-b5-Usf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zWI-qv-03f" firstAttribute="top" secondItem="YhC-b5-Usf" secondAttribute="top" id="BuD-Lg-5f0"/>
+                            <constraint firstItem="zWI-qv-03f" firstAttribute="leading" secondItem="YhC-b5-Usf" secondAttribute="leading" constant="20" id="YUc-H7-d1p"/>
+                            <constraint firstItem="YhC-b5-Usf" firstAttribute="trailing" secondItem="zWI-qv-03f" secondAttribute="trailing" constant="20" id="hIO-Xz-glb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KHl-0V-Rqn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971" y="690"/>
+        </scene>
     </scenes>
     <resources>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
+        <image name="power" catalog="system" width="128" height="124"/>
+        <image name="questionmark.circle" catalog="system" width="128" height="121"/>
+        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -95,6 +95,11 @@ class HomeViewController: UIViewController {
         addVC.paramdate = selectedDate
     }
     
+    @IBAction func settingBtn(_ sender: UIButton) {
+        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingPageViewController") as! SettingPageViewController
+        self.navigationController?.pushViewController(settingVC, animated: true)
+    }
+    
     //MARK: GET TODOLIST
     let header: HTTPHeaders = ["authorization": UserDefaults.standard.string(forKey: "data")!]
     private func getTodo() {
@@ -176,7 +181,6 @@ class HomeViewController: UIViewController {
                         present(deleteFail_alert, animated: false, completion: nil)
                     }
                 case .failure(let error):
-                    print(response)
                     print(error.localizedDescription)
                     let deleteFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "확인", style: .default)

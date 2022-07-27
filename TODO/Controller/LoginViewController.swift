@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
     
     //MARK: POST LOGIN
     private func postLogin(_ parameters: LoginRequest){
-        AF.request("http://15.164.102.4:3001/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+        AF.request(TodoURL.loginURL, method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
             .responseDecodable(of: LoginResponse.self) { [self] response in
                 switch response.result {
@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
                         
                     } else {
                         let loginFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
                         loginFail_alert.addAction(okAction)
                         present(loginFail_alert, animated: false, completion: nil)
                         
@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
                 case .failure(let error):
                     print(error.localizedDescription)
                     let loginFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    let okAction = UIAlertAction(title: "확인", style: .default)
                     loginFail_alert.addAction(okAction)
                     present(loginFail_alert, animated: false, completion: nil)
                 }

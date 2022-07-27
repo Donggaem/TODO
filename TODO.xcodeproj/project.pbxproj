@@ -30,6 +30,9 @@
 		EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BA712868894E008A4927 /* DetailViewController.swift */; };
 		EBA53D89286CB2F700F8165E /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */; };
 		EBA53D8B286CCB6A00F8165E /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */; };
+		EBB4C6762891325700C88698 /* SettingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4C6752891325700C88698 /* SettingPageViewController.swift */; };
+		EBB4C679289157B200C88698 /* ResignRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4C678289157B200C88698 /* ResignRequest.swift */; };
+		EBB4C67B289158D800C88698 /* ResignResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4C67A289158D800C88698 /* ResignResponse.swift */; };
 		EBB6ADE0287F901200AF29A0 /* UpdateTodoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6ADDF287F901200AF29A0 /* UpdateTodoResponse.swift */; };
 		EBB6ADE2287F916B00AF29A0 /* UpdateToRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6ADE1287F916B00AF29A0 /* UpdateToRequest.swift */; };
 		EBC222E028772D8600E455B7 /* SigninRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC222DF28772D8600E455B7 /* SigninRequest.swift */; };
@@ -69,6 +72,9 @@
 		EBA1BA712868894E008A4927 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		EBB4C6752891325700C88698 /* SettingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPageViewController.swift; sourceTree = "<group>"; };
+		EBB4C678289157B200C88698 /* ResignRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignRequest.swift; sourceTree = "<group>"; };
+		EBB4C67A289158D800C88698 /* ResignResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignResponse.swift; sourceTree = "<group>"; };
 		EBB6ADDF287F901200AF29A0 /* UpdateTodoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTodoResponse.swift; sourceTree = "<group>"; };
 		EBB6ADE1287F916B00AF29A0 /* UpdateToRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateToRequest.swift; sourceTree = "<group>"; };
 		EBC222DF28772D8600E455B7 /* SigninRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninRequest.swift; sourceTree = "<group>"; };
@@ -215,9 +221,10 @@
 		EBA03E312861975100564472 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EB93DACE288D30A5008D3BC8 /* TodoListModel */,
 				EB93DACC288D3032008D3BC8 /* LoginModel */,
 				EB93DACD288D3047008D3BC8 /* SigninModel */,
+				EBB4C6772891575A00C88698 /* ResignModel */,
+				EB93DACE288D30A5008D3BC8 /* TodoListModel */,
 				EBC222E32877442C00E455B7 /* IdCheckRequest.swift */,
 				EBC222E52877444D00E455B7 /* IdCheckResponse.swift */,
 				EBDFF296288D038C00BDB8FC /* TodoURL.swift */,
@@ -233,9 +240,19 @@
 				EB2E4ECD2865FEC100DCF02E /* HomeViewController.swift */,
 				EB2E4ECF2866209B00DCF02E /* AddViewController.swift */,
 				EBA1BA712868894E008A4927 /* DetailViewController.swift */,
+				EBB4C6752891325700C88698 /* SettingPageViewController.swift */,
 				EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		EBB4C6772891575A00C88698 /* ResignModel */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4C678289157B200C88698 /* ResignRequest.swift */,
+				EBB4C67A289158D800C88698 /* ResignResponse.swift */,
+			);
+			path = ResignModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,14 +390,17 @@
 				EB5468382871C9360022A99F /* LoginResponse.swift in Sources */,
 				EB93DAD5288D318E008D3BC8 /* AllTodoListResponse.swift in Sources */,
 				EBA53D8B286CCB6A00F8165E /* TodoTableViewCell.swift in Sources */,
+				EBB4C6762891325700C88698 /* SettingPageViewController.swift in Sources */,
 				EB2E4ED02866209B00DCF02E /* AddViewController.swift in Sources */,
 				EB87C7B72879CFA200DFC1A2 /* TodoListResponse.swift in Sources */,
 				EBA03E212861968D00564472 /* LoginViewController.swift in Sources */,
 				EB87C7BB2879CFD400DFC1A2 /* DeleteTodoResponse.swift in Sources */,
 				EBC222E228772D9B00E455B7 /* SigninResponse.swift in Sources */,
+				EBB4C67B289158D800C88698 /* ResignResponse.swift in Sources */,
 				EBA03E1D2861968D00564472 /* AppDelegate.swift in Sources */,
 				EBA03E1F2861968D00564472 /* SceneDelegate.swift in Sources */,
 				EB87C7B32879CF4800DFC1A2 /* AddTodoResponse.swift in Sources */,
+				EBB4C679289157B200C88698 /* ResignRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

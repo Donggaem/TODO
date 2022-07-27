@@ -147,14 +147,14 @@ class DetailViewController: UIViewController {
                     } else {
                         print("투두 삭제 실패")
                         let deleteFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
                         deleteFail_alert.addAction(okAction)
                         present(deleteFail_alert, animated: false, completion: nil)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
                     let deleteFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    let okAction = UIAlertAction(title: "확인", style: .default)
                     deleteFail_alert.addAction(okAction)
                     present(deleteFail_alert, animated: false, completion: nil)
                 }

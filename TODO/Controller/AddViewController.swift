@@ -108,7 +108,7 @@ class AddViewController: UIViewController {
                         UserDefaults.standard.set(dateTextField.text, forKey: "date")
                         
                         let addTodo_alert = UIAlertController(title: "추가 완료", message: response.message, preferredStyle: UIAlertController.Style.alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default) {
+                        let okAction = UIAlertAction(title: "확인", style: .default) {
                             (action) in self.navigationController?.popViewController(animated: true)
                         }
                         addTodo_alert.addAction(okAction)
@@ -117,14 +117,14 @@ class AddViewController: UIViewController {
                     } else {
                         print("추가 실패")
                         let addFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
                         addFail_alert.addAction(okAction)
                         present(addFail_alert, animated: false, completion: nil)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
                     let addFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    let okAction = UIAlertAction(title: "확인", style: .default)
                     addFail_alert.addAction(okAction)
                     present(addFail_alert, animated: false, completion: nil)
                 }

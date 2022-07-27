@@ -45,8 +45,16 @@ class SigninViewController: UIViewController {
         let nickname = ninknameTextField.text ?? ""
         let pwCheck = pwCheckField.text ?? ""
         
-        let param = SigninRequest(user_name: nickname, user_id: id, user_pw: pw, user_confirmPw: pwCheck)
-        postSignin(param)
+        if pw == pwCheck {
+            let param = SigninRequest(user_name: nickname, user_id: id, user_pw: pw, user_confirmPw: pwCheck)
+            postSignin(param)
+        }else {
+            let pwCheck_alert = UIAlertController(title: "실패", message: "비밀번호가 일치한지 확인해주세요", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            pwCheck_alert.addAction(okAction)
+            present(pwCheck_alert, animated: false, completion: nil)
+        }
+
         
     }
     
@@ -59,7 +67,7 @@ class SigninViewController: UIViewController {
     
     //MARK: POST SIGIN
     private func postSignin(_ parameters: SigninRequest){
-        AF.request("http://15.164.102.4:3001/enroll", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+        AF.request(TodoURL.signinURL, method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
             .responseDecodable(of: SigninResponse.self) { [self] response in
                 switch response.result {
@@ -99,21 +107,21 @@ class SigninViewController: UIViewController {
                 case .success(let response):
                     if response.isSuccess == true {
                         let idCk_alert = UIAlertController(title: "가능", message: response.message, preferredStyle: UIAlertController.Style.alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
                         idCk_alert.addAction(okAction)
                         present(idCk_alert, animated: false, completion: nil)
                         
                     } else {
                         print("아이디 중복")
                         let idCkFail_alert = UIAlertController(title: "중복", message: response.message, preferredStyle: UIAlertController.Style.alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
                         idCkFail_alert.addAction(okAction)
                         present(idCkFail_alert, animated: false, completion: nil)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
                     let idCkFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    let okAction = UIAlertAction(title: "확인", style: .default)
                     idCkFail_alert.addAction(okAction)
                     present(idCkFail_alert, animated: false, completion: nil)
                 }
