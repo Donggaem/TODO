@@ -9,6 +9,6 @@ import Foundation
 
 struct IDCheckRequset: Encodable{
    
-    var userid: String
+    var user_id: String
     
 }

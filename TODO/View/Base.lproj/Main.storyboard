@@ -233,6 +233,9 @@
                                                             <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="nameCheckBtn:" destination="qrL-qD-Nfl" eventType="touchUpInside" id="wV7-Ej-UTM"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

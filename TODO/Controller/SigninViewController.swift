@@ -54,15 +54,35 @@ class SigninViewController: UIViewController {
             pwCheck_alert.addAction(okAction)
             present(pwCheck_alert, animated: false, completion: nil)
         }
-
+        
         
     }
     
     @IBAction func idCheckBtn(_ sender: UIButton) {
-        let id = idTextField.text ?? ""
+        if idTextField.text == "" {
+            let checkNil_alert = UIAlertController(title: "실패", message: "아이디를 입력해주세요.", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            checkNil_alert.addAction(okAction)
+            present(checkNil_alert, animated: false, completion: nil)
+        }else {
+            let id = idTextField.text ?? ""
+            let param = IDCheckRequset(user_id: id)
+            postIDCheck(param)
+        }
+    }
+    
+    @IBAction func nameCheckBtn(_ sender: UIButton) {
+        if ninknameTextField.text == ""{
+            let checkNil_alert = UIAlertController(title: "실패", message: "닉네임을 입력해주세요.", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            checkNil_alert.addAction(okAction)
+            present(checkNil_alert, animated: false, completion: nil)
+        }else {
+            let name = ninknameTextField.text ?? ""
+            let param = NameCheckRequest(user_name: name)
+            postNameCheck(param)
+        }
         
-        let param = IDCheckRequset(userid: id)
-        postIDCheck(param)
     }
     
     //MARK: POST SIGIN
@@ -75,7 +95,7 @@ class SigninViewController: UIViewController {
                     if response.isSuccess == true {
                         print("회원가입이 완료 되었습니다")
                         let signin_alert = UIAlertController(title: "성공", message: response.message, preferredStyle: UIAlertController.Style.alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default) {
+                        let okAction = UIAlertAction(title: "확인", style: .default) {
                             (action) in self.navigationController?.popViewController(animated: true)
                         }
                         signin_alert.addAction(okAction)
@@ -84,14 +104,14 @@ class SigninViewController: UIViewController {
                     } else {
                         print("회원가입 실패")
                         let signinFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
                         signinFail_alert.addAction(okAction)
                         present(signinFail_alert, animated: false, completion: nil)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
                     let signinFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default)
+                    let okAction = UIAlertAction(title: "확인", style: .default)
                     signinFail_alert.addAction(okAction)
                     present(signinFail_alert, animated: false, completion: nil)
                 }
@@ -100,7 +120,7 @@ class SigninViewController: UIViewController {
     
     //MARK: POST IDCHECK
     private func postIDCheck(_ parameters: IDCheckRequset){
-        AF.request("http://13.209.10.30:4004/user/duplicate", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+        AF.request(TodoURL.checkURL, method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
             .responseDecodable(of: IDCheckResponse.self) { [self] response in
                 switch response.result {
@@ -124,6 +144,36 @@ class SigninViewController: UIViewController {
                     let okAction = UIAlertAction(title: "확인", style: .default)
                     idCkFail_alert.addAction(okAction)
                     present(idCkFail_alert, animated: false, completion: nil)
+                }
+            }
+    }
+    
+    //MARK: POST NAMECHECK
+    private func postNameCheck(_ parameters: NameCheckRequest){
+        AF.request(TodoURL.checkURL, method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+            .validate()
+            .responseDecodable(of: NameCheckResponse.self) { [self] response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess == true {
+                        let nameCk_alert = UIAlertController(title: "가능", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
+                        nameCk_alert.addAction(okAction)
+                        present(nameCk_alert, animated: false, completion: nil)
+                        
+                    } else {
+                        print("닉네임 중복")
+                        let nameCkFail_alert = UIAlertController(title: "중복", message: response.message, preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "확인", style: .default)
+                        nameCkFail_alert.addAction(okAction)
+                        present(nameCkFail_alert, animated: false, completion: nil)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    let nameCkFail_alert = UIAlertController(title: "실패", message: "서버 통신 실패", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "확인", style: .default)
+                    nameCkFail_alert.addAction(okAction)
+                    present(nameCkFail_alert, animated: false, completion: nil)
                 }
             }
     }

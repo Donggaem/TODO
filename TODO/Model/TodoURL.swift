@@ -13,4 +13,5 @@ struct TodoURL {
     static let loginURL = "http://15.164.102.4:3001/login"
     static let signinURL = "http://15.164.102.4:3001/enroll"
     static let resignURL = "http://15.164.102.4:3001/resign"
+    static let checkURL = "http://15.164.102.4:3001/duplicateCheck"
 }

@@ -42,6 +42,8 @@
 		EBD9DF602882F15B00407AF1 /* inter-cufonfonts in Resources */ = {isa = PBXBuildFile; fileRef = EBD9DF5F2882F15B00407AF1 /* inter-cufonfonts */; };
 		EBDFF297288D038C00BDB8FC /* TodoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF296288D038C00BDB8FC /* TodoURL.swift */; };
 		EBE557312873331800EBA622 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE557302873331800EBA622 /* UIViewController+Extension.swift */; };
+		EBFC0D092892DCDC00D5B2DB /* NameCkeckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC0D082892DCDC00D5B2DB /* NameCkeckRequest.swift */; };
+		EBFC0D0B2892DCF700D5B2DB /* NameCheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC0D0A2892DCF700D5B2DB /* NameCheckResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		EBD9DF5F2882F15B00407AF1 /* inter-cufonfonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "inter-cufonfonts"; path = "../../../../Downloads/inter-cufonfonts"; sourceTree = "<group>"; };
 		EBDFF296288D038C00BDB8FC /* TodoURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoURL.swift; sourceTree = "<group>"; };
 		EBE557302873331800EBA622 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		EBFC0D082892DCDC00D5B2DB /* NameCkeckRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCkeckRequest.swift; sourceTree = "<group>"; };
+		EBFC0D0A2892DCF700D5B2DB /* NameCheckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCheckResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,10 @@
 			children = (
 				EBC222DF28772D8600E455B7 /* SigninRequest.swift */,
 				EBC222E128772D9B00E455B7 /* SigninResponse.swift */,
+				EBC222E32877442C00E455B7 /* IdCheckRequest.swift */,
+				EBC222E52877444D00E455B7 /* IdCheckResponse.swift */,
+				EBFC0D082892DCDC00D5B2DB /* NameCkeckRequest.swift */,
+				EBFC0D0A2892DCF700D5B2DB /* NameCheckResponse.swift */,
 			);
 			path = SigninModel;
 			sourceTree = "<group>";
@@ -225,8 +233,6 @@
 				EB93DACD288D3047008D3BC8 /* SigninModel */,
 				EBB4C6772891575A00C88698 /* ResignModel */,
 				EB93DACE288D30A5008D3BC8 /* TodoListModel */,
-				EBC222E32877442C00E455B7 /* IdCheckRequest.swift */,
-				EBC222E52877444D00E455B7 /* IdCheckResponse.swift */,
 				EBDFF296288D038C00BDB8FC /* TodoURL.swift */,
 			);
 			path = Model;
@@ -378,9 +384,11 @@
 				EBE557312873331800EBA622 /* UIViewController+Extension.swift in Sources */,
 				EB2E4ECE2865FEC100DCF02E /* HomeViewController.swift in Sources */,
 				EBB6ADE2287F916B00AF29A0 /* UpdateToRequest.swift in Sources */,
+				EBFC0D092892DCDC00D5B2DB /* NameCkeckRequest.swift in Sources */,
 				EBC222E028772D8600E455B7 /* SigninRequest.swift in Sources */,
 				EB87C7B92879CFC400DFC1A2 /* DeleteTodoRequest.swift in Sources */,
 				EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */,
+				EBFC0D0B2892DCF700D5B2DB /* NameCheckResponse.swift in Sources */,
 				EBC222E42877442C00E455B7 /* IdCheckRequest.swift in Sources */,
 				EBB6ADE0287F901200AF29A0 /* UpdateTodoResponse.swift in Sources */,
 				EBDFF297288D038C00BDB8FC /* TodoURL.swift in Sources */,
