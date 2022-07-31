@@ -318,7 +318,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="idCheckBtn" destination="gg5-bn-MJa" id="kFy-pd-1a1"/>
                         <outlet property="idTextField" destination="GWv-PA-6Vb" id="2Mu-fU-qna"/>
+                        <outlet property="nameCkeckBtn" destination="heM-pp-ZYp" id="bNg-bl-3es"/>
                         <outlet property="ninknameTextField" destination="t8p-a1-N9H" id="ieo-vt-PRF"/>
                         <outlet property="pwCheckField" destination="aFq-Jb-Q5j" id="ghw-uy-ZLg"/>
                         <outlet property="pwTextField" destination="6lB-fl-aSR" id="xbY-Rg-X85"/>

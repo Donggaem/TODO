@@ -18,6 +18,9 @@ class SigninViewController: UIViewController {
     
     @IBOutlet weak var signinBtn: UIButton!
     
+    @IBOutlet weak var idCheckBtn: UIButton!
+    @IBOutlet weak var nameCkeckBtn: UIButton!
+    
     var checkNum = 0
     
     override func viewDidLoad() {
@@ -152,6 +155,9 @@ class SigninViewController: UIViewController {
                 case .success(let response):
                     if response.isSuccess == true {
                         checkNum += 1
+                        idCheckBtn.isUserInteractionEnabled = false
+                        idTextField.isUserInteractionEnabled = false
+                        
                         let idCk_alert = UIAlertController(title: "가능", message: response.message, preferredStyle: UIAlertController.Style.alert)
                         let okAction = UIAlertAction(title: "확인", style: .default)
                         idCk_alert.addAction(okAction)
@@ -183,6 +189,9 @@ class SigninViewController: UIViewController {
                 case .success(let response):
                     if response.isSuccess == true {
                         checkNum += 1
+                        nameCkeckBtn.isUserInteractionEnabled = false
+                        ninknameTextField.isUserInteractionEnabled = false
+                        
                         let nameCk_alert = UIAlertController(title: "가능", message: response.message, preferredStyle: UIAlertController.Style.alert)
                         let okAction = UIAlertAction(title: "확인", style: .default)
                         nameCk_alert.addAction(okAction)
