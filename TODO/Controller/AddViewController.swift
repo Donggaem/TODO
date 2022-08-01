@@ -82,6 +82,11 @@ class AddViewController: UIViewController {
         self.datePicker.locale = Locale(identifier: "ko-KR") // 한국어 설정
         self.dateTextField.inputView = self.datePicker // 키보드대신 datePicker 보이기
         
+        let dformmater = DateFormatter()
+        dformmater.dateFormat = "yyyy-MM-dd"
+        dformmater.locale = Locale(identifier: "ko_KR")
+        self.datePicker.date = dformmater.date(from: paramdate) ?? Date()
+
     }
     
     //addTarget 두번쨰 파라미터 셀렉터 메서드
@@ -150,7 +155,7 @@ extension AddViewController: UITextViewDelegate {
         //플레이스홀더 설정
         addTextView.text = textViewPlaceHolder
         addTextView.textColor = .placeholderText
-        addTextView.font = .systemFont(ofSize: 14.5)
+        addTextView.font = UIFont(name: "Inter-SemiBold", size: 14.5)
         
         theTextViewHeightConstraint.isActive = false // 스토리보드에 설정된 콘스트레이트 무시
         addTextView.sizeToFit()
@@ -172,7 +177,7 @@ extension AddViewController: UITextViewDelegate {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             textView.text = textViewPlaceHolder
             textView.textColor = .placeholderText
-            textView.font = .systemFont(ofSize: 14.5)
+            textView.font = UIFont(name: "Inter-SemiBold", size: 14.5)
         }
     }
     

@@ -4,7 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Inter-SemiBold.otf</string>
+		<string>inter-cufonfonts/Inter-SemiBold.otf</string>
 		<string>Inter-Black.otf</string>
 		<string>roboto/Roboto-Medium.ttf</string>
 		<string>Roboto-Black.ttf</string>

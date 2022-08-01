@@ -115,7 +115,7 @@ class HomeViewController: UIViewController {
                         self.selectedList = response.data?.findedTodo ?? []
                         
                         self.todoTableView.reloadData()
-                        self.calendarView.reloadData()
+//                        self.calendarView.reloadData()
                         
                         
                     } else {
@@ -295,7 +295,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         
         
         todoTableView.reloadData()
-        calendarView.reloadData()
+//        calendarView.reloadData()
         getTodo()
         print(selectedList)
     }

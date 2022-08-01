@@ -53,6 +53,7 @@ class DetailViewController: UIViewController {
         titleTextField.isUserInteractionEnabled = false
         dateTextField.isUserInteractionEnabled = false
         adaptBtn.setTitle("수정하기", for: .normal)
+        adaptBtn.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 14)
         
         //버튼 그림자
         deleteBtn.layer.cornerRadius = 10
@@ -92,8 +93,9 @@ class DetailViewController: UIViewController {
             detlTextView.isUserInteractionEnabled = true
             titleTextField.isUserInteractionEnabled = true
             dateTextField.isUserInteractionEnabled = true
+            adaptBtn.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 14)
             adaptBtn.setTitle("완료", for: .normal)
-            
+
             buttonValue = true
         } else {
             let update_alert = UIAlertController(title: "수정완료", message: "수정을 완료 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
@@ -223,7 +225,7 @@ extension DetailViewController: UITextViewDelegate {
         //플레이스홀더 설정
         detlTextView.text = textViewPlaceHolder
         detlTextView.textColor = .placeholderText
-        detlTextView.font = .systemFont(ofSize: 14.5)
+        detlTextView.font = UIFont(name: "Inter-SemiBold", size: 14.5)
         
         theTextViewHeightConstraint.isActive = false // 스토리보드에 설정된 콘스트레이트 무시
         detlTextView.sizeToFit()
@@ -244,7 +246,7 @@ extension DetailViewController: UITextViewDelegate {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             textView.text = textViewPlaceHolder
             textView.textColor = .placeholderText
-            textView.font = .systemFont(ofSize: 14.5)
+            textView.font = UIFont(name: "Inter-SemiBold", size: 14.5)
             
         }
     }

@@ -216,7 +216,7 @@
                                 </connections>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOS-pz-ioD" userLabel="IDView">
-                                <rect key="frame" x="32" y="290.5" width="350" height="2"/>
+                                <rect key="frame" x="32" y="294.5" width="350" height="2"/>
                                 <color key="backgroundColor" red="0.21960784310000001" green="0.50980392159999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="Zn0-7G-KTi"/>
@@ -232,7 +232,7 @@
                                     <backgroundConfiguration key="background" cornerRadius="10">
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                    <fontDescription key="titleFontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -253,7 +253,7 @@
                             <constraint firstItem="lKP-IT-Ohz" firstAttribute="leading" secondItem="LOM-dB-Iii" secondAttribute="leading" constant="32" id="VIj-m3-7Qy"/>
                             <constraint firstItem="LOM-dB-Iii" firstAttribute="trailing" secondItem="hax-w7-6Js" secondAttribute="trailing" constant="32" id="bHe-Yw-b2q"/>
                             <constraint firstItem="hax-w7-6Js" firstAttribute="leading" secondItem="LOM-dB-Iii" secondAttribute="leading" constant="32" id="efd-Ts-Rdd"/>
-                            <constraint firstItem="uOS-pz-ioD" firstAttribute="top" secondItem="hax-w7-6Js" secondAttribute="bottom" constant="2" id="qfr-Sg-Nq4"/>
+                            <constraint firstItem="uOS-pz-ioD" firstAttribute="top" secondItem="hax-w7-6Js" secondAttribute="bottom" constant="6" id="qfr-Sg-Nq4"/>
                             <constraint firstAttribute="trailing" secondItem="uOS-pz-ioD" secondAttribute="trailing" constant="32" id="rVe-Qj-bRo"/>
                         </constraints>
                     </view>
@@ -267,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MPc-iy-we8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="23"/>
+            <point key="canvasLocation" x="1685.5072463768117" y="22.767857142857142"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Rfl-ms-lqs">
@@ -329,7 +329,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6k-8H-tCV" userLabel="IDView">
-                                <rect key="frame" x="32" y="290.5" width="350" height="2"/>
+                                <rect key="frame" x="32" y="294.5" width="350" height="2"/>
                                 <color key="backgroundColor" red="0.21960784310000001" green="0.50980392159999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="Jye-Av-WHG"/>
@@ -345,7 +345,7 @@
                                     <backgroundConfiguration key="background" cornerRadius="10">
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                    <fontDescription key="titleFontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -354,17 +354,15 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhQ-E8-2Xw">
                                 <rect key="frame" x="32" y="721" width="350" height="40"/>
+                                <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ZGp-a2-uZP"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="수정하기">
-                                    <backgroundConfiguration key="background" cornerRadius="10">
-                                        <color key="backgroundColor" name="AccentColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="수정하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="adaptBtnPressed:" destination="AlB-64-ALB" eventType="touchUpInside" id="xxK-d9-u7t"/>
                                 </connections>
@@ -382,7 +380,7 @@
                             <constraint firstItem="9tZ-xs-MWl" firstAttribute="leading" secondItem="Shk-yR-L9q" secondAttribute="leading" constant="32" id="cMf-j1-gFW"/>
                             <constraint firstItem="Shk-yR-L9q" firstAttribute="trailing" secondItem="sge-tY-gMR" secondAttribute="trailing" constant="32" id="cOx-5W-Utd"/>
                             <constraint firstItem="sge-tY-gMR" firstAttribute="top" secondItem="Shk-yR-L9q" secondAttribute="top" constant="50" id="gzs-u7-wM8"/>
-                            <constraint firstItem="Q6k-8H-tCV" firstAttribute="top" secondItem="9tZ-xs-MWl" secondAttribute="bottom" constant="2" id="jJp-y0-hHW"/>
+                            <constraint firstItem="Q6k-8H-tCV" firstAttribute="top" secondItem="9tZ-xs-MWl" secondAttribute="bottom" constant="6" id="jJp-y0-hHW"/>
                             <constraint firstItem="sge-tY-gMR" firstAttribute="leading" secondItem="Shk-yR-L9q" secondAttribute="leading" constant="32" id="jyc-1q-fdT"/>
                             <constraint firstItem="kAi-Me-eDd" firstAttribute="top" secondItem="BhQ-E8-2Xw" secondAttribute="bottom" constant="20" id="meB-KL-R9Q"/>
                             <constraint firstAttribute="bottom" secondItem="kAi-Me-eDd" secondAttribute="bottom" constant="75" id="r3F-1u-b0G"/>
