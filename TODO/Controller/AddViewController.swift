@@ -22,7 +22,7 @@ class AddViewController: UIViewController {
     private var diaryDate: Date? // 데이트 피커 에서 선택된 데이트 값 (옵셔널)
     
     private let textViewPlaceHolder = "내용을 입력하세요"
-    var paramdate = ""
+    var paramSeletedDate = ""
     
     //MARK: LifeCycle
     override func viewDidLoad() {
@@ -70,7 +70,7 @@ class AddViewController: UIViewController {
     
     @IBAction func dateEdit(_ sender: UITextField) {
         
-        self.dateTextField.text = paramdate
+        self.dateTextField.text = paramSeletedDate
     }
     
     //MARK: DATE PICKER
@@ -84,8 +84,7 @@ class AddViewController: UIViewController {
         
         let dformmater = DateFormatter()
         dformmater.dateFormat = "yyyy-MM-dd"
-        dformmater.locale = Locale(identifier: "ko_KR")
-        self.datePicker.date = dformmater.date(from: paramdate) ?? Date()
+        self.datePicker.date = dformmater.date(from: paramSeletedDate) ?? Date()
 
     }
     

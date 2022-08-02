@@ -92,7 +92,7 @@ class HomeViewController: UIViewController {
         let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
         self.navigationController?.pushViewController(addVC, animated: true)
         
-        addVC.paramdate = selectedDate
+        addVC.paramSeletedDate = selectedDate
     }
     
     @IBAction func settingBtn(_ sender: UIButton) {

@@ -205,6 +205,10 @@ class DetailViewController: UIViewController {
         self.datePicker.locale = Locale(identifier: "ko-KR") // 한국어 설정
         self.dateTextField.inputView = datePicker // 키보드대신 datePicker 보이기
         
+        let dformmater = DateFormatter()
+        dformmater.dateFormat = "yyyy-MM-dd"
+        self.datePicker.date = dformmater.date(from: dateTextField.text ?? "") ?? Date()
+        
     }
     
     //addTarget 두번쨰 파라미터 셀렉터 메서드
