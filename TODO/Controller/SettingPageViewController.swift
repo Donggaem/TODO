@@ -33,6 +33,9 @@ class SettingPageViewController: UIViewController {
             let loginNav = storyBoard.instantiateViewController(identifier: "LoginNav")
             self.changeRootViewController(loginNav)
             UserDefaults.standard.removeObject(forKey: "data")
+            UserDefaults.standard.removeObject(forKey: "uid")
+            UserDefaults.standard.removeObject(forKey: "upw")
+
         }
         
         let noAction = UIAlertAction(title: "아니요", style: .default)
@@ -48,6 +51,9 @@ class SettingPageViewController: UIViewController {
             myTextField.isSecureTextEntry = true
         }
         let okAction = UIAlertAction(title: "예", style: .default){ (action) in
+            
+            UserDefaults.standard.removeObject(forKey: "uid")
+            UserDefaults.standard.removeObject(forKey: "upw")
             
             let userpw = Resign_alert.textFields?[0].text ?? ""
             let param = ResignRequest(user_pw: userpw)

@@ -16,10 +16,22 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var todoLabel: UILabel!
         
+    var isAutoLogin = false
+    
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (UserDefaults.standard.string(forKey: "uid") == nil){
+            print("저장된값이 없음")
+
+        }else {
+            let id = UserDefaults.standard.string(forKey: "uid") ?? ""
+            let pw = UserDefaults.standard.string(forKey: "upw") ?? ""
+            
+            let param = LoginRequest(user_id: id, user_pw: pw)
+            postLogin(param)
+        }
         setUI()
         
     }
@@ -45,12 +57,33 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: UIButton) {
         
+        if isAutoLogin == true {
+            UserDefaults.standard.set(idTextField.text, forKey: "uid")
+            UserDefaults.standard.set(passwordTextField.text, forKey: "upw")
+        
+        }else {
+            UserDefaults.standard.set(nil, forKey: "uid")
+            UserDefaults.standard.set(nil, forKey: "upw")
+        }
         
         let id = idTextField.text ?? ""
         let pw = passwordTextField.text ?? ""
         
         let param = LoginRequest(user_id: id, user_pw: pw)
         postLogin(param)
+    }
+    @IBAction func autoLoginAction(_ sender: UIButton) {
+        // auto login 선택 여부
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected == true{
+            isAutoLogin = true
+
+            
+        }else{
+            isAutoLogin = false
+            
+        }
+        
     }
     
     //MARK: POST LOGIN
@@ -65,6 +98,8 @@ class LoginViewController: UIViewController {
                         print("로그인 성공")
                         
                         UserDefaults.standard.set(response.data?.token, forKey: "data")
+                        
+
                         
                         print(response.data ?? "")
                         

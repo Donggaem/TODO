@@ -52,7 +52,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="t9o-wg-Lad" userLabel="회원 아비찾Stack View">
-                                <rect key="frame" x="252" y="705" width="130" height="26"/>
+                                <rect key="frame" x="347" y="705" width="35" height="26"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0KI-WU-ksZ">
                                         <rect key="frame" x="0.0" y="0.0" width="35" height="26"/>
@@ -65,18 +65,7 @@
                                             <action selector="toSigninPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z4b-Rf-ChJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrc-hu-qQB">
-                                        <rect key="frame" x="47" y="0.0" width="83" height="26"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="아이디 비밀번호 찾기">
-                                            <color key="titleColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="0KI-WU-ksZ" firstAttribute="centerY" secondItem="rrc-hu-qQB" secondAttribute="centerY" id="71x-mc-qGZ"/>
-                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2OB-ph-rJb" userLabel="ID PWStack View">
                                 <rect key="frame" x="32" y="608" width="350" height="87"/>
@@ -118,19 +107,35 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPT-aR-Jt1">
+                                <rect key="frame" x="32" y="705" width="65.5" height="26"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                <color key="tintColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="자동 로그인" image="square" catalog="system">
+                                    <color key="titleColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <state key="selected" image="checkmark.square" catalog="system"/>
+                                <connections>
+                                    <action selector="autoLoginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dT5-kj-RoU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2OB-ph-rJb" secondAttribute="trailing" constant="32" id="6JJ-2I-qx8"/>
+                            <constraint firstItem="xa9-hl-636" firstAttribute="top" secondItem="QPT-aR-Jt1" secondAttribute="bottom" constant="42" id="Cwm-AL-uz0"/>
                             <constraint firstAttribute="bottom" secondItem="xa9-hl-636" secondAttribute="bottom" constant="75" id="DpM-2k-3la"/>
                             <constraint firstItem="xa9-hl-636" firstAttribute="top" secondItem="t9o-wg-Lad" secondAttribute="bottom" constant="42" id="MIK-Bd-Dnn"/>
+                            <constraint firstItem="QPT-aR-Jt1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Mqa-kx-riT"/>
                             <constraint firstItem="2OB-ph-rJb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Sit-bZ-o78"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xa9-hl-636" secondAttribute="trailing" constant="32" id="YvZ-iN-NRT"/>
                             <constraint firstItem="xa9-hl-636" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="gwh-cu-jRA"/>
                             <constraint firstItem="t9o-wg-Lad" firstAttribute="top" secondItem="2OB-ph-rJb" secondAttribute="bottom" constant="10" id="m5B-cU-s7P"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t9o-wg-Lad" secondAttribute="trailing" constant="32" id="rWQ-kc-aso"/>
                             <constraint firstItem="aW9-SB-q80" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sfv-TA-pt6"/>
+                            <constraint firstItem="QPT-aR-Jt1" firstAttribute="top" secondItem="2OB-ph-rJb" secondAttribute="bottom" constant="10" id="wW1-ss-xTc"/>
                             <constraint firstItem="aW9-SB-q80" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="150" id="xFO-gZ-Hie"/>
                         </constraints>
                     </view>
@@ -351,6 +356,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
