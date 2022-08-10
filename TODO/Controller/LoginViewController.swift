@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var todoLabel: UILabel!
-        
+    
     var isAutoLogin = false
     
     //MARK: LifeCycle
@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         
         if (UserDefaults.standard.string(forKey: "uid") == nil){
             print("저장된값이 없음")
-
+            
         }else {
             let id = UserDefaults.standard.string(forKey: "uid") ?? ""
             let pw = UserDefaults.standard.string(forKey: "upw") ?? ""
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
         if isAutoLogin == true {
             UserDefaults.standard.set(idTextField.text, forKey: "uid")
             UserDefaults.standard.set(passwordTextField.text, forKey: "upw")
-        
+            
         }else {
             UserDefaults.standard.set(nil, forKey: "uid")
             UserDefaults.standard.set(nil, forKey: "upw")
@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
         sender.isSelected = !sender.isSelected
         if sender.isSelected == true{
             isAutoLogin = true
-
+            
             
         }else{
             isAutoLogin = false
@@ -99,7 +99,7 @@ class LoginViewController: UIViewController {
                         
                         UserDefaults.standard.set(response.data?.token, forKey: "data")
                         
-
+                        
                         
                         print(response.data ?? "")
                         

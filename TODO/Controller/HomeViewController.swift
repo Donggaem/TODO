@@ -72,7 +72,7 @@ class HomeViewController: UIViewController {
         self.calendarView.dataSource = self
         
         setCalendar()
-    
+        
         self.calendarView.reloadData()
         
         //TableView
@@ -115,7 +115,7 @@ class HomeViewController: UIViewController {
                         self.selectedList = response.data?.findedTodo ?? []
                         
                         self.todoTableView.reloadData()
-//                        self.calendarView.reloadData()
+                        //                        self.calendarView.reloadData()
                         
                         
                     } else {
@@ -231,13 +231,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         if editingStyle == .delete {
             
             let tbDelete_alert = UIAlertController(title: "삭제", message: "투두를 삭제하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
-
+            
             let okAction = UIAlertAction(title: "예", style: .default) { (action) in
                 
                 let uuid = self.selectedList[indexPath.row].id
                 let param = DeleteTodoRequest(id: uuid )
                 self.postDelete(param)
-
+                
             }
             
             let noAction = UIAlertAction(title: "아니요", style: .default)
@@ -295,7 +295,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         
         
         todoTableView.reloadData()
-//        calendarView.reloadData()
+        //        calendarView.reloadData()
         getTodo()
         print(selectedList)
     }

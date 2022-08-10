@@ -17,12 +17,12 @@ class SettingPageViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
     }
-
+    
     //MARK: IBAction
     @IBAction func openSourcePressed(_ sender: UIButton) {
         if let url = URL(string: "https://mini-mail-719.notion.site/TODO-OSS-Notice-bac449a4f12f47739dae001a8847afee") {
-                    UIApplication.shared.open(url, options: [:])
-                }
+            UIApplication.shared.open(url, options: [:])
+        }
     }
     
     @IBAction func logoutPressed(_ sender: UIButton) {
@@ -35,7 +35,7 @@ class SettingPageViewController: UIViewController {
             UserDefaults.standard.removeObject(forKey: "data")
             UserDefaults.standard.removeObject(forKey: "uid")
             UserDefaults.standard.removeObject(forKey: "upw")
-
+            
         }
         
         let noAction = UIAlertAction(title: "아니요", style: .default)
@@ -45,7 +45,7 @@ class SettingPageViewController: UIViewController {
     }
     
     @IBAction func ResignPressed(_ sender: UIButton) {
-
+        
         let Resign_alert = UIAlertController(title: "회원탈퇴를 하시겠습니까?", message: "비밀번호를 입력해주세요", preferredStyle: UIAlertController.Style.alert)
         Resign_alert.addTextField { (myTextField) in
             myTextField.isSecureTextEntry = true

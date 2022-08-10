@@ -37,7 +37,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
         
         setUI()
         
@@ -95,7 +95,7 @@ class DetailViewController: UIViewController {
             dateTextField.isUserInteractionEnabled = true
             adaptBtn.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 14)
             adaptBtn.setTitle("완료", for: .normal)
-
+            
             buttonValue = true
         } else {
             let update_alert = UIAlertController(title: "수정완료", message: "수정을 완료 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)

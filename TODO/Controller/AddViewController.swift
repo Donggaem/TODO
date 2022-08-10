@@ -85,7 +85,7 @@ class AddViewController: UIViewController {
         let dformmater = DateFormatter()
         dformmater.dateFormat = "yyyy-MM-dd"
         self.datePicker.date = dformmater.date(from: paramSeletedDate) ?? Date()
-
+        
     }
     
     //addTarget 두번쨰 파라미터 셀렉터 메서드
