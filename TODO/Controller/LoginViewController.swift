@@ -22,16 +22,22 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (UserDefaults.standard.string(forKey: "uid") == nil){
-            print("저장된값이 없음")
-            
-        }else {
-            let id = UserDefaults.standard.string(forKey: "uid") ?? ""
-            let pw = UserDefaults.standard.string(forKey: "upw") ?? ""
-            
+        if let id = UserDefaults.standard.string(forKey: "uid"), let pw = UserDefaults.standard.string(forKey: "upw") {
             let param = LoginRequest(user_id: id, user_pw: pw)
             postLogin(param)
+        }else {
+            print("저장된값이 없음")
         }
+//        if (UserDefaults.standard.string(forKey: "uid") == nil){
+//            print("저장된값이 없음")
+//
+//        }else {
+//            let id = UserDefaults.standard.string(forKey: "uid") ?? ""
+//            let pw = UserDefaults.standard.string(forKey: "upw") ?? ""
+//
+//            let param = LoginRequest(user_id: id, user_pw: pw)
+//            postLogin(param)
+//        }
         setUI()
         
     }
@@ -98,7 +104,6 @@ class LoginViewController: UIViewController {
                         print("로그인 성공")
                         
                         UserDefaults.standard.set(response.data?.token, forKey: "data")
-                        
                         
                         
                         print(response.data ?? "")
