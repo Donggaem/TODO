@@ -28,16 +28,7 @@ class LoginViewController: UIViewController {
         }else {
             print("저장된값이 없음")
         }
-//        if (UserDefaults.standard.string(forKey: "uid") == nil){
-//            print("저장된값이 없음")
-//
-//        }else {
-//            let id = UserDefaults.standard.string(forKey: "uid") ?? ""
-//            let pw = UserDefaults.standard.string(forKey: "upw") ?? ""
-//
-//            let param = LoginRequest(user_id: id, user_pw: pw)
-//            postLogin(param)
-//        }
+        
         setUI()
         
     }
@@ -101,18 +92,16 @@ class LoginViewController: UIViewController {
                 case .success(let response):
                     if response.isSuccess == true {
                         
-                        print("로그인 성공")
+                        TodoLog.debug("postLogin")
                         
                         UserDefaults.standard.set(response.data?.token, forKey: "data")
-                        
-                        
-                        print(response.data ?? "")
                         
                         let storyBoard = UIStoryboard(name: "Home", bundle: nil)
                         let homeNav = storyBoard.instantiateViewController(identifier: "HomeNav")
                         self.changeRootViewController(homeNav)
                         
                     } else {
+                        TodoLog.error("postLogin")
                         let loginFail_alert = UIAlertController(title: "실패", message: response.message, preferredStyle: UIAlertController.Style.alert)
                         let okAction = UIAlertAction(title: "확인", style: .default)
                         loginFail_alert.addAction(okAction)

@@ -30,6 +30,7 @@
 		EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BA712868894E008A4927 /* DetailViewController.swift */; };
 		EBA53D89286CB2F700F8165E /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */; };
 		EBA53D8B286CCB6A00F8165E /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */; };
+		EBA63E9A28ABD58A00144E3A /* TodoLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA63E9928ABD58A00144E3A /* TodoLog.swift */; };
 		EBB4C6762891325700C88698 /* SettingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4C6752891325700C88698 /* SettingPageViewController.swift */; };
 		EBB4C679289157B200C88698 /* ResignRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4C678289157B200C88698 /* ResignRequest.swift */; };
 		EBB4C67B289158D800C88698 /* ResignResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4C67A289158D800C88698 /* ResignResponse.swift */; };
@@ -74,6 +75,7 @@
 		EBA1BA712868894E008A4927 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		EBA63E9928ABD58A00144E3A /* TodoLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoLog.swift; sourceTree = "<group>"; };
 		EBB4C6752891325700C88698 /* SettingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPageViewController.swift; sourceTree = "<group>"; };
 		EBB4C678289157B200C88698 /* ResignRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignRequest.swift; sourceTree = "<group>"; };
 		EBB4C67A289158D800C88698 /* ResignResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignResponse.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				EBD9DF5F2882F15B00407AF1 /* inter-cufonfonts */,
 				EBA03E332861ADE900564472 /* roboto */,
 				EBE557302873331800EBA622 /* UIViewController+Extension.swift */,
+				EBA63E9928ABD58A00144E3A /* TodoLog.swift */,
 			);
 			path = TODO;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				EB2E4ED02866209B00DCF02E /* AddViewController.swift in Sources */,
 				EB87C7B72879CFA200DFC1A2 /* TodoListResponse.swift in Sources */,
 				EBA03E212861968D00564472 /* LoginViewController.swift in Sources */,
+				EBA63E9A28ABD58A00144E3A /* TodoLog.swift in Sources */,
 				EB87C7BB2879CFD400DFC1A2 /* DeleteTodoResponse.swift in Sources */,
 				EBC222E228772D9B00E455B7 /* SigninResponse.swift in Sources */,
 				EBB4C67B289158D800C88698 /* ResignResponse.swift in Sources */,
