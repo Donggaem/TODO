@@ -110,8 +110,10 @@ class DetailViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             }
             let noAction = UIAlertAction(title: "아니요", style: .default)
-            update_alert.addAction(okAction)
+            
             update_alert.addAction(noAction)
+            update_alert.addAction(okAction)
+
             present(update_alert, animated: false, completion: nil)
         }
         
@@ -128,8 +130,10 @@ class DetailViewController: UIViewController {
         }
         
         let noAction = UIAlertAction(title: "아니요", style: .default)
-        delete_alert.addAction(okAction)
+        
         delete_alert.addAction(noAction)
+        delete_alert.addAction(okAction)
+        
         present(delete_alert, animated: false, completion: nil)
     }
     

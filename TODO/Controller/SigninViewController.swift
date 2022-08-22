@@ -51,37 +51,40 @@ class SigninViewController: UIViewController {
         let nickname = ninknameTextField.text ?? ""
         let pwCheck = pwCheckField.text ?? ""
         
-        if pw == pwCheck {
-            switch checkNum {
-            case 0: let check_alert = UIAlertController(title: "실패", message: "아이디, 닉네임 중복 체크를 해주세요", preferredStyle: UIAlertController.Style.alert)
-                let okAction = UIAlertAction(title: "확인", style: .default)
-                check_alert.addAction(okAction)
-                present(check_alert, animated: false, completion: nil)
-                
-            case 1:
-                let check_alert = UIAlertController(title: "실패", message: "닉네임 중복 체크를 해주세요", preferredStyle: UIAlertController.Style.alert)
-                let okAction = UIAlertAction(title: "확인", style: .default)
-                check_alert.addAction(okAction)
-                present(check_alert, animated: false, completion: nil)
-            case 2:
-                let param = SigninRequest(user_name: nickname, user_id: id, user_pw: pw, user_confirmPw: pwCheck)
-                postSignin(param)
-                
-            default:
-                checkNum = 0
-                let check_alert = UIAlertController(title: "실패", message: "회원가입을 다시 시도해주세요", preferredStyle: UIAlertController.Style.alert)
-                let okAction = UIAlertAction(title: "확인", style: .default)
-                check_alert.addAction(okAction)
-                present(check_alert, animated: false, completion: nil)
-            }
+        switch checkNum {
+        case 0: let check_alert = UIAlertController(title: "실패", message: "아이디, 닉네임 중복 체크를 해주세요", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            check_alert.addAction(okAction)
+            present(check_alert, animated: false, completion: nil)
+            
+        case 1:
+            let check_alert = UIAlertController(title: "실패", message: "닉네임 중복 체크를 해주세요", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            check_alert.addAction(okAction)
+            present(check_alert, animated: false, completion: nil)
+        case 2:
             let param = SigninRequest(user_name: nickname, user_id: id, user_pw: pw, user_confirmPw: pwCheck)
             postSignin(param)
-        }else {
-            let pwCheck_alert = UIAlertController(title: "실패", message: "비밀번호가 일치한지 확인해주세요", preferredStyle: UIAlertController.Style.alert)
+            
+        default:
+            checkNum = 0
+            let check_alert = UIAlertController(title: "실패", message: "회원가입을 다시 시도해주세요", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "확인", style: .default)
-            pwCheck_alert.addAction(okAction)
-            present(pwCheck_alert, animated: false, completion: nil)
+            check_alert.addAction(okAction)
+            present(check_alert, animated: false, completion: nil)
         }
+        
+//        if pw == pwCheck {
+//            
+//            let param = SigninRequest(user_name: nickname, user_id: id, user_pw: pw, user_confirmPw: pwCheck)
+//            postSignin(param)
+//            
+//        }else {
+//            let pwCheck_alert = UIAlertController(title: "실패", message: "비밀번호가 일치한지 확인해주세요", preferredStyle: UIAlertController.Style.alert)
+//            let okAction = UIAlertAction(title: "확인", style: .default)
+//            pwCheck_alert.addAction(okAction)
+//            present(pwCheck_alert, animated: false, completion: nil)
+//        }
         
         
     }

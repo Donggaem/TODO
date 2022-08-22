@@ -427,59 +427,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="zWI-qv-03f">
-                                <rect key="frame" x="20" y="44" width="374" height="187.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zWI-qv-03f">
+                                <rect key="frame" x="20" y="64" width="374" height="160"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1n-hd-Fb5">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="ATz-Ux-Cg1"/>
+                                            <constraint firstAttribute="height" constant="40" id="ATz-Ux-Cg1"/>
                                         </constraints>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="questionmark.circle" catalog="system" title="    오픈 소스 라이선스">
                                             <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
-                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="openSourcePressed:" destination="FBP-AY-NWf" eventType="touchUpInside" id="sfv-d7-Fgs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aX2-kb-xBF">
-                                        <rect key="frame" x="0.0" y="80" width="374" height="39"/>
+                                        <rect key="frame" x="0.0" y="60" width="374" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="MT6-7Y-Qhf"/>
+                                        </constraints>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="power" catalog="system" title="    로그아웃">
                                             <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
-                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="logoutPressed:" destination="FBP-AY-NWf" eventType="touchUpInside" id="J0o-HI-z7O"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tk4-Py-aHG">
-                                        <rect key="frame" x="0.0" y="149" width="374" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="120" width="374" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Khq-CX-UeJ"/>
+                                        </constraints>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="   회원탈퇴">
                                             <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="ResignPressed:" destination="FBP-AY-NWf" eventType="touchUpInside" id="sct-iL-r2P"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="Tk4-Py-aHG" firstAttribute="height" secondItem="a1n-hd-Fb5" secondAttribute="height" multiplier="0.775" id="Su9-10-Swh"/>
-                                    <constraint firstItem="aX2-kb-xBF" firstAttribute="height" secondItem="a1n-hd-Fb5" secondAttribute="height" multiplier="0.775" id="lTR-dN-VlL"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YhC-b5-Usf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zWI-qv-03f" firstAttribute="top" secondItem="YhC-b5-Usf" secondAttribute="top" id="BuD-Lg-5f0"/>
+                            <constraint firstItem="zWI-qv-03f" firstAttribute="top" secondItem="YhC-b5-Usf" secondAttribute="top" constant="20" id="BuD-Lg-5f0"/>
                             <constraint firstItem="zWI-qv-03f" firstAttribute="leading" secondItem="YhC-b5-Usf" secondAttribute="leading" constant="20" id="YUc-H7-d1p"/>
                             <constraint firstItem="YhC-b5-Usf" firstAttribute="trailing" secondItem="zWI-qv-03f" secondAttribute="trailing" constant="20" id="hIO-Xz-glb"/>
                         </constraints>

@@ -43,8 +43,10 @@ class SettingPageViewController: UIViewController {
         }
         
         let noAction = UIAlertAction(title: "아니요", style: .default)
-        logout_alert.addAction(okAction)
+        
         logout_alert.addAction(noAction)
+        logout_alert.addAction(okAction)
+        
         present(logout_alert, animated: false, completion: nil)
     }
     
