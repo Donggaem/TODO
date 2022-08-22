@@ -33,9 +33,7 @@ class HomeViewController: UIViewController {
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.isNavigationBarHidden = true
-        
+                
         setUI()
         
         getTodo()
