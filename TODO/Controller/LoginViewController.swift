@@ -54,20 +54,34 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: UIButton) {
         
-        if isAutoLogin == true {
-            UserDefaults.standard.set(idTextField.text, forKey: "uid")
-            UserDefaults.standard.set(passwordTextField.text, forKey: "upw")
+        if idTextField.text == "" || idTextField.text == nil {
+            let alert = UIAlertController(title: "실패", message: "아이디를 입력해주세요", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: false, completion: nil)
+            
+        } else if passwordTextField.text == "" || passwordTextField.text == nil {
+            let alert = UIAlertController(title: "실패", message: "비밀번호를 입력해주세요", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: false, completion: nil)
             
         }else {
-            UserDefaults.standard.set(nil, forKey: "uid")
-            UserDefaults.standard.set(nil, forKey: "upw")
+            if isAutoLogin == true {
+                UserDefaults.standard.set(idTextField.text, forKey: "uid")
+                UserDefaults.standard.set(passwordTextField.text, forKey: "upw")
+                
+            }else {
+                UserDefaults.standard.set(nil, forKey: "uid")
+                UserDefaults.standard.set(nil, forKey: "upw")
+            }
+            
+            let id = idTextField.text ?? ""
+            let pw = passwordTextField.text ?? ""
+            
+            let param = LoginRequest(user_id: id, user_pw: pw)
+            postLogin(param)
         }
-        
-        let id = idTextField.text ?? ""
-        let pw = passwordTextField.text ?? ""
-        
-        let param = LoginRequest(user_id: id, user_pw: pw)
-        postLogin(param)
     }
     @IBAction func autoLoginAction(_ sender: UIButton) {
         // auto login 선택 여부

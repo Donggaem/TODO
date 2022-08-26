@@ -20,13 +20,13 @@
 		EB87C7B92879CFC400DFC1A2 /* DeleteTodoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7B82879CFC400DFC1A2 /* DeleteTodoRequest.swift */; };
 		EB87C7BB2879CFD400DFC1A2 /* DeleteTodoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87C7BA2879CFD400DFC1A2 /* DeleteTodoResponse.swift */; };
 		EB93DAD5288D318E008D3BC8 /* AllTodoListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB93DAD4288D318E008D3BC8 /* AllTodoListResponse.swift */; };
+		EB96CA3428B79BE500F7E93A /* roboto in Resources */ = {isa = PBXBuildFile; fileRef = EB96CA3328B79BE500F7E93A /* roboto */; };
 		EBA03E1D2861968D00564472 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA03E1C2861968D00564472 /* AppDelegate.swift */; };
 		EBA03E1F2861968D00564472 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA03E1E2861968D00564472 /* SceneDelegate.swift */; };
 		EBA03E212861968D00564472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA03E202861968D00564472 /* LoginViewController.swift */; };
 		EBA03E242861968D00564472 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBA03E222861968D00564472 /* Main.storyboard */; };
 		EBA03E262861969100564472 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBA03E252861969100564472 /* Assets.xcassets */; };
 		EBA03E292861969100564472 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBA03E272861969100564472 /* LaunchScreen.storyboard */; };
-		EBA03E342861ADE900564472 /* roboto in Resources */ = {isa = PBXBuildFile; fileRef = EBA03E332861ADE900564472 /* roboto */; };
 		EBA1BA722868894E008A4927 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BA712868894E008A4927 /* DetailViewController.swift */; };
 		EBA53D89286CB2F700F8165E /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */; };
 		EBA53D8B286CCB6A00F8165E /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */; };
@@ -63,6 +63,7 @@
 		EB87C7B82879CFC400DFC1A2 /* DeleteTodoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoRequest.swift; sourceTree = "<group>"; };
 		EB87C7BA2879CFD400DFC1A2 /* DeleteTodoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoResponse.swift; sourceTree = "<group>"; };
 		EB93DAD4288D318E008D3BC8 /* AllTodoListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTodoListResponse.swift; sourceTree = "<group>"; };
+		EB96CA3328B79BE500F7E93A /* roboto */ = {isa = PBXFileReference; lastKnownFileType = folder; path = roboto; sourceTree = "<group>"; };
 		EBA03E192861968D00564472 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBA03E1C2861968D00564472 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBA03E1E2861968D00564472 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +72,6 @@
 		EBA03E252861969100564472 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBA03E282861969100564472 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBA03E2A2861969100564472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBA03E332861ADE900564472 /* roboto */ = {isa = PBXFileReference; lastKnownFileType = folder; name = roboto; path = ../../../roboto; sourceTree = "<group>"; };
 		EBA1BA712868894E008A4927 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EBA53D88286CB2F700F8165E /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		EBA53D8A286CCB6A00F8165E /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
@@ -210,8 +210,8 @@
 				EBA03E1E2861968D00564472 /* SceneDelegate.swift */,
 				EBA03E252861969100564472 /* Assets.xcassets */,
 				EBA03E2A2861969100564472 /* Info.plist */,
+				EB96CA3328B79BE500F7E93A /* roboto */,
 				EBD9DF5F2882F15B00407AF1 /* inter-cufonfonts */,
-				EBA03E332861ADE900564472 /* roboto */,
 				EBE557302873331800EBA622 /* UIViewController+Extension.swift */,
 				EBA63E9928ABD58A00144E3A /* TodoLog.swift */,
 			);
@@ -327,8 +327,8 @@
 				EBA03E292861969100564472 /* LaunchScreen.storyboard in Resources */,
 				EBA53D89286CB2F700F8165E /* TodoTableViewCell.xib in Resources */,
 				EBA03E262861969100564472 /* Assets.xcassets in Resources */,
+				EB96CA3428B79BE500F7E93A /* roboto in Resources */,
 				EBA03E242861968D00564472 /* Main.storyboard in Resources */,
-				EBA03E342861ADE900564472 /* roboto in Resources */,
 				EBD9DF602882F15B00407AF1 /* inter-cufonfonts in Resources */,
 				EB2E4ECC2865FD6F00DCF02E /* Home.storyboard in Resources */,
 			);
@@ -559,21 +559,23 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 202208230018;
 				DEVELOPMENT_TEAM = VKGAQDGK5R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TODO/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "투두투두";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Dong.TODO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Dong.todotodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -588,21 +590,23 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 202208230018;
 				DEVELOPMENT_TEAM = VKGAQDGK5R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TODO/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "투두투두";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Dong.TODO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Dong.todotodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

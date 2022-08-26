@@ -5,9 +5,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>inter-cufonfonts/Inter-SemiBold.otf</string>
-		<string>Inter-Black.otf</string>
+		<string>inter-cufonfonts/IInter-Black.otf</string>
 		<string>roboto/Roboto-Medium.ttf</string>
-		<string>Roboto-Black.ttf</string>
+		<string>roboto/Roboto-Black.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
