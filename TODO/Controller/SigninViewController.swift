@@ -41,7 +41,38 @@ class SigninViewController: UIViewController {
         signinBtn.layer.shadowRadius = 10 // 반경
         signinBtn.layer.shadowOpacity = 1 // alpha값
         
+        //버튼 비활성화
+        signinBtn.isEnabled = false
+        idCheckBtn.isEnabled = false
+        nameCkeckBtn.isEnabled = false
         
+        self.idTextField.delegate = self
+        self.ninknameTextField.delegate = self
+        self.pwTextField.delegate = self
+        self.pwCheckField.delegate = self
+        
+        //텍스트필드 입력값 변경 감지
+        self.idTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
+        self.ninknameTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
+        self.pwTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
+        self.pwCheckField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
+        
+        //버튼 활성/비활성 액션
+        self.ninknameTextField.addAction(UIAction(handler: { _ in
+            if self.ninknameTextField.text?.isEmpty == true {
+                self.nameCkeckBtn.isEnabled = false
+            } else {
+                self.nameCkeckBtn.isEnabled = true
+            }
+        }), for: .editingChanged)
+        
+        self.idTextField.addAction(UIAction(handler: { _ in
+            if self.idTextField.text?.isEmpty == true {
+                self.idCheckBtn.isEnabled = false
+            } else {
+                self.idCheckBtn.isEnabled = true
+            }
+        }), for: .editingChanged)
     }
     
     //MARK: IBAction
@@ -63,6 +94,10 @@ class SigninViewController: UIViewController {
             check_alert.addAction(okAction)
             present(check_alert, animated: false, completion: nil)
         case 2:
+            print(nickname)
+            print(id)
+            print(pw)
+            print(pwCheck)
             let param = SigninRequest(user_name: nickname, user_id: id, user_pw: pw, user_confirmPw: pwCheck)
             postSignin(param)
             
@@ -73,19 +108,6 @@ class SigninViewController: UIViewController {
             check_alert.addAction(okAction)
             present(check_alert, animated: false, completion: nil)
         }
-        
-//        if pw == pwCheck {
-//            
-//            let param = SigninRequest(user_name: nickname, user_id: id, user_pw: pw, user_confirmPw: pwCheck)
-//            postSignin(param)
-//            
-//        }else {
-//            let pwCheck_alert = UIAlertController(title: "실패", message: "비밀번호가 일치한지 확인해주세요", preferredStyle: UIAlertController.Style.alert)
-//            let okAction = UIAlertAction(title: "확인", style: .default)
-//            pwCheck_alert.addAction(okAction)
-//            present(pwCheck_alert, animated: false, completion: nil)
-//        }
-        
         
     }
     
@@ -215,5 +237,35 @@ class SigninViewController: UIViewController {
                     present(nameCkFail_alert, animated: false, completion: nil)
                 }
             }
+    }
+}
+
+extension SigninViewController: UITextFieldDelegate{
+    private func isSameBothTextField(_ first: UITextField,_ second: UITextField) -> Bool {
+        
+        if(first.text == second.text) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    //텍스트 필드 입력값 변하면 유효성 검사
+    @objc func TFdidChanged(_ sender: UITextField) {
+        
+        print("텍스트 변경 감지")
+        print("text :", sender.text)
+        
+        //텍스트필드가 채워졌는지, 비밀번호가 일치하는 지 확인.
+        if !(self.idTextField.text?.isEmpty ?? true)
+            && !(self.pwTextField.text?.isEmpty ?? true) && !(self.pwCheckField.text?.isEmpty ?? true) && !(self.ninknameTextField.text?.isEmpty ?? true)
+            && isSameBothTextField(pwTextField, pwCheckField) {
+            signinBtn.isEnabled = true
+        }
+        else {
+            signinBtn.isEnabled = false
+            
+        }
+        
     }
 }
