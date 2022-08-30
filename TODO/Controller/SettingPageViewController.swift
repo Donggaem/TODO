@@ -23,12 +23,21 @@ class SettingPageViewController: UIViewController {
     }
     
     //MARK: IBAction
+    //개인정보 처리방침 및 이용약관 버튼
+    @IBAction func termsOfUseBtnPressed(_ sender: UIButton) {
+        if let url = URL(string: "https://summer-echidna-7ed.notion.site/e9f53b711e8345c79b8047322cc69604") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    //오픈소스라이브러리 버튼
     @IBAction func openSourcePressed(_ sender: UIButton) {
         if let url = URL(string: "https://mini-mail-719.notion.site/TODO-OSS-Notice-bac449a4f12f47739dae001a8847afee") {
             UIApplication.shared.open(url, options: [:])
         }
     }
     
+    //로그아웃 버튼
     @IBAction func logoutPressed(_ sender: UIButton) {
         let logout_alert = UIAlertController(title: "로그아웃", message: "로그아웃을 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "예", style: .default){ (action) in
@@ -50,6 +59,7 @@ class SettingPageViewController: UIViewController {
         present(logout_alert, animated: false, completion: nil)
     }
     
+    //회원탈퇴 버튼
     @IBAction func ResignPressed(_ sender: UIButton) {
         
         let Resign_alert = UIAlertController(title: "회원탈퇴를 하시겠습니까?", message: "비밀번호를 입력해주세요", preferredStyle: UIAlertController.Style.alert)
@@ -71,6 +81,8 @@ class SettingPageViewController: UIViewController {
         Resign_alert.addAction(noAction)
         present(Resign_alert, animated: false, completion: nil)
     }
+    
+   
     
     //MARK: POST RESIGN
     let header: HTTPHeaders = ["authorization": UserDefaults.standard.string(forKey: "data")!]

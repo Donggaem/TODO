@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
         }
         
         setUI()
-        
+        setTextField()
     }
     
     //MARK: SET UI
@@ -43,6 +43,7 @@ class LoginViewController: UIViewController {
         loginBtn.layer.shadowOffset = CGSize(width:4, height: 4) // 위치조정
         loginBtn.layer.shadowRadius = 10 // 반경
         loginBtn.layer.shadowOpacity = 1 // alpha값
+        loginBtn.isEnabled = false
         
     }
     
@@ -134,3 +135,39 @@ class LoginViewController: UIViewController {
     
 }
 
+extension LoginViewController: UITextFieldDelegate {
+    
+    private func setTextField() {
+        self.idTextField.delegate = self
+        self.passwordTextField.delegate = self
+        
+        //텍스트필드 입력값 변경 감지
+        self.idTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
+        self.passwordTextField.addTarget(self, action: #selector(self.TFdidChanged(_:)), for: .editingChanged)
+        
+    }
+    
+    //텍스트 필드 입력값 변하면 유효성 검사
+    @objc func TFdidChanged(_ sender: UITextField) {
+        
+        //2개 텍스트필드가 채워졌는지, 비밀번호가 일치하는 지 확인.
+        if !(self.idTextField.text?.isEmpty ?? true) && !(self.passwordTextField.text?.isEmpty ?? true) {
+            loginBtn(willActive: true)
+        }
+        else {
+            
+            loginBtn(willActive: false)
+        }
+        
+    }
+    
+    //버튼 활성화/비활성화
+    func loginBtn(willActive: Bool) {
+        
+        if(willActive == true) {
+            loginBtn.isEnabled = true
+        } else {
+            loginBtn.isEnabled = false
+        }
+    }
+}

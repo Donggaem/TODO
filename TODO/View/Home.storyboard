@@ -428,7 +428,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zWI-qv-03f">
-                                <rect key="frame" x="20" y="64" width="374" height="160"/>
+                                <rect key="frame" x="20" y="64" width="374" height="220"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1n-hd-Fb5">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
@@ -437,16 +437,32 @@
                                         </constraints>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="questionmark.circle" catalog="system" title="    오픈 소스 라이선스">
+                                        <buttonConfiguration key="configuration" style="plain" image="lock.circle" catalog="system" title="    개인정보 처리방침 및 이용약관">
                                             <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="openSourcePressed:" destination="FBP-AY-NWf" eventType="touchUpInside" id="sfv-d7-Fgs"/>
+                                            <action selector="termsOfUseBtnPressed:" destination="FBP-AY-NWf" eventType="touchUpInside" id="Mo1-SC-3oR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW6-vy-5Hs">
+                                        <rect key="frame" x="0.0" y="60" width="374" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="81L-2X-TyQ"/>
+                                        </constraints>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="questionmark.circle" catalog="system" title="    오픈 소스 라이선스">
+                                            <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="openSourcePressed:" destination="FBP-AY-NWf" eventType="touchUpInside" id="zhp-2R-wLf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aX2-kb-xBF">
-                                        <rect key="frame" x="0.0" y="60" width="374" height="40"/>
+                                        <rect key="frame" x="0.0" y="120" width="374" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="MT6-7Y-Qhf"/>
                                         </constraints>
@@ -461,7 +477,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tk4-Py-aHG">
-                                        <rect key="frame" x="0.0" y="120" width="374" height="40"/>
+                                        <rect key="frame" x="0.0" y="180" width="374" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Khq-CX-UeJ"/>
                                         </constraints>
@@ -494,6 +510,7 @@
     </scenes>
     <resources>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="lock.circle" catalog="system" width="128" height="121"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <image name="power" catalog="system" width="128" height="124"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>

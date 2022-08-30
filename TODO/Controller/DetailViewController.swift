@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
     private let datePicker = UIDatePicker()
     private var diaryDate: Date? // 데이트 피커 에서 선택된 데이트 값 (옵셔널)
     
-    let textViewPlaceHolder = "내용을 입력하세요"
+    let textViewPlaceHolder = "내용을 입력하세요(500자이내)"
     
     var paramTitle = ""
     var paramDate = ""
@@ -32,6 +32,7 @@ class DetailViewController: UIViewController {
     var paramuuid = ""
     
     private var buttonValue = false
+    private let maxCount = 500
     
     //MARK: LifeCycle
     override func viewDidLoad() {
@@ -239,6 +240,29 @@ extension DetailViewController: UITextViewDelegate {
         textViewDidChange(detlTextView)
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        //이전 글자 - 선택된 글자 + 새로운 글자(대체될 글자)
+        let newLength = textView.text.count - range.length + text.count
+        let koreanMaxCount = maxCount + 1
+        //글자수가 초과 된 경우 or 초과되지 않은 경우
+        if newLength > koreanMaxCount { //11글자
+            let overflow = newLength - koreanMaxCount //초과된 글자수
+            if text.count < overflow {
+                return true
+            }
+            let index = text.index(text.endIndex, offsetBy: -overflow)
+            let newText = text[..<index]
+            guard let startPosition = textView.position(from: textView.beginningOfDocument, offset: range.location) else { return false }
+            guard let endPosition = textView.position(from: textView.beginningOfDocument, offset: NSMaxRange(range)) else { return false }
+            guard let textRange = textView.textRange(from: startPosition, to: endPosition) else { return false }
+                
+            textView.replace(textRange, withText: String(newText))
+            
+            return false
+        }
+        return true
+    }
+    
     //텍스트뷰 열릴시
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == textViewPlaceHolder {
@@ -255,6 +279,15 @@ extension DetailViewController: UITextViewDelegate {
             textView.font = UIFont(name: "Inter-SemiBold", size: 14.5)
             
         }
+        
+        if textView.text.count > maxCount {
+        //글자수 제한에 걸리면 마지막 글자를 삭제함.
+            textView.text.removeLast()
+            let alert = UIAlertController(title: "알림", message: "500자 이내로 적어주시기 바랍니다.", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: false, completion: nil)
+        }
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -264,7 +297,7 @@ extension DetailViewController: UITextViewDelegate {
         
         textView.constraints.forEach { (constraint) in
             
-            if estimatedSize.height <= 50 {
+            if estimatedSize.height <= 30 {
                 
             }
             else {
