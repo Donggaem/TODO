@@ -168,7 +168,7 @@ extension AddViewController: UITextViewDelegate {
         let newLength = textView.text.count - range.length + text.count
         let koreanMaxCount = maxCount + 1
         //글자수가 초과 된 경우 or 초과되지 않은 경우
-        if newLength > koreanMaxCount { //11글자
+        if newLength > koreanMaxCount {
             let overflow = newLength - koreanMaxCount //초과된 글자수
             if text.count < overflow {
                 return true
@@ -220,8 +220,8 @@ extension AddViewController: UITextViewDelegate {
         
         textView.constraints.forEach { (constraint) in
             
-            if estimatedSize.height <= 30 {
-                
+            if estimatedSize.height <= 450 {
+               
             }
             else {
                 if constraint.firstAttribute == .height {
